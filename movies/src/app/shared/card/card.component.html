@@ -12,13 +12,19 @@
       <div class="d-flex justify-content-start gap-2 fs-7 mb-3">
         <span *ngFor="let genre of movie.genres">
           <a class="text-warning-emphasis text-decoration-none">
-            {{ genre }}
+            {{ genre | titlecase }}
           </a>
         </span>
       </div>
 
       <div class="d-flex justify-content-between">
-        <a routerLink="" class="btn btn-outline-warning btn-sm">Details</a>
+        <a
+          [routerLink]="['/movie', movie.id]"
+          routerLinkActive="router-link-active"
+          class="btn btn-outline-warning btn-sm"
+          routerLinkActive="router-link-active"
+          >Details</a
+        >
         <ng-container *ngIf="isLoggedIn">
           <app-addbutton
             *ngIf="isHome"

@@ -7,6 +7,8 @@ import { CryptoPipe } from './crypto.pipe';
 import { AddbuttonComponent } from './addbutton/addbutton.component';
 import { RemovebuttonComponent } from './removebutton/removebutton.component';
 import { UsercardComponent } from './usercard/usercard.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { UsercardComponent } from './usercard/usercard.component';
     RemovebuttonComponent,
     UsercardComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     CardComponent,
     HeroComponent,

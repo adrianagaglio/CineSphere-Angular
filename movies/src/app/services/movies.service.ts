@@ -41,4 +41,31 @@ export class MoviesService {
       map((movies: iMovie[]) => movies.filter((movie) => movie.id !== id))
     );
   }
+
+  getRelatedsByGenre(id: number, genres: string[]): Observable<iMovie[]> {
+    return this.getMovies()
+      .pipe(
+        map((movies) =>
+          movies.filter((movie) =>
+            movie.genres.some((movieGenre) => genres.includes(movieGenre))
+          )
+        )
+      )
+      .pipe(map((movies) => movies.filter((movie) => movie.id !== id)));
+  }
+
+  getRelatedsByCast(id: number, cast: string[]): Observable<iMovie[]> {
+    return this.getMovies()
+      .pipe(
+        map((movies) =>
+          movies.filter((movie) => {
+            let lowerCaseCast = cast.map((cast) => cast.toLowerCase());
+            return movie.cast.some((movieCast) =>
+              lowerCaseCast.includes(movieCast.toLowerCase())
+            );
+          })
+        )
+      )
+      .pipe(map((movies) => movies.filter((movie) => movie.id !== id)));
+  }
 }

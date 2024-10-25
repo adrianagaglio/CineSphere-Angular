@@ -29,6 +29,11 @@ const routes: Routes = [
       import('./pages/users/users.module').then((m) => m.UsersModule),
     canActivate: [LoggedinGuard],
   },
+  {
+    path: 'movie/:id',
+    loadChildren: () =>
+      import('./pages/movie/movie.module').then((m) => m.MovieModule),
+  },
 ];
 
 @NgModule({

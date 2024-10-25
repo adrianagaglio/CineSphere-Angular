@@ -41,6 +41,13 @@
       "firstName": "Curran",
       "lastName": "Clay",
       "id": 6
+    },
+    {
+      "email": "fyvywy@mailinator.com",
+      "password": "$2a$10$5QsCTO1Uxpiu543.G4UbFexXMuwdYgUYdBwDfSONoYSpld5bHQM/S",
+      "firstName": "Jane",
+      "lastName": "Blackwell",
+      "id": 7
     }
   ],
   "movies-popular": [
@@ -55,15 +62,8 @@
       ],
       "year": 2010,
       "director": "Christopher Nolan",
-      "cast": [
-        "Leonardo DiCaprio",
-        "Joseph Gordon-Levitt",
-        "Elliot Page"
-      ],
-      "genres": [
-        "science fiction",
-        "thriller"
-      ]
+      "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+      "genres": ["science fiction", "thriller"]
     },
     {
       "id": 2,
@@ -76,16 +76,8 @@
       ],
       "year": 2008,
       "director": "Christopher Nolan",
-      "cast": [
-        "Christian Bale",
-        "Heath Ledger",
-        "Aaron Eckhart"
-      ],
-      "genres": [
-        "action",
-        "crime",
-        "drama"
-      ]
+      "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+      "genres": ["action", "crime", "drama"]
     },
     {
       "id": 3,
@@ -98,15 +90,8 @@
       ],
       "year": 2014,
       "director": "Christopher Nolan",
-      "cast": [
-        "Matthew McConaughey",
-        "Anne Hathaway",
-        "Jessica Chastain"
-      ],
-      "genres": [
-        "science fiction",
-        "adventure, drama"
-      ]
+      "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+      "genres": ["science fiction", "adventure, drama"]
     },
     {
       "id": 4,
@@ -119,15 +104,8 @@
       ],
       "year": 1999,
       "director": "Lana Wachowski, Lilly Wachowski",
-      "cast": [
-        "Keanu Reeves",
-        "Laurence Fishburne",
-        "Carrie-Anne Moss"
-      ],
-      "genres": [
-        "science fiction",
-        "action"
-      ]
+      "cast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
+      "genres": ["science fiction", "action"]
     },
     {
       "id": 5,
@@ -140,15 +118,8 @@
       ],
       "year": 1994,
       "director": "Quentin Tarantino",
-      "cast": [
-        "John Travolta",
-        "Uma Thurman",
-        "Samuel L. Jackson"
-      ],
-      "genres": [
-        "crime",
-        "drama"
-      ]
+      "cast": ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
+      "genres": ["crime", "drama"]
     },
     {
       "id": 6,
@@ -161,15 +132,8 @@
       ],
       "year": 1972,
       "director": "Francis Ford Coppola",
-      "cast": [
-        "Marlon Brando",
-        "Al Pacino",
-        "James Caan"
-      ],
-      "genres": [
-        "crime",
-        "drama"
-      ]
+      "cast": ["Marlon Brando", "Al Pacino", "James Caan"],
+      "genres": ["crime", "drama"]
     },
     {
       "id": 7,
@@ -182,15 +146,8 @@
       ],
       "year": 1999,
       "director": "David Fincher",
-      "cast": [
-        "Brad Pitt",
-        "Edward Norton",
-        "Helena Bonham Carter"
-      ],
-      "genres": [
-        "drama",
-        "thriller"
-      ]
+      "cast": ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"],
+      "genres": ["drama", "thriller"]
     },
     {
       "id": 8,
@@ -203,15 +160,8 @@
       ],
       "year": 1994,
       "director": "Robert Zemeckis",
-      "cast": [
-        "Tom Hanks",
-        "Robin Wright",
-        "Gary Sinise"
-      ],
-      "genres": [
-        "drama",
-        "romance"
-      ]
+      "cast": ["Tom Hanks", "Robin Wright", "Gary Sinise"],
+      "genres": ["drama", "romance"]
     },
     {
       "id": 9,
@@ -224,14 +174,8 @@
       ],
       "year": 1994,
       "director": "Frank Darabont",
-      "cast": [
-        "Tim Robbins",
-        "Morgan Freeman",
-        "Bob Gunton"
-      ],
-      "genres": [
-        "drama"
-      ]
+      "cast": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+      "genres": ["drama"]
     },
     {
       "id": 10,
@@ -244,16 +188,8 @@
       ],
       "year": 2000,
       "director": "Ridley Scott",
-      "cast": [
-        "Russell Crowe",
-        "Joaquin Phoenix",
-        "Connie Nielsen"
-      ],
-      "genres": [
-        "action",
-        "drama",
-        "adventure"
-      ]
+      "cast": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
+      "genres": ["action", "drama", "adventure"]
     },
     {
       "id": 11,
@@ -266,15 +202,8 @@
       ],
       "year": 2001,
       "director": "Peter Jackson",
-      "cast": [
-        "Elijah Wood",
-        "Ian McKellen",
-        "Orlando Bloom"
-      ],
-      "genres": [
-        "fantasy",
-        "adventure"
-      ]
+      "cast": ["Elijah Wood", "Ian McKellen", "Orlando Bloom"],
+      "genres": ["fantasy", "adventure"]
     },
     {
       "id": 12,
@@ -287,16 +216,8 @@
       ],
       "year": 1991,
       "director": "Jonathan Demme",
-      "cast": [
-        "Jodie Foster",
-        "Anthony Hopkins",
-        "Lawrence A. Bonney"
-      ],
-      "genres": [
-        "thriller",
-        "crime",
-        "drama"
-      ]
+      "cast": ["Jodie Foster", "Anthony Hopkins", "Lawrence A. Bonney"],
+      "genres": ["thriller", "crime", "drama"]
     },
     {
       "id": 13,
@@ -309,16 +230,8 @@
       ],
       "year": 1998,
       "director": "Steven Spielberg",
-      "cast": [
-        "Tom Hanks",
-        "Matt Damon",
-        "Tom Sizemore"
-      ],
-      "genres": [
-        "war",
-        "drama",
-        "action"
-      ]
+      "cast": ["Tom Hanks", "Matt Damon", "Tom Sizemore"],
+      "genres": ["war", "drama", "action"]
     },
     {
       "id": 14,
@@ -331,16 +244,8 @@
       ],
       "year": 1993,
       "director": "Steven Spielberg",
-      "cast": [
-        "Sam Neill",
-        "Laura Dern",
-        "Jeff Goldblum"
-      ],
-      "genres": [
-        "adventure",
-        "sci-fi",
-        "thriller"
-      ]
+      "cast": ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
+      "genres": ["adventure", "sci-fi", "thriller"]
     },
     {
       "id": 15,
@@ -353,16 +258,8 @@
       ],
       "year": 1997,
       "director": "James Cameron",
-      "cast": [
-        "Leonardo DiCaprio",
-        "Kate Winslet",
-        "Billy Zane"
-      ],
-      "genres": [
-        "drama",
-        "romance",
-        "history"
-      ]
+      "cast": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
+      "genres": ["drama", "romance", "history"]
     },
     {
       "id": 16,
@@ -375,16 +272,8 @@
       ],
       "year": 2009,
       "director": "James Cameron",
-      "cast": [
-        "Sam Worthington",
-        "Zoe Saldana",
-        "Sigourney Weaver"
-      ],
-      "genres": [
-        "science fiction",
-        "action",
-        "adventure"
-      ]
+      "cast": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
+      "genres": ["science fiction", "action", "adventure"]
     },
     {
       "id": 17,
@@ -397,15 +286,8 @@
       ],
       "year": 2010,
       "director": "David Fincher",
-      "cast": [
-        "Jesse Eisenberg",
-        "Andrew Garfield",
-        "Justin Timberlake"
-      ],
-      "genres": [
-        "biography",
-        "drama"
-      ]
+      "cast": ["Jesse Eisenberg", "Andrew Garfield", "Justin Timberlake"],
+      "genres": ["biography", "drama"]
     },
     {
       "id": 18,
@@ -418,16 +300,8 @@
       ],
       "year": 1993,
       "director": "Steven Spielberg",
-      "cast": [
-        "Liam Neeson",
-        "Ben Kingsley",
-        "Ralph Fiennes"
-      ],
-      "genres": [
-        "biography",
-        "drama",
-        "history"
-      ]
+      "cast": ["Liam Neeson", "Ben Kingsley", "Ralph Fiennes"],
+      "genres": ["biography", "drama", "history"]
     },
     {
       "id": 19,
@@ -440,16 +314,8 @@
       ],
       "year": 1994,
       "director": "Roger Allers, Rob Minkoff",
-      "cast": [
-        "Matthew Broderick",
-        "James Earl Jones",
-        "Jeremy Irons"
-      ],
-      "genres": [
-        "animation",
-        "adventure",
-        "drama"
-      ]
+      "cast": ["Matthew Broderick", "James Earl Jones", "Jeremy Irons"],
+      "genres": ["animation", "adventure", "drama"]
     },
     {
       "id": 20,
@@ -462,15 +328,8 @@
       ],
       "year": 1977,
       "director": "George Lucas",
-      "cast": [
-        "Mark Hamill",
-        "Harrison Ford",
-        "Carrie Fisher"
-      ],
-      "genres": [
-        "science fiction",
-        "adventure"
-      ]
+      "cast": ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
+      "genres": ["science fiction", "adventure"]
     },
     {
       "id": 21,
@@ -483,15 +342,8 @@
       ],
       "year": 1974,
       "director": "Francis Ford Coppola",
-      "cast": [
-        "Al Pacino",
-        "Robert De Niro",
-        "Robert Duvall"
-      ],
-      "genres": [
-        "crime",
-        "drama"
-      ]
+      "cast": ["Al Pacino", "Robert De Niro", "Robert Duvall"],
+      "genres": ["crime", "drama"]
     },
     {
       "id": 22,
@@ -504,16 +356,8 @@
       ],
       "year": 2006,
       "director": "Martin Scorsese",
-      "cast": [
-        "Leonardo DiCaprio",
-        "Matt Damon",
-        "Jack Nicholson"
-      ],
-      "genres": [
-        "crime",
-        "drama",
-        "thriller"
-      ]
+      "cast": ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson"],
+      "genres": ["crime", "drama", "thriller"]
     },
     {
       "id": 23,
@@ -526,16 +370,8 @@
       ],
       "year": 1990,
       "director": "Martin Scorsese",
-      "cast": [
-        "Ray Liotta",
-        "Robert De Niro",
-        "Joe Pesci"
-      ],
-      "genres": [
-        "crime",
-        "drama",
-        "biography"
-      ]
+      "cast": ["Ray Liotta", "Robert De Niro", "Joe Pesci"],
+      "genres": ["crime", "drama", "biography"]
     },
     {
       "id": 24,
@@ -548,16 +384,8 @@
       ],
       "year": 2006,
       "director": "Christopher Nolan",
-      "cast": [
-        "Christian Bale",
-        "Hugh Jackman",
-        "Michael Caine"
-      ],
-      "genres": [
-        "drama",
-        "mystery",
-        "thriller"
-      ]
+      "cast": ["Christian Bale", "Hugh Jackman", "Michael Caine"],
+      "genres": ["drama", "mystery", "thriller"]
     },
     {
       "id": 25,
@@ -570,14 +398,8 @@
       ],
       "year": 1957,
       "director": "Sidney Lumet",
-      "cast": [
-        "Henry Fonda",
-        "Lee J. Cobb",
-        "Ed Begley"
-      ],
-      "genres": [
-        "drama"
-      ]
+      "cast": ["Henry Fonda", "Lee J. Cobb", "Ed Begley"],
+      "genres": ["drama"]
     }
   ],
   "favourites": [
@@ -595,15 +417,8 @@
           ],
           "year": 2010,
           "director": "Christopher Nolan",
-          "cast": [
-            "Leonardo DiCaprio",
-            "Joseph Gordon-Levitt",
-            "Elliot Page"
-          ],
-          "genres": [
-            "science fiction",
-            "thriller"
-          ]
+          "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+          "genres": ["science fiction", "thriller"]
         },
         {
           "id": 5,
@@ -616,15 +431,8 @@
           ],
           "year": 1994,
           "director": "Quentin Tarantino",
-          "cast": [
-            "John Travolta",
-            "Uma Thurman",
-            "Samuel L. Jackson"
-          ],
-          "genres": [
-            "crime",
-            "drama"
-          ]
+          "cast": ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
+          "genres": ["crime", "drama"]
         },
         {
           "id": 2,
@@ -637,16 +445,8 @@
           ],
           "year": 2008,
           "director": "Christopher Nolan",
-          "cast": [
-            "Christian Bale",
-            "Heath Ledger",
-            "Aaron Eckhart"
-          ],
-          "genres": [
-            "action",
-            "crime",
-            "drama"
-          ]
+          "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+          "genres": ["action", "crime", "drama"]
         },
         {
           "id": 17,
@@ -659,15 +459,50 @@
           ],
           "year": 2010,
           "director": "David Fincher",
-          "cast": [
-            "Jesse Eisenberg",
-            "Andrew Garfield",
-            "Justin Timberlake"
+          "cast": ["Jesse Eisenberg", "Andrew Garfield", "Justin Timberlake"],
+          "genres": ["biography", "drama"]
+        },
+        {
+          "id": 10,
+          "title": "Gladiator",
+          "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/49/22/6c/49226cc2be5cb537218993fa89d075a8.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/49/22/6c/49226cc2be5cb537218993fa89d075a8.jpg",
+            "https://artfiles.alphacoders.com/101/thumb-1920-101935.jpg"
           ],
-          "genres": [
-            "biography",
-            "drama"
-          ]
+          "year": 2000,
+          "director": "Ridley Scott",
+          "cast": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
+          "genres": ["action", "drama", "adventure"]
+        },
+        {
+          "id": 14,
+          "title": "Jurassic Park",
+          "description": "During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/3d/48/8a/3d488a47ecb36ae33375f787a857b74c.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/3d/48/8a/3d488a47ecb36ae33375f787a857b74c.jpg",
+            "https://images7.alphacoders.com/564/thumb-1920-564248.png"
+          ],
+          "year": 1993,
+          "director": "Steven Spielberg",
+          "cast": ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
+          "genres": ["adventure", "sci-fi", "thriller"]
+        },
+        {
+          "id": 15,
+          "title": "Titanic",
+          "description": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/79/4d/9a/794d9ab3e478ef693d0e08f3d4388c96.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/79/4d/9a/794d9ab3e478ef693d0e08f3d4388c96.jpg",
+            "https://images4.alphacoders.com/223/thumb-1920-223196.jpg"
+          ],
+          "year": 1997,
+          "director": "James Cameron",
+          "cast": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
+          "genres": ["drama", "romance", "history"]
         }
       ]
     },
@@ -689,15 +524,8 @@
           ],
           "year": 2010,
           "director": "Christopher Nolan",
-          "cast": [
-            "Leonardo DiCaprio",
-            "Joseph Gordon-Levitt",
-            "Elliot Page"
-          ],
-          "genres": [
-            "science fiction",
-            "thriller"
-          ]
+          "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+          "genres": ["science fiction", "thriller"]
         },
         {
           "id": 10,
@@ -710,16 +538,8 @@
           ],
           "year": 2000,
           "director": "Ridley Scott",
-          "cast": [
-            "Russell Crowe",
-            "Joaquin Phoenix",
-            "Connie Nielsen"
-          ],
-          "genres": [
-            "action",
-            "drama",
-            "adventure"
-          ]
+          "cast": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
+          "genres": ["action", "drama", "adventure"]
         },
         {
           "id": 23,
@@ -732,16 +552,8 @@
           ],
           "year": 1990,
           "director": "Martin Scorsese",
-          "cast": [
-            "Ray Liotta",
-            "Robert De Niro",
-            "Joe Pesci"
-          ],
-          "genres": [
-            "crime",
-            "drama",
-            "biography"
-          ]
+          "cast": ["Ray Liotta", "Robert De Niro", "Joe Pesci"],
+          "genres": ["crime", "drama", "biography"]
         }
       ]
     }

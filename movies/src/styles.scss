@@ -1,4 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap";
 
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+app-root {
+  flex-grow: 1;
+}
+
+main {
+  height: 100%;
+}

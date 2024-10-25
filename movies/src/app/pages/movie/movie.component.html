@@ -1,0 +1,44 @@
+<ng-container *ngIf="movie">
+  <app-hero [movie]="movie">
+    <ng-content>
+      <div>
+        <div class="d-flex justify-content-between gap-3">
+          <div class="d-flex gap-3">
+            <span class="text-light">Genres:</span>
+            <span *ngFor="let genre of movie.genres">
+              <a class="text-warning-emphasis text-decoration-none">
+                {{ genre | titlecase }}
+              </a>
+            </span>
+          </div>
+          <div class="d-flex gap-3">
+            <span class="text-light">Cast:</span>
+            <span *ngFor="let actor of movie.cast">
+              <a class="text-warning-emphasis text-decoration-none">
+                {{ actor | titlecase }}
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-content>
+  </app-hero>
+</ng-container>
+
+<ng-container *ngIf="relateds">
+  <h3 class="text-light">Related movies by genre</h3>
+  <div class="row row-cols-6 g-4">
+    <div class="col" *ngFor="let movie of relateds">
+      <app-card [movie]="movie"></app-card>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="byCast">
+  <h3 class="text-light">Related movies by genre</h3>
+  <div class="row row-cols-6 g-4">
+    <div class="col" *ngFor="let movie of byCast">
+      <app-card [movie]="movie"></app-card>
+    </div>
+  </div>
+</ng-container>

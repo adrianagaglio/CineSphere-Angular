@@ -7,7 +7,7 @@ import { UserfavComponent } from './userfav/userfav.component';
 const routes: Routes = [
   {
     path: '',
-    component: UserdetailComponent,
+    component: DashboardComponent,
   },
   {
     path: 'userdetail',
