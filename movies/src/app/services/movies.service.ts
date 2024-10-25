@@ -53,19 +53,4 @@ export class MoviesService {
       )
       .pipe(map((movies) => movies.filter((movie) => movie.id !== id)));
   }
-
-  getRelatedsByCast(id: number, cast: string[]): Observable<iMovie[]> {
-    return this.getMovies()
-      .pipe(
-        map((movies) =>
-          movies.filter((movie) => {
-            let lowerCaseCast = cast.map((cast) => cast.toLowerCase());
-            return movie.cast.some((movieCast) =>
-              lowerCaseCast.includes(movieCast.toLowerCase())
-            );
-          })
-        )
-      )
-      .pipe(map((movies) => movies.filter((movie) => movie.id !== id)));
-  }
 }

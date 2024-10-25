@@ -33,12 +33,3 @@
     </div>
   </div>
 </ng-container>
-
-<ng-container *ngIf="byCast">
-  <h3 class="text-light">Related movies by genre</h3>
-  <div class="row row-cols-6 g-4">
-    <div class="col" *ngFor="let movie of byCast">
-      <app-card [movie]="movie"></app-card>
-    </div>
-  </div>
-</ng-container>

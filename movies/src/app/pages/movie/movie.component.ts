@@ -27,11 +27,9 @@ export class MovieComponent {
             this.relateds = movies;
           });
 
-        this.movieSvc
-          .getRelatedsByGenre(this.movie.id, this.movie.cast)
-          .subscribe((movies) => {
-            console.log(movies);
-          });
+        this.movie.cast = this.movie.cast.map((cast) => {
+          return cast.toLowerCase();
+        });
       });
     });
   }
