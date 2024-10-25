@@ -625,6 +625,49 @@
             "crime",
             "drama"
           ]
+        },
+        {
+          "id": 2,
+          "title": "The Dark Knight",
+          "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/5f/fe/79/5ffe79003530da912a82acac80be1426.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/ea/a2/6e/eaa26e2c3bfa234c3cdd3c4d9fabad35.jpg",
+            "https://images4.alphacoders.com/136/1360004.jpeg"
+          ],
+          "year": 2008,
+          "director": "Christopher Nolan",
+          "cast": [
+            "Christian Bale",
+            "Heath Ledger",
+            "Aaron Eckhart"
+          ],
+          "genres": [
+            "action",
+            "crime",
+            "drama"
+          ]
+        },
+        {
+          "id": 17,
+          "title": "The Social Network",
+          "description": "As Harvard students create the social networking site that would become known as Facebook, they feud with each other and with the law.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/7e/37/b9/7e37b994b613e94cba64f307b1983e39.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/7e/37/b9/7e37b994b613e94cba64f307b1983e39.jpg",
+            "https://images6.alphacoders.com/353/thumb-1920-353685.jpg"
+          ],
+          "year": 2010,
+          "director": "David Fincher",
+          "cast": [
+            "Jesse Eisenberg",
+            "Andrew Garfield",
+            "Justin Timberlake"
+          ],
+          "genres": [
+            "biography",
+            "drama"
+          ]
         }
       ]
     },

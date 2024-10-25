@@ -75,7 +75,7 @@ export class AuthService {
           this.authData$.next(accessData);
           localStorage.setItem('authData', JSON.stringify(accessData));
           setTimeout(() => {
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/userdetail']);
           }, 500);
           const expDate = this.jwtHelp.getTokenExpirationDate(
             accessData.accessToken
@@ -91,6 +91,7 @@ export class AuthService {
   logout() {
     this.authData$.next(null);
     localStorage.removeItem('authData');
+    this.router.navigate(['/']);
   }
 
   autoLogout(expDate: Date) {

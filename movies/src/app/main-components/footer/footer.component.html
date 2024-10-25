@@ -9,19 +9,15 @@
 
       <ul class="nav col-md-6 justify-content-end">
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-light">Home</a>
+          <a routerLink="/" class="nav-link px-2 text-light">Home</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-light">Features</a>
+          <a routerLink="/dashboard/userdetail" class="nav-link px-2 text-light"
+            >Dashboard</a
+          >
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-light">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-light">FAQs</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-light">About</a>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a routerLink="/users" class="nav-link px-2 text-light">Users</a>
         </li>
       </ul>
     </div>

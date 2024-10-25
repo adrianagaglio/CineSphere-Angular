@@ -1,9 +1,6 @@
-import { iMovie } from '../../interfaces/imovie';
-import { iUser } from '../../interfaces/iuser';
-import { FavouritesService } from '../../services/favourites.service';
-import { UserService } from '../../services/user.service';
-import { AuthComponent } from './../../auth/auth.component';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  constructor(
-    private userSvc: UserService,
-    private favSvc: FavouritesService
-  ) {}
+  constructor(private router: Router, private authSvc: AuthService) {}
+
+  isLoggedIn!: boolean;
+
+  ngOnInit() {
+    this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+    this.router.navigate(['dashboard/userdetail']);
+  }
 }

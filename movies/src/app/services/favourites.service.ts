@@ -44,7 +44,15 @@ export class FavouritesService {
           return this.http.post<iFavourite>(this.favouritesUrl, newFav);
         }
         // se esiste, aggiungo il movie all'array dell'utente e faccio una put
-        userFav.movies.push(movie);
+        let movieFound = userFav.movies.find(
+          (userMovie) => userMovie.id === movie.id
+        );
+        if (!movieFound) {
+          userFav.movies.push(movie);
+        } else {
+          alert('Movie already in favourites');
+        }
+
         return this.http.put<iFavourite>(
           `${this.favouritesUrl}/${id}`,
           userFav

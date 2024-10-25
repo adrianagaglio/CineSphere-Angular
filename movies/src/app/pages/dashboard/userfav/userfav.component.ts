@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { iUser } from '../../../interfaces/iuser';
 import { iMovie } from '../../../interfaces/imovie';
 import { FavouritesService } from '../../../services/favourites.service';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-userfav',
@@ -9,7 +10,10 @@ import { FavouritesService } from '../../../services/favourites.service';
   styleUrl: './userfav.component.scss',
 })
 export class UserfavComponent {
-  constructor(private favSvc: FavouritesService) {}
+  constructor(
+    private favSvc: FavouritesService,
+    private authSvc: AuthService
+  ) {}
 
   userId!: number;
   movies!: iMovie[];
