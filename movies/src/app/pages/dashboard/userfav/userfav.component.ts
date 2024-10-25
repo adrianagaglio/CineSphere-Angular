@@ -24,12 +24,13 @@ export class UserfavComponent {
     if (jsonAuthData) {
       this.userId = JSON.parse(jsonAuthData).user.id;
       this.favSvc.favouritesByUser$.subscribe((movies) => {
-        if (movies) this.movies = movies;
-      });
-      this.favSvc.getFavouritesByUser(this.userId).subscribe({
-        error: (err) => {
-          this.message = err;
-        },
+        if (movies) {
+          this.movies = movies;
+        } else {
+          this.favSvc.getFavouritesByUser(this.userId).subscribe((movies) => {
+            if (movies) this.movies = movies;
+          });
+        }
       });
     }
   }

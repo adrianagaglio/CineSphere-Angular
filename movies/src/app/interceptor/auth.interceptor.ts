@@ -16,18 +16,15 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    return this.authSvc.authData$.pipe(
-      switchMap((authData) => {
-        if (!authData) return next.handle(request);
+    let accessData = this.authSvc.authData$.getValue();
+    if (!accessData) return next.handle(request);
 
-        let newRequest = request.clone({
-          headers: request.headers.append(
-            'Authorization',
-            `Bearer ${authData.accessToken}`
-          ),
-        });
-        return next.handle(newRequest);
-      })
-    );
+    let newRequest = request.clone({
+      headers: request.headers.append(
+        'Authorization',
+        `Bearer ${accessData.accessToken}`
+      ),
+    });
+    return next.handle(newRequest);
   }
 }

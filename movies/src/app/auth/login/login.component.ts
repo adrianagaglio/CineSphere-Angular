@@ -33,9 +33,6 @@ export class LoginComponent {
         next: (result: iAuth) => {
           this.isSuccess = true;
           this.message = 'Logged in successfully';
-          // setTimeout(() => {
-          //   this.router.navigate(['/dashboard']);
-          // }, 500);
         },
         error: (error: string) => {
           this.isSuccess = false;
