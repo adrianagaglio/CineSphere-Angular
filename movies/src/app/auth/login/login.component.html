@@ -1,0 +1,59 @@
+<div class="row py-5">
+  <div class="col-6 mx-auto">
+    <form [formGroup]="loginForm">
+      <div class="mb-3">
+        <label for="email" class="form-label text-light">Email address</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+        />
+        <p
+          *ngIf="
+            loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+          "
+          class="alert alert-danger my-1 p-1"
+        >
+          You must insert a valid email address
+        </p>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label text-light">Password</label>
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          id="password"
+        />
+        <p
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+          class="alert alert-danger my-1 p-1"
+        >
+          You must insert a valid email address
+        </p>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-6">
+          <span
+            *ngIf="message"
+            class="alert p-1"
+            [ngClass]="{
+              'alert-success': isSuccess,
+              'alert-danger': !isSuccess
+            }"
+            >{{ message }}</span
+          >
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+          <button (click)="login()" type="submit" class="btn btn-outline-light">
+            Login
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

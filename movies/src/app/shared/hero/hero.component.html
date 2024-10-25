@@ -1,0 +1,19 @@
+<ng-container *ngIf="movie">
+  <div class="px-4 py-5 text-center">
+    <div class="position-relative">
+      <img
+        class="d-block mx-auto mb-4 w-100 coverImage object-fit-cover"
+        src="{{ movie.coverImage[2] }}"
+        alt="{{ movie.title }}"
+      />
+      <h1
+        class="display-1 fw-bold text-light text-light position-absolute bottom-0 start-50 translate-middle-x"
+      >
+        {{ movie.title }}
+      </h1>
+    </div>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4 text-light">{{ movie.description }}</p>
+    </div>
+  </div>
+</ng-container>
