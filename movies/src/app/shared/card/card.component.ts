@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { iMovie } from '../../interfaces/imovie';
 import { AuthService } from '../../auth/auth.service';
 import { FavouritesService } from '../../services/favourites.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -12,13 +13,22 @@ export class CardComponent {
   @Input() movie!: iMovie;
   isLoggedIn!: boolean;
   userId!: number;
+  route: any;
+  isHome: boolean = false;
 
   constructor(
     private authSvc: AuthService,
-    private favSvc: FavouritesService
+    private favSvc: FavouritesService,
+    private router: Router
   ) {}
 
   ngOnInit() {
+    if (this.router.url === '/dashboard/userfav') {
+      this.isHome = false;
+    } else {
+      this.isHome = true;
+    }
+
     this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
       this.isLoggedIn = isLoggedIn;
     });
@@ -28,9 +38,5 @@ export class CardComponent {
       let authData = JSON.parse(jsonAuthData);
       this.userId = authData.user.id;
     }
-  }
-
-  add() {
-    this.favSvc.addFavourite(this.movie, this.userId).subscribe();
   }
 }

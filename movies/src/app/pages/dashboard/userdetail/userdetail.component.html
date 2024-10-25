@@ -1,0 +1,23 @@
+<div class="row py-5">
+  <div class="col-3"><app-sidebar></app-sidebar></div>
+  <div class="col-9">
+    <ng-container *ngIf="user">
+      <div class="row">
+        <div class="col-1">
+          <p class="text-light">Name:</p>
+        </div>
+        <div class="col">
+          <p class="text-light">{{ user.firstName }} {{ user.lastName }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <p class="text-light">Email:</p>
+        </div>
+        <div class="col">
+          <p class="text-light">{{ user.email }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

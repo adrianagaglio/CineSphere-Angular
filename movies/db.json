@@ -20,6 +20,27 @@
       "firstName": "Roary",
       "lastName": "Parrish",
       "id": 3
+    },
+    {
+      "email": "jozeniqylu@mailinator.com",
+      "password": "$2a$10$gtPjlWqgUyv8DlBt6b8LjOUCGTbCRo1Br9Dr6EvYK1/5WmoQMjpFW",
+      "firstName": "Fulton",
+      "lastName": "Ramos",
+      "id": 4
+    },
+    {
+      "email": "pygub@mailinator.com",
+      "password": "$2a$10$L8mbQMxvji9Ujjhz1C6AHuTVNvCBTtmdeDw9PTy34TWHdJEIdSQpe",
+      "firstName": "Reece",
+      "lastName": "Whitley",
+      "id": 5
+    },
+    {
+      "email": "ziqux@mailinator.com",
+      "password": "$2a$10$vn6.7fcAEQiVUcygQmW.GOtMuAkHM.vxERoaFipVUZMuolYh7nFau",
+      "firstName": "Curran",
+      "lastName": "Clay",
+      "id": 6
     }
   ],
   "movies-popular": [
@@ -603,6 +624,80 @@
           "genres": [
             "crime",
             "drama"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "movies": []
+    },
+    {
+      "id": 5,
+      "movies": [
+        {
+          "id": 1,
+          "title": "Inception",
+          "description": "A skilled thief, the best in the dangerous art of extraction, steals secrets from within the subconscious during the dream state.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/43/9a/1c/439a1c4583a953c26b63d08a1d832f53.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/43/9a/1c/439a1c4583a953c26b63d08a1d832f53.jpg",
+            "https://picfiles.alphacoders.com/469/thumb-1920-469354.jpg"
+          ],
+          "year": 2010,
+          "director": "Christopher Nolan",
+          "cast": [
+            "Leonardo DiCaprio",
+            "Joseph Gordon-Levitt",
+            "Elliot Page"
+          ],
+          "genres": [
+            "science fiction",
+            "thriller"
+          ]
+        },
+        {
+          "id": 10,
+          "title": "Gladiator",
+          "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/49/22/6c/49226cc2be5cb537218993fa89d075a8.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/49/22/6c/49226cc2be5cb537218993fa89d075a8.jpg",
+            "https://artfiles.alphacoders.com/101/thumb-1920-101935.jpg"
+          ],
+          "year": 2000,
+          "director": "Ridley Scott",
+          "cast": [
+            "Russell Crowe",
+            "Joaquin Phoenix",
+            "Connie Nielsen"
+          ],
+          "genres": [
+            "action",
+            "drama",
+            "adventure"
+          ]
+        },
+        {
+          "id": 23,
+          "title": "Goodfellas",
+          "description": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/40/7f/ba/407fbabc044a23cfbf19f3d32206d013.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/40/7f/ba/407fbabc044a23cfbf19f3d32206d013.jpg",
+            "https://images7.alphacoders.com/341/thumb-1920-341191.jpg"
+          ],
+          "year": 1990,
+          "director": "Martin Scorsese",
+          "cast": [
+            "Ray Liotta",
+            "Robert De Niro",
+            "Joe Pesci"
+          ],
+          "genres": [
+            "crime",
+            "drama",
+            "biography"
           ]
         }
       ]

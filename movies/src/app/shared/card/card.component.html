@@ -17,12 +17,19 @@
         </span>
       </div>
 
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-between">
         <a routerLink="" class="btn btn-outline-warning btn-sm">Details</a>
         <ng-container *ngIf="isLoggedIn">
-          <button (click)="add()" class="ms-auto btn btn-warning btn-sm">
-            Add to fav
-          </button>
+          <app-addbutton
+            *ngIf="isHome"
+            [movie]="movie"
+            [userId]="userId"
+          ></app-addbutton>
+          <app-removebutton
+            *ngIf="!isHome"
+            [userId]="userId"
+            [movie]="movie"
+          ></app-removebutton>
         </ng-container>
       </div>
     </div>

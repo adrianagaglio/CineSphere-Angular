@@ -1,12 +1,1 @@
-<ng-container *ngIf="user">
-  {{ user.firstName }}
-  {{ user.lastName }}
-</ng-container>
 
-<ng-container *ngIf="movies">
-  <div class="row row-cols-6 g-4">
-    <div class="col" *ngFor="let movie of movies">
-      <app-card [movie]="movie"></app-card>
-    </div>
-  </div>
-</ng-container>

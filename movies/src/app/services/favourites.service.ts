@@ -10,6 +10,7 @@ import {
   Observable,
   of,
   switchMap,
+  tap,
   throwError,
 } from 'rxjs';
 
@@ -17,9 +18,13 @@ import {
   providedIn: 'root',
 })
 export class FavouritesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.getFavouritesLoggedUser();
+  }
 
   favouritesUrl = environment.favourites;
+
+  favouritesByUser$ = new BehaviorSubject<iMovie[] | null>([]);
 
   getAllFavourites(): Observable<iFavourite[]> {
     return this.http.get<iFavourite[]>(this.favouritesUrl);
@@ -51,6 +56,46 @@ export class FavouritesService {
   getFavouritesByUser(userId: number): Observable<iMovie[]> {
     return this.http
       .get<iFavourite>(`${this.favouritesUrl}/${userId}`)
-      .pipe(map((userFav: iFavourite) => userFav.movies));
+      .pipe(map((userFav: iFavourite) => userFav.movies))
+      .pipe(
+        catchError((error) => {
+          return throwError(() => {
+            let message = '';
+            if (error.status > 400 && error.status < 500) {
+              message = 'Favourites not found, please add some movies first';
+            } else if (error.status === 500) {
+              message = 'Request error';
+            }
+            return message;
+          });
+        })
+      );
+  }
+
+  getFavouritesLoggedUser() {
+    let jsonAuthData = localStorage.getItem('authData');
+    if (jsonAuthData) {
+      let userId = JSON.parse(jsonAuthData).user.id;
+      this.getFavouritesByUser(userId).subscribe((movies) => {
+        this.favouritesByUser$.next(movies);
+      });
+    }
+  }
+
+  removeUserFavourite(userId: number, movie: iMovie) {
+    return this.http
+      .get<iFavourite>(`${this.favouritesUrl}/${userId}`)
+      .pipe(
+        switchMap((userFav: iFavourite) => {
+          userFav.movies = userFav.movies.filter(
+            (m: iMovie) => m.id !== movie.id
+          );
+          return this.http.put<iFavourite>(
+            `${this.favouritesUrl}/${userId}`,
+            userFav
+          );
+        })
+      )
+      .pipe(tap((favourite) => this.favouritesByUser$.next(favourite.movies)));
   }
 }

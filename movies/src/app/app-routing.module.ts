@@ -23,6 +23,12 @@ const routes: Routes = [
       ),
     canActivate: [LoggedinGuard],
   },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./pages/users/users.module').then((m) => m.UsersModule),
+    canActivate: [LoggedinGuard],
+  },
 ];
 
 @NgModule({

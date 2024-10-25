@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { FavouritesService } from '../../services/favourites.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +10,12 @@ import { AuthService } from '../../auth/auth.service';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  constructor(private authSvc: AuthService) {}
+  constructor(
+    private authSvc: AuthService,
+    private router: Router,
+    private userSvc: UserService,
+    private favSvc: FavouritesService
+  ) {}
 
   isLoggedIn!: boolean;
 
@@ -19,5 +27,7 @@ export class HeaderComponent {
 
   logout() {
     this.authSvc.logout();
+    this.userSvc.user$.next(null);
+    this.favSvc.favouritesByUser$.next(null);
   }
 }

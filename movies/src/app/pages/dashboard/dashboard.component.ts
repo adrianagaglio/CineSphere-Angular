@@ -15,21 +15,4 @@ export class DashboardComponent {
     private userSvc: UserService,
     private favSvc: FavouritesService
   ) {}
-
-  userId!: number;
-  user!: iUser;
-  movies!: iMovie[];
-
-  ngOnInit() {
-    this.userSvc.userId$.subscribe((userId) => {
-      this.userId = userId;
-      console.log(this.userId);
-      this.userSvc
-        .getUserById(this.userId)
-        .subscribe((user) => (this.user = user));
-      this.favSvc
-        .getFavouritesByUser(this.userId)
-        .subscribe((movies) => (this.movies = movies));
-    });
-  }
 }
