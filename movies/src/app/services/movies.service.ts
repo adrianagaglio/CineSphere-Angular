@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { iMovie } from '../interfaces/imovie';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
+import { iRate } from '../interfaces/irate';
 
 @Injectable({
   providedIn: 'root',
@@ -52,5 +53,47 @@ export class MoviesService {
         )
       )
       .pipe(map((movies) => movies.filter((movie) => movie.id !== id)));
+  }
+
+  rateMovie(movieId: number, rating: number, userId: number) {
+    return this.getMovieById(movieId).pipe(
+      map((movie) => {
+        let userFound = movie.rate.userIds.includes(userId);
+        if (!userFound) {
+          movie.rate = {
+            vote: movie.rate.vote + rating,
+            count: movie.rate.count + 1,
+            userIds: [...movie.rate.userIds, userId],
+          };
+          console.log(movie);
+          return this.http
+            .put<iMovie>(`${this.movieUrl}/${movieId}`, movie)
+            .subscribe();
+        } else {
+          alert('Already voted');
+          return of(null);
+        }
+      })
+    );
+  }
+
+  checkIfRated(movieId: number, userId: number): Observable<boolean> {
+    return this.getMovieById(movieId).pipe(
+      map((movie) => {
+        let userFound = movie.rate.userIds.includes(userId);
+        if (userFound) {
+          return true;
+        }
+        return false;
+      })
+    );
+  }
+
+  restoreRatings(movieId: number): Observable<iRate> {
+    return this.getMovieById(movieId).pipe(
+      map((movie) => {
+        return movie.rate;
+      })
+    );
   }
 }

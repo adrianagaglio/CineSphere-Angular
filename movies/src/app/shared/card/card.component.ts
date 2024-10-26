@@ -15,6 +15,7 @@ export class CardComponent {
   userId!: number;
   route: any;
   isHome: boolean = false;
+  isPresent!: boolean;
 
   constructor(
     private authSvc: AuthService,
@@ -38,5 +39,14 @@ export class CardComponent {
       let authData = JSON.parse(jsonAuthData);
       this.userId = authData.user.id;
     }
+    this.isPresent = this.favSvc.checkIfPresent(this.movie);
+  }
+
+  addMovie(add: boolean) {
+    this.isPresent = add;
+  }
+
+  removeMovie(remove: boolean) {
+    this.isPresent = remove;
   }
 }

@@ -1,7 +1,6 @@
-import { UserdetailComponent } from './../../pages/dashboard/userdetail/userdetail.component';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { iMovie } from '../../interfaces/imovie';
-import { iUser } from '../../interfaces/iuser';
+
 import { FavouritesService } from '../../services/favourites.service';
 
 @Component({
@@ -14,10 +13,12 @@ export class AddbuttonComponent {
 
   @Input() movie!: iMovie;
   @Input() userId!: number;
+  @Output() addMovie = new EventEmitter<boolean>();
 
   ngOnInit() {}
 
   add() {
     this.favSvc.addFavourite(this.movie, this.userId).subscribe();
+    this.addMovie.emit(true);
   }
 }

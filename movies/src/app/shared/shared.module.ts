@@ -7,8 +7,17 @@ import { CryptoPipe } from './crypto.pipe';
 import { AddbuttonComponent } from './addbutton/addbutton.component';
 import { RemovebuttonComponent } from './removebutton/removebutton.component';
 import { UsercardComponent } from './usercard/usercard.component';
-import { AppRoutingModule } from '../app-routing.module';
-import { RouterLink, RouterModule } from '@angular/router';
+import { NgIconsModule } from '@ng-icons/core';
+import {
+  bootstrapSearch,
+  bootstrapHeart,
+  bootstrapHeartFill,
+  bootstrapStar,
+  bootstrapStarFill,
+} from '@ng-icons/bootstrap-icons';
+import { RouterModule } from '@angular/router';
+import { RatingsComponent } from './ratings/ratings.component';
+import { SelectStarDirective } from './select-star.directive';
 
 @NgModule({
   declarations: [
@@ -19,8 +28,19 @@ import { RouterLink, RouterModule } from '@angular/router';
     AddbuttonComponent,
     RemovebuttonComponent,
     UsercardComponent,
+    RatingsComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgIconsModule.withIcons({
+      bootstrapHeart,
+      bootstrapSearch,
+      bootstrapHeartFill,
+      bootstrapStar,
+      bootstrapStarFill,
+    }),
+  ],
   exports: [
     CardComponent,
     HeroComponent,
@@ -29,6 +49,7 @@ import { RouterLink, RouterModule } from '@angular/router';
     AddbuttonComponent,
     RemovebuttonComponent,
     UsercardComponent,
+    RatingsComponent,
   ],
 })
 export class SharedModule {}

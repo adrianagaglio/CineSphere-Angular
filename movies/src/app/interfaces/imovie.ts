@@ -1,3 +1,5 @@
+import { iRate } from './irate';
+
 export interface iMovie {
   id: number;
   title: string;
@@ -7,4 +9,5 @@ export interface iMovie {
   director: string;
   cast: string[];
   genres: string[];
+  rate: iRate;
 }

@@ -8,11 +8,14 @@
       <div class="fs-7 mb-3">
         <ng-container *ngIf="!message">
           <h6 class="text-light">
-            User's favourites movies: {{ movies.length }}
+            User's favourites movies: {{ movies ? movies.length : 0 }}
           </h6>
-          <div>
+          <div class="d-flex gap-2">
             <span *ngFor="let movie of movies">
-              <a class="text-warning text-decoration-none">
+              <a
+                [routerLink]="['/movie', movie.id]"
+                class="text-warning text-decoration-none"
+              >
                 {{ movie.title }}
               </a>
             </span>

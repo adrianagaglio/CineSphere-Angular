@@ -6,9 +6,11 @@ import { environment } from '../../environments/environment.development';
 import {
   BehaviorSubject,
   catchError,
+  filter,
   map,
   Observable,
   of,
+  Subject,
   switchMap,
   tap,
   throwError,
@@ -18,9 +20,7 @@ import {
   providedIn: 'root',
 })
 export class FavouritesService {
-  constructor(private http: HttpClient) {
-    this.getFavouritesLoggedUser();
-  }
+  constructor(private http: HttpClient) {}
 
   favouritesUrl = environment.favourites;
 
@@ -52,13 +52,28 @@ export class FavouritesService {
         } else {
           alert('Movie already in favourites');
         }
-
         return this.http.put<iFavourite>(
           `${this.favouritesUrl}/${id}`,
           userFav
         );
       })
     );
+  }
+
+  checkIfPresent(movie: iMovie): boolean {
+    let userFavourites = this.favouritesByUser$.getValue();
+    if (userFavourites && userFavourites.length > 0) {
+      let movieFound = userFavourites?.find(
+        (userMovie: iMovie) => userMovie.id === movie.id
+      );
+      if (!movieFound) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
   }
 
   getFavouritesByUser(userId: number): Observable<iMovie[]> {
@@ -70,7 +85,7 @@ export class FavouritesService {
           return throwError(() => {
             let message = '';
             if (error.status > 400 && error.status < 500) {
-              message = 'Favourites not found, please add some movies first';
+              message = 'User has no favourites yet';
             } else if (error.status === 500) {
               message = 'Request error';
             }

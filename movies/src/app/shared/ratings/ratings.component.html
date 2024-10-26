@@ -1,0 +1,27 @@
+<ng-container *ngIf="!alreadyVoted">
+  <div class="d-flex gap-2 justify-content-center">
+    <ng-container *ngIf="!isDetailPage">
+      <span
+        (click)="rate(star.value)"
+        class="text-warning clickable"
+        *ngFor="let star of stars"
+      >
+        <ng-icon
+          [name]="rating >= star.value ? 'bootstrapStarFill' : 'bootstrapStar'"
+        ></ng-icon>
+      </span>
+    </ng-container>
+    <ng-container *ngIf="isDetailPage">
+      <span class="text-warning" *ngFor="let star of stars">
+        <ng-icon
+          [name]="rating >= star.value ? 'bootstrapStarFill' : 'bootstrapStar'"
+        ></ng-icon>
+      </span>
+    </ng-container>
+  </div>
+</ng-container>
+<ng-container *ngIf="alreadyVoted">
+  <div>
+    <span class="text-warning fs-8">You already rated this movie</span>
+  </div>
+</ng-container>

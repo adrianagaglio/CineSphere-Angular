@@ -20,11 +20,10 @@ export class UsercardComponent {
   ngOnInit() {
     this.favSvc.getFavouritesByUser(this.user.id).subscribe({
       next: (movies) => {
-        if (movies.length < 1) this.message = 'User has no favourites yet';
         this.movies = movies;
       },
       error: (err) => {
-        this.message = 'User has no favourites yet';
+        this.message = err;
       },
     });
   }

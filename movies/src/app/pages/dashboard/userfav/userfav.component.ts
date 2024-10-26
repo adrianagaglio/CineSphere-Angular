@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { iUser } from '../../../interfaces/iuser';
 import { iMovie } from '../../../interfaces/imovie';
 import { FavouritesService } from '../../../services/favourites.service';
 import { AuthService } from '../../../auth/auth.service';
@@ -15,23 +14,18 @@ export class UserfavComponent {
     private authSvc: AuthService
   ) {}
 
-  userId!: number;
   movies!: iMovie[];
   message!: any;
 
   ngOnInit() {
-    let jsonAuthData = localStorage.getItem('authData');
-    if (jsonAuthData) {
-      this.userId = JSON.parse(jsonAuthData).user.id;
-      this.favSvc.favouritesByUser$.subscribe((movies) => {
-        if (movies) {
-          this.movies = movies;
-        } else {
-          this.favSvc.getFavouritesByUser(this.userId).subscribe((movies) => {
-            if (movies) this.movies = movies;
-          });
-        }
-      });
-    }
+    this.favSvc.getFavouritesLoggedUser();
+    this.favSvc.favouritesByUser$.subscribe((movies) => {
+      if (movies && movies.length > 0) {
+        this.movies = movies;
+        this.message = null;
+      } else {
+        this.message = 'Favourites not found, please add some movies first';
+      }
+    });
   }
 }

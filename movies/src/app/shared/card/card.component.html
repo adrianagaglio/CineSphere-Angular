@@ -9,32 +9,37 @@
       <h6 class="card-title text-light mb-2" title="{{ movie.title }}">
         {{ movie.title | truncate : 15 }}
       </h6>
-      <div class="d-flex justify-content-start gap-2 fs-7 mb-3">
+      <div class="d-flex justify-content-start gap-2 fs-7 mb-2">
         <span *ngFor="let genre of movie.genres">
           <a class="text-warning-emphasis text-decoration-none">
             {{ genre | titlecase }}
           </a>
         </span>
       </div>
-
+      <div class="mb-2 text-center">
+        <app-ratings [movie]="movie"></app-ratings>
+      </div>
       <div class="d-flex justify-content-between">
         <a
           [routerLink]="['/movie', movie.id]"
           routerLinkActive="router-link-active"
-          class="btn btn-outline-warning btn-sm"
+          class="btn btn-warning btn-sm"
           routerLinkActive="router-link-active"
-          >Details</a
         >
+          <ng-icon name="bootstrapSearch"></ng-icon>
+        </a>
         <ng-container *ngIf="isLoggedIn">
           <app-addbutton
-            *ngIf="isHome"
+            *ngIf="isHome && !isPresent"
             [movie]="movie"
             [userId]="userId"
+            (addMovie)="addMovie($event)"
           ></app-addbutton>
           <app-removebutton
-            *ngIf="!isHome"
+            *ngIf="!isHome || isPresent"
             [userId]="userId"
             [movie]="movie"
+            (removeMovie)="removeMovie($event)"
           ></app-removebutton>
         </ng-container>
       </div>

@@ -1,27 +1,6 @@
 <ng-container *ngIf="movie">
   <app-hero [movie]="movie">
-    <ng-content>
-      <div>
-        <div class="d-flex justify-content-between gap-3">
-          <div class="d-flex gap-3">
-            <span class="text-light">Genres:</span>
-            <span *ngFor="let genre of movie.genres">
-              <a class="text-warning-emphasis text-decoration-none">
-                {{ genre | titlecase }}
-              </a>
-            </span>
-          </div>
-          <div class="d-flex gap-3">
-            <span class="text-light">Cast:</span>
-            <span *ngFor="let actor of movie.cast">
-              <a class="text-warning-emphasis text-decoration-none">
-                {{ actor | titlecase }}
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </ng-content>
+    <ng-content><app-ratings></app-ratings></ng-content>
   </app-hero>
 </ng-container>
 
