@@ -1,78 +1,99 @@
 <div class="row py-5">
-  <div class="col-6 mx-auto">
+  <h1 class="text-light text-center mb-5">
+    Welcome!<br />Please register to access web site experience
+  </h1>
+  <div class="col-8 mx-auto">
     <form [formGroup]="registerForm">
-      <div class="mb-3">
-        <label for="firstName" class="form-label text-light">First Name:</label>
-        <input
-          formControlName="firstName"
-          type="text"
-          class="form-control"
-          id="firstName"
-        />
-        <p
-          *ngIf="
-            registerForm.get('firstName')?.invalid &&
-            registerForm.get('firstName')?.touched
-          "
-          class="alert alert-danger my-1 p-1"
-        >
-          This field is required
-        </p>
+      <div class="row g-3 mb-3">
+        <div class="col-sm-6">
+          <div class="d-flex justify-content-between">
+            <label for="firstName" class="form-label text-light"
+              >First name</label
+            >
+            <span class="text-danger" *ngIf="isInvalidTouched('firstName')">
+              Valid first name is required.
+            </span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <div class="d-flex justify-content-between">
+            <label for="lastName" class="form-label text-light"
+              >Last name</label
+            >
+            <span class="text-danger" *ngIf="isInvalidTouched('lastName')">
+              Valid last name is required.
+            </span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="lastName"
+          />
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="lastName" class="form-label text-light">Last Name</label>
-        <input
-          formControlName="lastName"
-          type="text"
-          class="form-control"
-          id="lastName"
-        />
-        <p
-          *ngIf="
-            registerForm.get('lastName')?.invalid &&
-            registerForm.get('lastName')?.touched
-          "
-          class="alert alert-danger my-1 p-1"
-        >
-          This field is required
-        </p>
+
+      <div class="row mb-3">
+        <div class="col">
+          <div class="d-flex justify-content-between">
+            <label for="username" class="form-label text-light">Username</label>
+            <span class="text-danger" *ngIf="isInvalidTouched('username')">
+              {{ registerForm.get("username")!.errors!["message"] }}
+            </span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            formControlName="username"
+          />
+        </div>
+        <div class="col">
+          <div class="d-flex justify-content-between">
+            <label for="email" class="form-label text-light">Email</label>
+            <span class="text-danger" *ngIf="isInvalidTouched('email')">
+              {{
+                registerForm.get("email")!.hasError("required")
+                  ? "Email is required"
+                  : "Email is invalid"
+              }}
+            </span>
+          </div>
+          <div class="input-group has-validation">
+            <span class="input-group-text">&#64;</span>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="d-flex justify-content-between">
+            <label for="password" class="form-label text-light">Password</label>
+            <span class="text-danger" *ngIf="isInvalidTouched('password')">
+              {{ registerForm.get("password")!.errors!["message"] }}
+            </span>
+          </div>
+          <div class="input-group has-validation">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label text-light">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          formControlName="email"
-        />
-        <p
-          *ngIf="
-            registerForm.get('email')?.invalid &&
-            registerForm.get('email')?.touched
-          "
-          class="alert alert-danger my-1 p-1"
-        >
-          You must insert a valid email address
-        </p>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label text-light">Password</label>
-        <input
-          formControlName="password"
-          type="password"
-          class="form-control"
-          id="password"
-        />
-        <p
-          *ngIf="
-            registerForm.get('password')?.invalid &&
-            registerForm.get('password')?.touched
-          "
-          class="alert alert-danger my-1 p-1"
-        >
-          You must insert a valid password
-        </p>
-      </div>
+
       <div class="row align-items-center">
         <div class="col-6">
           <span
@@ -86,11 +107,7 @@
           >
         </div>
         <div class="col-6 d-flex justify-content-end align-items-center">
-          <button
-            (click)="register()"
-            type="submit"
-            class="btn btn-outline-light"
-          >
+          <button (click)="register()" type="submit" class="btn btn-warning">
             Register
           </button>
         </div>

@@ -1,11 +1,19 @@
-<ng-container>
+<ng-container *ngIf="!message">
   <div class="d-flex gap-2 justify-content-center">
     <ng-container>
-      <span class="text-warning" *ngFor="let star of stars">
-        <ng-icon
-          [name]="rating >= star.value ? 'bootstrapStarFill' : 'bootstrapStar'"
-        ></ng-icon>
-      </span>
+      <div class="d-flex gap-2">
+        <h6 class="text-light">Users rating:</h6>
+        <span class="text-warning" *ngFor="let star of stars">
+          <ng-icon
+            [name]="
+              rating >= star.value ? 'bootstrapStarFill' : 'bootstrapStar'
+            "
+          ></ng-icon>
+        </span>
+      </div>
     </ng-container>
   </div>
+</ng-container>
+<ng-container *ngIf="message">
+  <h6 class="text-light">{{ message }}</h6>
 </ng-container>

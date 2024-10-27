@@ -27,6 +27,20 @@ export class LoginComponent {
     });
   }
 
+  ngAfterViewInit() {
+    this.loginForm.get('password')?.setErrors({
+      required: true,
+      message: 'Password is required',
+    });
+  }
+
+  isInvalidTouched(fieldName: string) {
+    return (
+      this.loginForm.get(fieldName)?.invalid &&
+      this.loginForm.get(fieldName)?.touched
+    );
+  }
+
   login() {
     if (this.loginForm.valid) {
       this.authSvc.login(this.loginForm.value).subscribe({

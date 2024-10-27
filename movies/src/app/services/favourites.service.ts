@@ -32,32 +32,46 @@ export class FavouritesService {
 
   addFavourite(movie: iMovie, id: number): Observable<iFavourite> {
     // prendo tutti i preferiti
-    return this.getAllFavourites().pipe(
-      switchMap((favourites: iFavourite[]) => {
-        // controllo se l'utente esiste già
-        let userFav = favourites.find(
-          (favourite: iFavourite) => favourite.id === id
-        );
-        // se non esiste, faccio una post con un nuovo oggetto creato al momento
-        if (!userFav) {
-          let newFav: iFavourite = { id: id, movies: [movie] };
-          return this.http.post<iFavourite>(this.favouritesUrl, newFav);
-        }
-        // se esiste, aggiungo il movie all'array dell'utente e faccio una put
-        let movieFound = userFav.movies.find(
-          (userMovie) => userMovie.id === movie.id
-        );
-        if (!movieFound) {
-          userFav.movies.push(movie);
-        } else {
-          alert('Movie already in favourites');
-        }
-        return this.http.put<iFavourite>(
-          `${this.favouritesUrl}/${id}`,
-          userFav
-        );
-      })
-    );
+    return this.getAllFavourites()
+      .pipe(
+        switchMap((favourites: iFavourite[]) => {
+          // controllo se l'utente esiste già
+          let userFav = favourites.find(
+            (favourite: iFavourite) => favourite.id === id
+          );
+          // se non esiste, faccio una post con un nuovo oggetto creato al momento
+          if (!userFav) {
+            let newFav: iFavourite = { id: id, movies: [movie] };
+            return this.http.post<iFavourite>(this.favouritesUrl, newFav);
+          }
+          // se esiste, aggiungo il movie all'array dell'utente e faccio una put
+          let movieFound = userFav.movies.find(
+            (userMovie) => userMovie.id === movie.id
+          );
+          if (!movieFound) {
+            userFav.movies.push(movie);
+          } else {
+            alert('Movie already in favourites');
+          }
+          return this.http.put<iFavourite>(
+            `${this.favouritesUrl}/${id}`,
+            userFav
+          );
+        })
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => {
+            let message = '';
+            if (error.status >= 400 && error.status < 500) {
+              message = 'Not found';
+            } else if (error.status === 500) {
+              message = 'Request error';
+            }
+            return message;
+          });
+        })
+      );
   }
 
   checkIfPresent(movie: iMovie): boolean {
@@ -117,6 +131,19 @@ export class FavouritesService {
             `${this.favouritesUrl}/${userId}`,
             userFav
           );
+        })
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(() => {
+            let message = '';
+            if (error.status >= 400 && error.status < 500) {
+              message = 'Not found';
+            } else if (error.status === 500) {
+              message = 'Request error';
+            }
+            return message;
+          });
         })
       )
       .pipe(tap((favourite) => this.favouritesByUser$.next(favourite.movies)));

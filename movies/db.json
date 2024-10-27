@@ -5,6 +5,7 @@
       "password": "$2a$10$pErNWBxholfLyV.C8ihdPeQ2BhJHFsfYbc0WNd/6Wz35Q3FG9iURm",
       "firstName": "Bo",
       "lastName": "Wheeler",
+      "username": "afsadasdafafa",
       "id": 1
     },
     {
@@ -12,6 +13,7 @@
       "password": "$2a$10$25WHBxTmXnqGEld65OQ.ju9dhuxJUmuTadQDoHeCdx8fQgeBtiqkS",
       "firstName": "Deborah",
       "lastName": "Alvarado",
+      "username": "llmnjokjlkjl",
       "id": 2
     },
     {
@@ -19,6 +21,7 @@
       "password": "$2a$10$hxrVY/0iWqn31.jCdaeI1O.wb0po8Z/QUmoh8ZiitVhW7eHuX/tvi",
       "firstName": "Roary",
       "lastName": "Parrish",
+      "username": "ljnnlkmdsdfa",
       "id": 3
     },
     {
@@ -26,6 +29,7 @@
       "password": "$2a$10$gtPjlWqgUyv8DlBt6b8LjOUCGTbCRo1Br9Dr6EvYK1/5WmoQMjpFW",
       "firstName": "Fulton",
       "lastName": "Ramos",
+      "username": "lkjldslkjl",
       "id": 4
     },
     {
@@ -33,6 +37,7 @@
       "password": "$2a$10$L8mbQMxvji9Ujjhz1C6AHuTVNvCBTtmdeDw9PTy34TWHdJEIdSQpe",
       "firstName": "Reece",
       "lastName": "Whitley",
+      "username": "ljklasjlkj",
       "id": 5
     },
     {
@@ -40,6 +45,7 @@
       "password": "$2a$10$vn6.7fcAEQiVUcygQmW.GOtMuAkHM.vxERoaFipVUZMuolYh7nFau",
       "firstName": "Curran",
       "lastName": "Clay",
+      "username": "lkjsdlljkds",
       "id": 6
     },
     {
@@ -47,6 +53,7 @@
       "password": "$2a$10$5QsCTO1Uxpiu543.G4UbFexXMuwdYgUYdBwDfSONoYSpld5bHQM/S",
       "firstName": "Jane",
       "lastName": "Blackwell",
+      "username": "lkjlkasjl",
       "id": 7
     },
     {
@@ -54,6 +61,7 @@
       "password": "$2a$10$rOAJ/J1dzJVlsVwdLvrpkeVnsKcXuD0arrsHmgSeujzUVBGOxBg1.",
       "firstName": "Damon",
       "lastName": "Mccoy",
+      "username": "llkjldsflsk",
       "id": 8
     },
     {
@@ -61,6 +69,7 @@
       "password": "$2a$10$L/EhLOL.eZZKl3dZtTnd2u1NhjfdU0PR7pWZ.uZj1b1z99yDblY1K",
       "firstName": "Derek",
       "lastName": "Preston",
+      "username": "lkjalsdfjsal",
       "id": 9
     },
     {
@@ -68,7 +77,24 @@
       "password": "$2a$10$ZA/pbjGfOU0FJQZuJGa68ehIuL6lyS/scE23En8aIGmnpvNLsOVB2",
       "firstName": "Eric",
       "lastName": "Trevino",
+      "username": "lkjsdffjas",
       "id": 10
+    },
+    {
+      "email": "xuwyguf@mailinator.com",
+      "password": "$2a$10$NcBgP7SyyPBQoqrwNMKYmOqxRRK9hIA6PpQsW.Pd0drP0nkMICGZy",
+      "firstName": "Christopher",
+      "lastName": "Barron",
+      "username": "pkjslkjdsf",
+      "id": 11
+    },
+    {
+      "email": "palete@mailinator.com",
+      "password": "$2a$10$Y.r6/KYyGbdZDRxcmw9zs.3JzCcD0wr4ShY89tcuknXKqrCjvvgOG",
+      "firstName": "Howard",
+      "lastName": "Stanton",
+      "username": "rexukoads",
+      "id": 12
     }
   ],
   "movies-popular": [
@@ -151,9 +177,11 @@
         "adventure, drama"
       ],
       "rate": {
-        "vote": 0,
-        "count": 0,
-        "userIds": []
+        "vote": 3,
+        "count": 1,
+        "userIds": [
+          12
+        ]
       }
     },
     {
@@ -177,11 +205,12 @@
         "action"
       ],
       "rate": {
-        "vote": 6,
-        "count": 2,
+        "vote": 9,
+        "count": 3,
         "userIds": [
           1,
-          2
+          2,
+          12
         ]
       }
     },
@@ -235,10 +264,11 @@
         "drama"
       ],
       "rate": {
-        "vote": 3,
-        "count": 1,
+        "vote": 6,
+        "count": 2,
         "userIds": [
-          1
+          1,
+          12
         ]
       }
     },
@@ -345,10 +375,11 @@
         "adventure"
       ],
       "rate": {
-        "vote": 3,
-        "count": 1,
+        "vote": 5,
+        "count": 2,
         "userIds": [
-          1
+          1,
+          12
         ]
       }
     },
@@ -514,9 +545,11 @@
         "adventure"
       ],
       "rate": {
-        "vote": 0,
-        "count": 0,
-        "userIds": []
+        "vote": 3,
+        "count": 1,
+        "userIds": [
+          12
+        ]
       }
     },
     {
@@ -1545,6 +1578,122 @@
             "science fiction",
             "thriller"
           ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "movies": [
+        {
+          "id": 2,
+          "title": "The Dark Knight",
+          "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/5f/fe/79/5ffe79003530da912a82acac80be1426.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/ea/a2/6e/eaa26e2c3bfa234c3cdd3c4d9fabad35.jpg",
+            "https://images4.alphacoders.com/136/1360004.jpeg"
+          ],
+          "year": 2008,
+          "director": "Christopher Nolan",
+          "cast": [
+            "Christian Bale",
+            "Heath Ledger",
+            "Aaron Eckhart"
+          ],
+          "genres": [
+            "action",
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 8,
+            "count": 2,
+            "userIds": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "title": "The Godfather",
+          "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/23/7e/ba/237eba645be9dcccf5d09f1e7037d5f3.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/23/7e/ba/237eba645be9dcccf5d09f1e7037d5f3.jpg",
+            "https://images4.alphacoders.com/217/thumb-1920-217234.jpg"
+          ],
+          "year": 1972,
+          "director": "Francis Ford Coppola",
+          "cast": [
+            "Marlon Brando",
+            "Al Pacino",
+            "James Caan"
+          ],
+          "genres": [
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 3,
+            "count": 1,
+            "userIds": [
+              1
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "title": "The Shawshank Redemption",
+          "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/08/6f/fe/086ffeccab22baa2b4d49ab8787f9b90.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/08/6f/fe/086ffeccab22baa2b4d49ab8787f9b90.jpg",
+            "https://images5.alphacoders.com/338/thumb-1920-338840.jpg"
+          ],
+          "year": 1994,
+          "director": "Frank Darabont",
+          "cast": [
+            "Tim Robbins",
+            "Morgan Freeman",
+            "Bob Gunton"
+          ],
+          "genres": [
+            "drama"
+          ],
+          "rate": {
+            "vote": 0,
+            "count": 0,
+            "userIds": []
+          }
+        },
+        {
+          "id": 7,
+          "title": "Fight Club",
+          "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/de/1b/80/de1b8002fd9024279fccc4ccc96f18f6.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/de/1b/80/de1b8002fd9024279fccc4ccc96f18f6.jpg",
+            "https://images.alphacoders.com/535/thumb-1920-53563.jpg"
+          ],
+          "year": 1999,
+          "director": "David Fincher",
+          "cast": [
+            "Brad Pitt",
+            "Edward Norton",
+            "Helena Bonham Carter"
+          ],
+          "genres": [
+            "drama",
+            "thriller"
+          ],
+          "rate": {
+            "vote": 3,
+            "count": 1,
+            "userIds": [
+              2
+            ]
+          }
         }
       ]
     }

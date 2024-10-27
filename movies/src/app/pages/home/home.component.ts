@@ -13,14 +13,15 @@ export class HomeComponent {
   recentMovie!: iMovie;
 
   movies!: iMovie[];
+  isLoading: boolean = true;
 
   ngOnInit() {
     this.movieSvc.getRecentMovie().subscribe((movie) => {
       this.recentMovie = movie;
-
-      this.movieSvc
-        .getOthersMovie(this.recentMovie.id)
-        .subscribe((movies) => (this.movies = movies));
+      this.movieSvc.getOthersMovie(this.recentMovie.id).subscribe((movies) => {
+        this.movies = movies;
+        this.isLoading = false;
+      });
     });
   }
 }

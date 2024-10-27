@@ -2,7 +2,7 @@ import { iFavourite } from './../interfaces/ifavourite';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { iUser } from '../interfaces/iuser';
 import { AuthService } from '../auth/auth.service';
 
@@ -17,10 +17,34 @@ export class UserService {
   usersUrl = environment.users;
 
   getAllUsers(): Observable<iUser[]> {
-    return this.http.get<iUser[]>(this.usersUrl);
+    return this.http.get<iUser[]>(this.usersUrl).pipe(
+      catchError((error) => {
+        return throwError(() => {
+          let message = '';
+          if (error.status >= 400 && error.status < 500) {
+            message = 'Not found';
+          } else if (error.status === 500) {
+            message = 'Request error';
+          }
+          return message;
+        });
+      })
+    );
   }
 
   getUserById(userId: number): Observable<iUser> {
-    return this.http.get<iUser>(`${this.usersUrl}/${userId}`);
+    return this.http.get<iUser>(`${this.usersUrl}/${userId}`).pipe(
+      catchError((error) => {
+        return throwError(() => {
+          let message = '';
+          if (error.status >= 400 && error.status < 500) {
+            message = 'Not found';
+          } else if (error.status === 500) {
+            message = 'Request error';
+          }
+          return message;
+        });
+      })
+    );
   }
 }

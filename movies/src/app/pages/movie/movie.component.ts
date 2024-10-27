@@ -15,6 +15,7 @@ export class MovieComponent {
   movie!: iMovie;
   relateds!: iMovie[];
   byCast!: iMovie[];
+  isLoading: boolean = true;
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -25,11 +26,8 @@ export class MovieComponent {
           .getRelatedsByGenre(this.movie.id, this.movie.genres)
           .subscribe((movies) => {
             this.relateds = movies;
+            this.isLoading = false;
           });
-
-        this.movie.cast = this.movie.cast.map((cast) => {
-          return cast.toLowerCase();
-        });
       });
     });
   }

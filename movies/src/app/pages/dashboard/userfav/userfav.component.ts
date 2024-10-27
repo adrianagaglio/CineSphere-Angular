@@ -15,7 +15,8 @@ export class UserfavComponent {
   ) {}
 
   movies!: iMovie[];
-  message!: any;
+  message!: string | null;
+  isLoading: boolean = true;
 
   ngOnInit() {
     this.favSvc.getFavouritesLoggedUser();
@@ -23,8 +24,10 @@ export class UserfavComponent {
       if (movies && movies.length > 0) {
         this.movies = movies;
         this.message = null;
-      } else {
+        this.isLoading = false;
+      } else if (!movies || movies.length === 0) {
         this.message = 'Favourites not found, please add some movies first';
+        this.isLoading = false;
       }
     });
   }

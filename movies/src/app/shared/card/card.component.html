@@ -1,11 +1,12 @@
 <ng-container *ngIf="movie">
   <div class="card border-0 mb-3">
     <img
+      [routerLink]="['/movie', movie.id]"
       src="{{ movie.coverImage[0] }}"
       class="w-100 object-fit-cover sm-image"
       alt="{{ movie.title }}"
     />
-    <div class="card-body bg-dark border-0 px-0">
+    <div class="card-body bg-dark border-0 px-0 py-2">
       <h6 class="card-title text-light mb-2" title="{{ movie.title }}">
         {{ movie.title | truncate : 15 }}
       </h6>

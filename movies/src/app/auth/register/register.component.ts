@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -23,10 +30,31 @@ export class RegisterComponent {
     this.registerForm = this.fb.group({
       firstName: this.fb.control('', [Validators.required]),
       lastName: this.fb.control('', [Validators.required]),
+      username: this.fb.control('', [this.minLenght8]),
       email: this.fb.control('', [Validators.required, Validators.email]),
-      password: this.fb.control('', [Validators.required]),
+      password: this.fb.control('', [this.minLenght8]),
     });
   }
+
+  ngAfterViewInit() {}
+
+  isInvalidTouched(fieldname: string) {
+    return (
+      this.registerForm.get(fieldname)?.invalid &&
+      this.registerForm.get(fieldname)?.touched
+    );
+  }
+
+  minLenght8 = (formC: AbstractControl): ValidationErrors | null => {
+    if (formC.value.length < 8) {
+      formC.setErrors({
+        minLenght8: true,
+        message: 'Min 8 characters required',
+      });
+      return formC.errors;
+    }
+    return null;
+  };
 
   register() {
     if (this.registerForm.valid) {

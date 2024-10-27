@@ -40,7 +40,9 @@ export class ShowratingComponent {
         if (this.movie) {
           this.movieSvc.restoreRatings(this.movie.id).subscribe((rateInfo) => {
             this.rating = rateInfo.vote / rateInfo.count;
-            console.log(this.rating);
+            if (!this.rating || this.rating === 0) {
+              this.message = 'No ratings yet';
+            }
           });
         }
       }
