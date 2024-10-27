@@ -17,7 +17,6 @@ import {
 } from '@ng-icons/bootstrap-icons';
 import { RouterModule } from '@angular/router';
 import { RatingsComponent } from './ratings/ratings.component';
-import { SelectStarDirective } from './select-star.directive';
 import { ShowratingComponent } from './showrating/showrating.component';
 
 @NgModule({

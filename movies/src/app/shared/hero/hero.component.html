@@ -30,7 +30,7 @@
             </a>
           </span>
         </div>
-        <div class=""><ng-content></ng-content></div>
+        <div *ngIf="!isHome"><ng-content></ng-content></div>
       </div>
     </div>
     <div class="col-lg-6 mx-auto">

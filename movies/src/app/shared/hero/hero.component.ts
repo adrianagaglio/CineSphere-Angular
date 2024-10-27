@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { iMovie } from '../../interfaces/imovie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
@@ -7,5 +8,14 @@ import { iMovie } from '../../interfaces/imovie';
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
+  constructor(private router: Router) {}
+
   @Input() movie!: iMovie;
+  isHome!: boolean;
+
+  ngOnInit() {
+    if (this.router.url === '/') {
+      this.isHome = true;
+    }
+  }
 }
