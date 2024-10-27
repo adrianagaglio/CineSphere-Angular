@@ -23,7 +23,7 @@ export class RatingsComponent {
   movieRate!: iRate;
   userId!: number;
   alreadyVoted!: boolean;
-  isDetailPage!: boolean;
+  message!: string;
 
   stars = [
     { value: 1 },
@@ -34,10 +34,6 @@ export class RatingsComponent {
   ];
 
   ngOnInit() {
-    if (this.router.url.includes('movie')) {
-      this.isDetailPage = true;
-    }
-
     this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
       if (isLoggedIn) {
         this.userId = this.authSvc.authData$.value!.user.id as number;
@@ -47,14 +43,8 @@ export class RatingsComponent {
             .checkIfRated(this.movie.id, this.userId)
             .subscribe((rated) => {
               this.alreadyVoted = rated;
+              this.message = 'You already rated this movie!';
             });
-        }
-
-        if (this.isDetailPage && this.movie) {
-          this.movieSvc.restoreRatings(this.movie.id).subscribe((rate) => {
-            this.rating = Number(rate.vote) / Number(rate.count);
-            console.log(this.rating);
-          });
         }
       }
     });
@@ -65,6 +55,9 @@ export class RatingsComponent {
     this.movieSvc
       .rateMovie(this.movie.id, this.rating, this.userId)
       .subscribe();
-    this.alreadyVoted = true;
+    setTimeout(() => {
+      this.alreadyVoted = true;
+      this.message = 'Thanks for rating!';
+    }, 500);
   }
 }

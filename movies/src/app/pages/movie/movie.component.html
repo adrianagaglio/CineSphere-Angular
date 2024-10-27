@@ -1,6 +1,11 @@
 <ng-container *ngIf="movie">
   <app-hero [movie]="movie">
-    <ng-content><app-ratings></app-ratings></ng-content>
+    <ng-content>
+      <div class="d-flex gap-2">
+        <h6 class="text-light">Users rating:</h6>
+        <app-showrating [movie]="movie"></app-showrating>
+      </div>
+    </ng-content>
   </app-hero>
 </ng-container>
 

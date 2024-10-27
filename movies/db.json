@@ -122,10 +122,11 @@
         "drama"
       ],
       "rate": {
-        "vote": 3,
-        "count": 1,
+        "vote": 8,
+        "count": 2,
         "userIds": [
-          1
+          1,
+          2
         ]
       }
     },
@@ -176,10 +177,11 @@
         "action"
       ],
       "rate": {
-        "vote": 3,
-        "count": 1,
+        "vote": 6,
+        "count": 2,
         "userIds": [
-          1
+          1,
+          2
         ]
       }
     },
@@ -204,10 +206,11 @@
         "drama"
       ],
       "rate": {
-        "vote": 3,
-        "count": 1,
+        "vote": 6,
+        "count": 2,
         "userIds": [
-          1
+          1,
+          2
         ]
       }
     },
@@ -260,9 +263,11 @@
         "thriller"
       ],
       "rate": {
-        "vote": 0,
-        "count": 0,
-        "userIds": []
+        "vote": 3,
+        "count": 1,
+        "userIds": [
+          2
+        ]
       }
     },
     {
@@ -286,9 +291,11 @@
         "romance"
       ],
       "rate": {
-        "vote": 0,
-        "count": 0,
-        "userIds": []
+        "vote": 3,
+        "count": 1,
+        "userIds": [
+          1
+        ]
       }
     },
     {
@@ -366,9 +373,11 @@
         "adventure"
       ],
       "rate": {
-        "vote": 0,
-        "count": 0,
-        "userIds": []
+        "vote": 3,
+        "count": 1,
+        "userIds": [
+          1
+        ]
       }
     },
     {
@@ -393,9 +402,11 @@
         "drama"
       ],
       "rate": {
-        "vote": 0,
-        "count": 0,
-        "userIds": []
+        "vote": 3,
+        "count": 1,
+        "userIds": [
+          1
+        ]
       }
     },
     {
@@ -447,9 +458,11 @@
         "thriller"
       ],
       "rate": {
-        "vote": 0,
-        "count": 0,
-        "userIds": []
+        "vote": 3,
+        "count": 1,
+        "userIds": [
+          1
+        ]
       }
     },
     {

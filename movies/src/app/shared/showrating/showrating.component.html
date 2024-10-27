@@ -1,0 +1,11 @@
+<ng-container>
+  <div class="d-flex gap-2 justify-content-center">
+    <ng-container>
+      <span class="text-warning" *ngFor="let star of stars">
+        <ng-icon
+          [name]="rating >= star.value ? 'bootstrapStarFill' : 'bootstrapStar'"
+        ></ng-icon>
+      </span>
+    </ng-container>
+  </div>
+</ng-container>

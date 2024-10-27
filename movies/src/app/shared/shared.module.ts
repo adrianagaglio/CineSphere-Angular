@@ -18,6 +18,7 @@ import {
 import { RouterModule } from '@angular/router';
 import { RatingsComponent } from './ratings/ratings.component';
 import { SelectStarDirective } from './select-star.directive';
+import { ShowratingComponent } from './showrating/showrating.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SelectStarDirective } from './select-star.directive';
     RemovebuttonComponent,
     UsercardComponent,
     RatingsComponent,
+    ShowratingComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { SelectStarDirective } from './select-star.directive';
     RemovebuttonComponent,
     UsercardComponent,
     RatingsComponent,
+    ShowratingComponent,
   ],
 })
 export class SharedModule {}
