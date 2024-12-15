@@ -20,13 +20,11 @@ import {
   providedIn: 'root',
 })
 export class FavouritesService {
-  constructor(private http: HttpClient) {
-    this.getFavouritesLoggedUser();
-  }
+  constructor(private http: HttpClient) {}
 
   favouritesUrl = environment.favourites;
 
-  favouritesByUser$ = new BehaviorSubject<iMovie[] | null>([]);
+  favouritesByUser$ = new BehaviorSubject<iMovie[]>([]);
 
   getAllFavourites(): Observable<iFavourite[]> {
     return this.http.get<iFavourite[]>(this.favouritesUrl);
@@ -119,7 +117,7 @@ export class FavouritesService {
         if (movies.length > 0) {
           this.favouritesByUser$.next(movies);
         } else {
-          this.favouritesByUser$.next(null);
+          this.favouritesByUser$.next([]);
         }
       });
     }

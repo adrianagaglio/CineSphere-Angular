@@ -14,7 +14,7 @@
         <a routerLink="/users" class="nav-link text-light px-2">Users</a>
       </li>
     </ul>
-    <ul class="nav ms-auto">
+    <ul class="nav ms-auto" *ngIf="isLoggedIn">
       <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
         <a
           class="nav-link text-light"
