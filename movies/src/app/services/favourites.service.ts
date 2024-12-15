@@ -20,7 +20,9 @@ import {
   providedIn: 'root',
 })
 export class FavouritesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.getFavouritesLoggedUser();
+  }
 
   favouritesUrl = environment.favourites;
 
@@ -114,7 +116,11 @@ export class FavouritesService {
     if (jsonAuthData) {
       let userId = JSON.parse(jsonAuthData).user.id;
       this.getFavouritesByUser(userId).subscribe((movies) => {
-        this.favouritesByUser$.next(movies);
+        if (movies.length > 0) {
+          this.favouritesByUser$.next(movies);
+        } else {
+          this.favouritesByUser$.next(null);
+        }
       });
     }
   }

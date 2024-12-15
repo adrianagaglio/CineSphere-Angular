@@ -95,6 +95,14 @@
       "lastName": "Stanton",
       "username": "rexukoads",
       "id": 12
+    },
+    {
+      "email": "peqikyzir@mailinator.com",
+      "password": "$2a$10$xTzH5ymXAeUKMvFfagiQsOOO.mP5flFSn3fjnkQIQZzeh5gojGGb6",
+      "firstName": "Janna",
+      "lastName": "Acosta",
+      "username": "qihosakus",
+      "id": 13
     }
   ],
   "movies-popular": [
@@ -119,10 +127,11 @@
         "thriller"
       ],
       "rate": {
-        "vote": 3,
-        "count": 1,
+        "vote": 6,
+        "count": 2,
         "userIds": [
-          1
+          1,
+          13
         ]
       }
     },
@@ -174,7 +183,8 @@
       ],
       "genres": [
         "science fiction",
-        "adventure, drama"
+        "adventure",
+        "drama"
       ],
       "rate": {
         "vote": 3,
@@ -293,10 +303,12 @@
         "thriller"
       ],
       "rate": {
-        "vote": 3,
-        "count": 1,
+        "vote": 9,
+        "count": 3,
         "userIds": [
-          2
+          2,
+          13,
+          1
         ]
       }
     },
@@ -375,11 +387,12 @@
         "adventure"
       ],
       "rate": {
-        "vote": 5,
-        "count": 2,
+        "vote": 7,
+        "count": 3,
         "userIds": [
           1,
-          12
+          12,
+          13
         ]
       }
     },
@@ -796,47 +809,6 @@
       "id": 1,
       "movies": [
         {
-          "id": 9,
-          "title": "The Shawshank Redemption",
-          "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-          "coverImage": [
-            "https://i.pinimg.com/enabled_hi/236x/08/6f/fe/086ffeccab22baa2b4d49ab8787f9b90.jpg",
-            "https://i.pinimg.com/enabled_hi/564x/08/6f/fe/086ffeccab22baa2b4d49ab8787f9b90.jpg",
-            "https://images5.alphacoders.com/338/thumb-1920-338840.jpg"
-          ],
-          "year": 1994,
-          "director": "Frank Darabont",
-          "cast": [
-            "Tim Robbins",
-            "Morgan Freeman",
-            "Bob Gunton"
-          ],
-          "genres": [
-            "drama"
-          ]
-        },
-        {
-          "id": 1,
-          "title": "Inception",
-          "description": "A skilled thief, the best in the dangerous art of extraction, steals secrets from within the subconscious during the dream state.",
-          "coverImage": [
-            "https://i.pinimg.com/enabled_hi/236x/43/9a/1c/439a1c4583a953c26b63d08a1d832f53.jpg",
-            "https://i.pinimg.com/enabled_hi/564x/43/9a/1c/439a1c4583a953c26b63d08a1d832f53.jpg",
-            "https://picfiles.alphacoders.com/469/thumb-1920-469354.jpg"
-          ],
-          "year": 2010,
-          "director": "Christopher Nolan",
-          "cast": [
-            "Leonardo DiCaprio",
-            "Joseph Gordon-Levitt",
-            "Elliot Page"
-          ],
-          "genres": [
-            "science fiction",
-            "thriller"
-          ]
-        },
-        {
           "id": 4,
           "title": "The Matrix",
           "description": "A hacker discovers that the reality he lives in is a simulated reality created by machines, and joins a rebellion to overthrow them.",
@@ -855,13 +827,136 @@
           "genres": [
             "science fiction",
             "action"
-          ]
+          ],
+          "rate": {
+            "vote": 9,
+            "count": 3,
+            "userIds": [
+              1,
+              2,
+              12
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "title": "Pulp Fiction",
+          "description": "The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/89/41/e7/8941e71464be8fe81ade92a86817338e.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/89/41/e7/8941e71464be8fe81ade92a86817338e.jpg",
+            "https://images2.alphacoders.com/132/thumb-1920-1324762.jpeg"
+          ],
+          "year": 1994,
+          "director": "Quentin Tarantino",
+          "cast": [
+            "John Travolta",
+            "Uma Thurman",
+            "Samuel L. Jackson"
+          ],
+          "genres": [
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 6,
+            "count": 2,
+            "userIds": [
+              1,
+              2
+            ]
+          }
         }
       ]
     },
     {
       "id": 2,
-      "movies": []
+      "movies": [
+        {
+          "id": 2,
+          "title": "The Dark Knight",
+          "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/5f/fe/79/5ffe79003530da912a82acac80be1426.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/ea/a2/6e/eaa26e2c3bfa234c3cdd3c4d9fabad35.jpg",
+            "https://images4.alphacoders.com/136/1360004.jpeg"
+          ],
+          "year": 2008,
+          "director": "Christopher Nolan",
+          "cast": [
+            "Christian Bale",
+            "Heath Ledger",
+            "Aaron Eckhart"
+          ],
+          "genres": [
+            "action",
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 8,
+            "count": 2,
+            "userIds": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "title": "The Shawshank Redemption",
+          "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/08/6f/fe/086ffeccab22baa2b4d49ab8787f9b90.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/08/6f/fe/086ffeccab22baa2b4d49ab8787f9b90.jpg",
+            "https://images5.alphacoders.com/338/thumb-1920-338840.jpg"
+          ],
+          "year": 1994,
+          "director": "Frank Darabont",
+          "cast": [
+            "Tim Robbins",
+            "Morgan Freeman",
+            "Bob Gunton"
+          ],
+          "genres": [
+            "drama"
+          ],
+          "rate": {
+            "vote": 0,
+            "count": 0,
+            "userIds": []
+          }
+        },
+        {
+          "id": 5,
+          "title": "Pulp Fiction",
+          "description": "The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/89/41/e7/8941e71464be8fe81ade92a86817338e.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/89/41/e7/8941e71464be8fe81ade92a86817338e.jpg",
+            "https://images2.alphacoders.com/132/thumb-1920-1324762.jpeg"
+          ],
+          "year": 1994,
+          "director": "Quentin Tarantino",
+          "cast": [
+            "John Travolta",
+            "Uma Thurman",
+            "Samuel L. Jackson"
+          ],
+          "genres": [
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 6,
+            "count": 2,
+            "userIds": [
+              1,
+              2
+            ]
+          }
+        }
+      ]
     },
     {
       "id": 5,
@@ -1400,117 +1495,7 @@
     },
     {
       "id": 8,
-      "movies": [
-        {
-          "id": 2,
-          "title": "The Dark Knight",
-          "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-          "coverImage": [
-            "https://i.pinimg.com/enabled_hi/236x/5f/fe/79/5ffe79003530da912a82acac80be1426.jpg",
-            "https://i.pinimg.com/enabled_hi/564x/ea/a2/6e/eaa26e2c3bfa234c3cdd3c4d9fabad35.jpg",
-            "https://images4.alphacoders.com/136/1360004.jpeg"
-          ],
-          "year": 2008,
-          "director": "Christopher Nolan",
-          "cast": [
-            "Christian Bale",
-            "Heath Ledger",
-            "Aaron Eckhart"
-          ],
-          "genres": [
-            "action",
-            "crime",
-            "drama"
-          ]
-        },
-        {
-          "id": 1,
-          "title": "Inception",
-          "description": "A skilled thief, the best in the dangerous art of extraction, steals secrets from within the subconscious during the dream state.",
-          "coverImage": [
-            "https://i.pinimg.com/enabled_hi/236x/43/9a/1c/439a1c4583a953c26b63d08a1d832f53.jpg",
-            "https://i.pinimg.com/enabled_hi/564x/43/9a/1c/439a1c4583a953c26b63d08a1d832f53.jpg",
-            "https://picfiles.alphacoders.com/469/thumb-1920-469354.jpg"
-          ],
-          "year": 2010,
-          "director": "Christopher Nolan",
-          "cast": [
-            "Leonardo DiCaprio",
-            "Joseph Gordon-Levitt",
-            "Elliot Page"
-          ],
-          "genres": [
-            "science fiction",
-            "thriller"
-          ]
-        },
-        {
-          "id": 16,
-          "title": "Avatar",
-          "description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-          "coverImage": [
-            "https://i.pinimg.com/enabled_hi/236x/5e/3e/06/5e3e06e2328ed4b5f78d0deec5aa1d0f.jpg",
-            "https://i.pinimg.com/enabled_hi/564x/5e/3e/06/5e3e06e2328ed4b5f78d0deec5aa1d0f.jpg",
-            "https://images6.alphacoders.com/439/thumb-1920-439052.jpg"
-          ],
-          "year": 2009,
-          "director": "James Cameron",
-          "cast": [
-            "Sam Worthington",
-            "Zoe Saldana",
-            "Sigourney Weaver"
-          ],
-          "genres": [
-            "science fiction",
-            "action",
-            "adventure"
-          ]
-        },
-        {
-          "id": 12,
-          "title": "The Silence of the Lambs",
-          "description": "A young FBI cadet must confide in an incarcerated and manipulative killer to help catch another serial killer.",
-          "coverImage": [
-            "https://i.pinimg.com/enabled_hi/236x/50/8e/3e/508e3ee54eea242f5c80e80837bb4c45.jpg",
-            "https://i.pinimg.com/enabled_hi/564x/50/8e/3e/508e3ee54eea242f5c80e80837bb4c45.jpg",
-            "https://images7.alphacoders.com/340/thumb-1920-340960.jpg"
-          ],
-          "year": 1991,
-          "director": "Jonathan Demme",
-          "cast": [
-            "Jodie Foster",
-            "Anthony Hopkins",
-            "Lawrence A. Bonney"
-          ],
-          "genres": [
-            "thriller",
-            "crime",
-            "drama"
-          ]
-        },
-        {
-          "id": 13,
-          "title": "Saving Private Ryan",
-          "description": "In the midst of World War II, a group of U.S. soldiers must retrieve a paratrooper whose brothers have been killed in action.",
-          "coverImage": [
-            "https://i.pinimg.com/236x/26/2e/40/262e405482be6b7383d59ece8e677242.jpg",
-            "https://i.pinimg.com/564x/26/2e/40/262e405482be6b7383d59ece8e677242.jpg",
-            "https://images7.alphacoders.com/133/thumb-1920-1330047.jpeg"
-          ],
-          "year": 1998,
-          "director": "Steven Spielberg",
-          "cast": [
-            "Tom Hanks",
-            "Matt Damon",
-            "Tom Sizemore"
-          ],
-          "genres": [
-            "war",
-            "drama",
-            "action"
-          ]
-        }
-      ]
+      "movies": []
     },
     {
       "id": 3,
@@ -1694,8 +1679,346 @@
               2
             ]
           }
+        },
+        {
+          "id": 15,
+          "title": "Titanic",
+          "description": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/79/4d/9a/794d9ab3e478ef693d0e08f3d4388c96.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/79/4d/9a/794d9ab3e478ef693d0e08f3d4388c96.jpg",
+            "https://images4.alphacoders.com/223/thumb-1920-223196.jpg"
+          ],
+          "year": 1997,
+          "director": "James Cameron",
+          "cast": [
+            "Leonardo DiCaprio",
+            "Kate Winslet",
+            "Billy Zane"
+          ],
+          "genres": [
+            "drama",
+            "romance",
+            "history"
+          ],
+          "rate": {
+            "vote": 0,
+            "count": 0,
+            "userIds": []
+          }
+        },
+        {
+          "id": 16,
+          "title": "Avatar",
+          "description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/5e/3e/06/5e3e06e2328ed4b5f78d0deec5aa1d0f.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/5e/3e/06/5e3e06e2328ed4b5f78d0deec5aa1d0f.jpg",
+            "https://images6.alphacoders.com/439/thumb-1920-439052.jpg"
+          ],
+          "year": 2009,
+          "director": "James Cameron",
+          "cast": [
+            "Sam Worthington",
+            "Zoe Saldana",
+            "Sigourney Weaver"
+          ],
+          "genres": [
+            "science fiction",
+            "action",
+            "adventure"
+          ],
+          "rate": {
+            "vote": 3,
+            "count": 1,
+            "userIds": [
+              12
+            ]
+          }
         }
       ]
+    },
+    {
+      "id": 13,
+      "movies": [
+        {
+          "id": 1,
+          "title": "Inception",
+          "description": "A skilled thief, the best in the dangerous art of extraction, steals secrets from within the subconscious during the dream state.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/43/9a/1c/439a1c4583a953c26b63d08a1d832f53.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/43/9a/1c/439a1c4583a953c26b63d08a1d832f53.jpg",
+            "https://picfiles.alphacoders.com/469/thumb-1920-469354.jpg"
+          ],
+          "year": 2010,
+          "director": "Christopher Nolan",
+          "cast": [
+            "Leonardo DiCaprio",
+            "Joseph Gordon-Levitt",
+            "Elliot Page"
+          ],
+          "genres": [
+            "science fiction",
+            "thriller"
+          ],
+          "rate": {
+            "vote": 3,
+            "count": 1,
+            "userIds": [
+              1
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "title": "The Godfather",
+          "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/23/7e/ba/237eba645be9dcccf5d09f1e7037d5f3.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/23/7e/ba/237eba645be9dcccf5d09f1e7037d5f3.jpg",
+            "https://images4.alphacoders.com/217/thumb-1920-217234.jpg"
+          ],
+          "year": 1972,
+          "director": "Francis Ford Coppola",
+          "cast": [
+            "Marlon Brando",
+            "Al Pacino",
+            "James Caan"
+          ],
+          "genres": [
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 6,
+            "count": 2,
+            "userIds": [
+              1,
+              12
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "title": "Gladiator",
+          "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/49/22/6c/49226cc2be5cb537218993fa89d075a8.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/49/22/6c/49226cc2be5cb537218993fa89d075a8.jpg",
+            "https://artfiles.alphacoders.com/101/thumb-1920-101935.jpg"
+          ],
+          "year": 2000,
+          "director": "Ridley Scott",
+          "cast": [
+            "Russell Crowe",
+            "Joaquin Phoenix",
+            "Connie Nielsen"
+          ],
+          "genres": [
+            "action",
+            "drama",
+            "adventure"
+          ],
+          "rate": {
+            "vote": 5,
+            "count": 2,
+            "userIds": [
+              1,
+              12
+            ]
+          }
+        },
+        {
+          "id": 15,
+          "title": "Titanic",
+          "description": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/79/4d/9a/794d9ab3e478ef693d0e08f3d4388c96.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/79/4d/9a/794d9ab3e478ef693d0e08f3d4388c96.jpg",
+            "https://images4.alphacoders.com/223/thumb-1920-223196.jpg"
+          ],
+          "year": 1997,
+          "director": "James Cameron",
+          "cast": [
+            "Leonardo DiCaprio",
+            "Kate Winslet",
+            "Billy Zane"
+          ],
+          "genres": [
+            "drama",
+            "romance",
+            "history"
+          ],
+          "rate": {
+            "vote": 0,
+            "count": 0,
+            "userIds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "movies": [
+        {
+          "id": 4,
+          "title": "The Matrix",
+          "description": "A hacker discovers that the reality he lives in is a simulated reality created by machines, and joins a rebellion to overthrow them.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/18/d7/4e/18d74ef46e722828f75cca91b009f4a5.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/18/d7/4e/18d74ef46e722828f75cca91b009f4a5.jpg",
+            "https://images7.alphacoders.com/135/thumb-1920-1356883.png"
+          ],
+          "year": 1999,
+          "director": "Lana Wachowski, Lilly Wachowski",
+          "cast": [
+            "Keanu Reeves",
+            "Laurence Fishburne",
+            "Carrie-Anne Moss"
+          ],
+          "genres": [
+            "science fiction",
+            "action"
+          ],
+          "rate": {
+            "vote": 9,
+            "count": 3,
+            "userIds": [
+              1,
+              2,
+              12
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "title": "The Godfather",
+          "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/23/7e/ba/237eba645be9dcccf5d09f1e7037d5f3.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/23/7e/ba/237eba645be9dcccf5d09f1e7037d5f3.jpg",
+            "https://images4.alphacoders.com/217/thumb-1920-217234.jpg"
+          ],
+          "year": 1972,
+          "director": "Francis Ford Coppola",
+          "cast": [
+            "Marlon Brando",
+            "Al Pacino",
+            "James Caan"
+          ],
+          "genres": [
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 6,
+            "count": 2,
+            "userIds": [
+              1,
+              12
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "movies": [
+        {
+          "id": 2,
+          "title": "The Dark Knight",
+          "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/5f/fe/79/5ffe79003530da912a82acac80be1426.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/ea/a2/6e/eaa26e2c3bfa234c3cdd3c4d9fabad35.jpg",
+            "https://images4.alphacoders.com/136/1360004.jpeg"
+          ],
+          "year": 2008,
+          "director": "Christopher Nolan",
+          "cast": [
+            "Christian Bale",
+            "Heath Ledger",
+            "Aaron Eckhart"
+          ],
+          "genres": [
+            "action",
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 8,
+            "count": 2,
+            "userIds": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "title": "Pulp Fiction",
+          "description": "The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/89/41/e7/8941e71464be8fe81ade92a86817338e.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/89/41/e7/8941e71464be8fe81ade92a86817338e.jpg",
+            "https://images2.alphacoders.com/132/thumb-1920-1324762.jpeg"
+          ],
+          "year": 1994,
+          "director": "Quentin Tarantino",
+          "cast": [
+            "John Travolta",
+            "Uma Thurman",
+            "Samuel L. Jackson"
+          ],
+          "genres": [
+            "crime",
+            "drama"
+          ],
+          "rate": {
+            "vote": 6,
+            "count": 2,
+            "userIds": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "title": "Gladiator",
+          "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+          "coverImage": [
+            "https://i.pinimg.com/enabled_hi/236x/49/22/6c/49226cc2be5cb537218993fa89d075a8.jpg",
+            "https://i.pinimg.com/enabled_hi/564x/49/22/6c/49226cc2be5cb537218993fa89d075a8.jpg",
+            "https://artfiles.alphacoders.com/101/thumb-1920-101935.jpg"
+          ],
+          "year": 2000,
+          "director": "Ridley Scott",
+          "cast": [
+            "Russell Crowe",
+            "Joaquin Phoenix",
+            "Connie Nielsen"
+          ],
+          "genres": [
+            "action",
+            "drama",
+            "adventure"
+          ],
+          "rate": {
+            "vote": 7,
+            "count": 3,
+            "userIds": [
+              1,
+              12,
+              13
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "movies": []
     }
   ]
 }

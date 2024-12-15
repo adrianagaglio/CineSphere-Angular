@@ -9,7 +9,7 @@
 <div class="row py-5">
   <div class="col-3"><app-sidebar></app-sidebar></div>
   <div class="col-9">
-    <ng-container *ngIf="movies">
+    <ng-container *ngIf="movies && movies.length > 0 && !isLoading">
       <div class="row row-cols-4 g-4">
         <div class="col" *ngFor="let movie of movies">
           <app-card [movie]="movie">
@@ -18,7 +18,7 @@
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf="message && !isLoading">
+    <ng-container *ngIf="movies && movies.length == 0">
       <div class="alert alert-danger text-center p-1">
         <span>{{ message }} </span>
         <a class="btn btn-dark btn-sm" routerLink="/">Go to home</a>

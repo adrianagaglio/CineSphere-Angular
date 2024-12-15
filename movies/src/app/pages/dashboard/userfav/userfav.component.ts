@@ -15,15 +15,13 @@ export class UserfavComponent {
   ) {}
 
   movies!: iMovie[];
-  message!: string | null;
+  message!: string;
   isLoading: boolean = true;
 
   ngOnInit() {
-    this.favSvc.getFavouritesLoggedUser();
     this.favSvc.favouritesByUser$.subscribe((movies) => {
       if (movies && movies.length > 0) {
         this.movies = movies;
-        this.message = null;
         this.isLoading = false;
       } else if (!movies || movies.length === 0) {
         this.message = 'Favourites not found, please add some movies first';

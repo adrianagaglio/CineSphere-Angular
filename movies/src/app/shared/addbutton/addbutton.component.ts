@@ -1,7 +1,6 @@
+import { FavouritesService } from './../../services/favourites.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { iMovie } from '../../interfaces/imovie';
-
-import { FavouritesService } from '../../services/favourites.service';
 
 @Component({
   selector: 'app-addbutton',
@@ -19,6 +18,7 @@ export class AddbuttonComponent {
 
   add() {
     this.favSvc.addFavourite(this.movie, this.userId).subscribe();
+
     this.addMovie.emit(true);
   }
 }
