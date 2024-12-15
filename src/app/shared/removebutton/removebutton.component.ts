@@ -13,9 +13,11 @@ export class RemovebuttonComponent {
   @Input() userId!: number;
   @Input() movie!: iMovie;
   @Output() removeMovie = new EventEmitter<boolean>();
+  @Output() removedMovie = new EventEmitter<iMovie>();
 
   remove() {
     this.favSvc.removeUserFavourite(this.userId, this.movie).subscribe();
     this.removeMovie.emit(false);
+    this.removedMovie.emit(this.movie);
   }
 }

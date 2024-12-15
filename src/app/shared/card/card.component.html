@@ -32,7 +32,7 @@
               *ngIf="!isHome || isPresent"
               [userId]="userId"
               [movie]="movie"
-              (removeMovie)="removeMovie($event)"
+              (removeMovie)="removeMovie($event, movie)"
             ></app-removebutton>
           </ng-container>
         </div>

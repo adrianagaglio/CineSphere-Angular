@@ -9,7 +9,5 @@ import { FavouritesService } from './services/favourites.service';
 export class AppComponent {
   constructor(private favSvc: FavouritesService) {}
 
-  ngOnInit() {
-    this.favSvc.getFavouritesLoggedUser();
-  }
+  ngOnInit() {}
 }

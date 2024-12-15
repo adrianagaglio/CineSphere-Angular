@@ -12,7 +12,7 @@
     <ng-container *ngIf="!isLoading && movies.length > 0">
       <div class="row row-cols-4 g-4">
         <div class="col" *ngFor="let movie of movies">
-          <app-card [movie]="movie">
+          <app-card [movie]="movie" (removedMovie)="removeMovie($event)">
             <ng-content>Remove favourite</ng-content>
           </app-card>
         </div>
@@ -20,7 +20,7 @@
     </ng-container>
     <ng-container *ngIf="dataLoaded && noFavourites && !isLoading">
       <div
-        class="alert alert-danger text-center p-1 d-flex align-items-center justify-content-center"
+        class="alert alert-danger text-center p-1 d-flex align-items-center justify-content-center gap-2"
       >
         <span>{{ message }} </span>
         <a class="btn btn-dark btn-sm" routerLink="/">Go to home</a>

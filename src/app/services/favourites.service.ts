@@ -109,20 +109,6 @@ export class FavouritesService {
       );
   }
 
-  getFavouritesLoggedUser() {
-    let jsonAuthData = localStorage.getItem('authData');
-    if (jsonAuthData) {
-      let userId = JSON.parse(jsonAuthData).user.id;
-      this.getFavouritesByUser(userId).subscribe((movies) => {
-        if (movies.length > 0) {
-          this.favouritesByUser$.next(movies);
-        } else {
-          this.favouritesByUser$.next([]);
-        }
-      });
-    }
-  }
-
   removeUserFavourite(userId: number, movie: iMovie) {
     return this.http
       .get<iFavourite>(`${this.favouritesUrl}/${userId}`)

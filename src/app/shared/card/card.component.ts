@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { iMovie } from '../../interfaces/imovie';
 import { AuthService } from '../../auth/auth.service';
 import { FavouritesService } from '../../services/favourites.service';
@@ -16,6 +16,7 @@ export class CardComponent {
   route: any;
   isHome: boolean = false;
   isPresent!: boolean;
+  @Output() removedMovie = new EventEmitter<iMovie>();
 
   constructor(
     private authSvc: AuthService,
@@ -46,7 +47,8 @@ export class CardComponent {
     this.isPresent = add;
   }
 
-  removeMovie(remove: boolean) {
+  removeMovie(remove: boolean, movie: iMovie) {
     this.isPresent = remove;
+    this.removedMovie.emit(movie);
   }
 }

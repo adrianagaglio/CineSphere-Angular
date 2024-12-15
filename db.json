@@ -807,38 +807,7 @@
   "favourites": [
     {
       "id": 1,
-      "movies": [
-        {
-          "id": 4,
-          "title": "The Matrix",
-          "description": "A hacker discovers that the reality he lives in is a simulated reality created by machines, and joins a rebellion to overthrow them.",
-          "coverImage": [
-            "https://i.pinimg.com/enabled_hi/236x/18/d7/4e/18d74ef46e722828f75cca91b009f4a5.jpg",
-            "https://i.pinimg.com/enabled_hi/564x/18/d7/4e/18d74ef46e722828f75cca91b009f4a5.jpg",
-            "https://images7.alphacoders.com/135/thumb-1920-1356883.png"
-          ],
-          "year": 1999,
-          "director": "Lana Wachowski, Lilly Wachowski",
-          "cast": [
-            "Keanu Reeves",
-            "Laurence Fishburne",
-            "Carrie-Anne Moss"
-          ],
-          "genres": [
-            "science fiction",
-            "action"
-          ],
-          "rate": {
-            "vote": 9,
-            "count": 3,
-            "userIds": [
-              1,
-              2,
-              12
-            ]
-          }
-        }
-      ]
+      "movies": []
     },
     {
       "id": 2,

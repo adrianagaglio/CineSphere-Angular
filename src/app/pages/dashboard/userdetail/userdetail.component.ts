@@ -20,7 +20,6 @@ export class UserdetailComponent {
 
   ngOnInit() {
     this.authSvc.restoreUser();
-    this.favSvc.getFavouritesLoggedUser();
     this.userSvc.user$.subscribe((user) => {
       if (user) if (user) this.user = user;
     });
