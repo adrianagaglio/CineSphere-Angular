@@ -9,3 +9,24 @@
 img {
   cursor: pointer;
 }
+
+.overlay::after,
+.wrapper .controls {
+  display: none;
+}
+
+.wrapper:hover {
+  .overlay::after {
+    content: "";
+    display: block;
+    background-color: rgb(0 0 0 / 30%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .controls {
+    display: block;
+  }
+}
