@@ -14,6 +14,8 @@ export class HeroComponent {
   isHome!: boolean;
 
   ngOnInit() {
+    console.log(this.movie);
+
     if (this.router.url === '/') {
       this.isHome = true;
     }

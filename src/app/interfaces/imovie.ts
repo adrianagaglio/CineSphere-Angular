@@ -1,3 +1,4 @@
+import { iActor } from './iactor';
 import { iRate } from './irate';
 
 export interface iMovie {
@@ -7,7 +8,7 @@ export interface iMovie {
   coverImage: string[];
   year: number;
   director: string;
-  actors: string[];
+  actors: iActor[];
   genres: string[];
   rate: iRate;
 }

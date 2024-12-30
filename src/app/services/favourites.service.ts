@@ -15,6 +15,7 @@ import {
   tap,
   throwError,
 } from 'rxjs';
+import { iUser } from '../interfaces/iuser';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,7 @@ export class FavouritesService {
   constructor(private http: HttpClient) {}
 
   favouritesUrl = environment.favourites;
+  userUrl = environment.users;
 
   favouritesByUser$ = new BehaviorSubject<iMovie[] | null>([]);
 
@@ -147,5 +149,9 @@ export class FavouritesService {
         })
       )
       .pipe(tap((favourite) => this.favouritesByUser$.next(favourite.movies)));
+  }
+
+  addFav(id: number, movie: iMovie): Observable<iUser> {
+    return this.http.post<iUser>(`${this.userUrl}/${id}`, movie);
   }
 }

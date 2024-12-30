@@ -21,7 +21,11 @@ export class TestComponent {
       ],
       year: 2010,
       director: 'Christopher Nolan',
-      actors: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page'],
+      actors: [
+        { name: 'Leonardo', surname: 'DiCaprio' },
+        { name: 'Joseph', surname: 'Gordon-Levitt' },
+        { name: 'Elliot', surname: 'Page' },
+      ],
       genres: ['science fiction', 'thriller'],
       rate: {
         vote: 3,
@@ -41,7 +45,11 @@ export class TestComponent {
       ],
       year: 2008,
       director: 'Christopher Nolan',
-      actors: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart'],
+      actors: [
+        { name: 'Christian', surname: 'Bale' },
+        { name: 'Heath', surname: 'Ledger' },
+        { name: 'Aaron', surname: 'Eckhart' },
+      ],
       genres: ['action', 'crime', 'drama'],
       rate: {
         vote: 8,
@@ -61,7 +69,11 @@ export class TestComponent {
       ],
       year: 2014,
       director: 'Christopher Nolan',
-      actors: ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain'],
+      actors: [
+        { name: 'Matthew', surname: 'McConaughey' },
+        { name: 'Anne', surname: 'Hathaway' },
+        { name: 'Jessica', surname: 'Chastain' },
+      ],
       genres: ['science fiction', 'adventure', 'drama'],
       rate: {
         vote: 3,
@@ -81,7 +93,11 @@ export class TestComponent {
       ],
       year: 1999,
       director: 'Lana Wachowski, Lilly Wachowski',
-      actors: ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss'],
+      actors: [
+        { name: 'Keanu', surname: 'Reeves' },
+        { name: 'Laurence', surname: 'Fishburne' },
+        { name: 'Carrie-Anne', surname: 'Moss' },
+      ],
       genres: ['science fiction', 'action'],
       rate: {
         vote: 9,
@@ -101,7 +117,11 @@ export class TestComponent {
       ],
       year: 1994,
       director: 'Quentin Tarantino',
-      actors: ['John Travolta', 'Uma Thurman', 'Samuel L. Jackson'],
+      actors: [
+        { name: 'John', surname: 'Travolta' },
+        { name: 'Uma', surname: 'Thurman' },
+        { name: 'Samuel L.', surname: 'Jackson' },
+      ],
       genres: ['crime', 'drama'],
       rate: {
         vote: 6,
@@ -121,7 +141,11 @@ export class TestComponent {
       ],
       year: 1972,
       director: 'Francis Ford Coppola',
-      actors: ['Marlon Brando', 'Al Pacino', 'James Caan'],
+      actors: [
+        { name: 'Marlon', surname: 'Brando' },
+        { name: 'Al', surname: 'Pacino' },
+        { name: 'James', surname: 'Caan' },
+      ],
       genres: ['crime', 'drama'],
       rate: {
         vote: 6,
@@ -141,7 +165,11 @@ export class TestComponent {
       ],
       year: 1999,
       director: 'David Fincher',
-      actors: ['Brad Pitt', 'Edward Norton', 'Helena Bonham Carter'],
+      actors: [
+        { name: 'Brad', surname: 'Pitt' },
+        { name: 'Edward', surname: 'Norton' },
+        { name: 'Helena', surname: 'Bonham Carter' },
+      ],
       genres: ['drama', 'thriller'],
       rate: {
         vote: 3,
@@ -161,7 +189,11 @@ export class TestComponent {
       ],
       year: 1994,
       director: 'Robert Zemeckis',
-      actors: ['Tom Hanks', 'Robin Wright', 'Gary Sinise'],
+      actors: [
+        { name: 'Tom', surname: 'Hanks' },
+        { name: 'Robin', surname: 'Wright' },
+        { name: 'Gary', surname: 'Sinise' },
+      ],
       genres: ['drama', 'romance'],
       rate: {
         vote: 3,
@@ -181,7 +213,11 @@ export class TestComponent {
       ],
       year: 1994,
       director: 'Frank Darabont',
-      actors: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
+      actors: [
+        { name: 'Tim', surname: 'Robbins' },
+        { name: 'Morgan', surname: 'Freeman' },
+        { name: 'Bob', surname: 'Gunton' },
+      ],
       genres: ['drama'],
       rate: {
         vote: 0,
@@ -201,7 +237,11 @@ export class TestComponent {
       ],
       year: 2000,
       director: 'Ridley Scott',
-      actors: ['Russell Crowe', 'Joaquin Phoenix', 'Connie Nielsen'],
+      actors: [
+        { name: 'Russell', surname: 'Crowe' },
+        { name: 'Joaquin', surname: 'Phoenix' },
+        { name: 'Connie', surname: 'Nielsen' },
+      ],
       genres: ['action', 'drama', 'adventure'],
       rate: {
         vote: 5,
@@ -221,7 +261,11 @@ export class TestComponent {
       ],
       year: 2001,
       director: 'Peter Jackson',
-      actors: ['Elijah Wood', 'Ian McKellen', 'Orlando Bloom'],
+      actors: [
+        { name: 'Elijah', surname: 'Wood' },
+        { name: 'Ian', surname: 'McKellen' },
+        { name: 'Orlando', surname: 'Bloom' },
+      ],
       genres: ['fantasy', 'adventure'],
       rate: {
         vote: 3,
@@ -241,7 +285,11 @@ export class TestComponent {
       ],
       year: 1991,
       director: 'Jonathan Demme',
-      actors: ['Jodie Foster', 'Anthony Hopkins', 'Lawrence A. Bonney'],
+      actors: [
+        { name: 'Jodie', surname: 'Foster' },
+        { name: 'Anthony', surname: 'Hopkins' },
+        { name: 'Lawrence A.', surname: 'Bonney' },
+      ],
       genres: ['thriller', 'crime', 'drama'],
       rate: {
         vote: 3,
@@ -261,7 +309,11 @@ export class TestComponent {
       ],
       year: 1998,
       director: 'Steven Spielberg',
-      actors: ['Tom Hanks', 'Matt Damon', 'Tom Sizemore'],
+      actors: [
+        { name: 'Tom', surname: 'Hanks' },
+        { name: 'Matt', surname: 'Damon' },
+        { name: 'Tom', surname: 'Sizemore' },
+      ],
       genres: ['war', 'drama', 'action'],
       rate: {
         vote: 0,
@@ -281,7 +333,11 @@ export class TestComponent {
       ],
       year: 1993,
       director: 'Steven Spielberg',
-      actors: ['Sam Neill', 'Laura Dern', 'Jeff Goldblum'],
+      actors: [
+        { name: 'Sam', surname: 'Neill' },
+        { name: 'Laura', surname: 'Dern' },
+        { name: 'Jeff', surname: 'Goldblum' },
+      ],
       genres: ['adventure', 'sci-fi', 'thriller'],
       rate: {
         vote: 3,
@@ -301,7 +357,11 @@ export class TestComponent {
       ],
       year: 1997,
       director: 'James Cameron',
-      actors: ['Leonardo DiCaprio', 'Kate Winslet', 'Billy Zane'],
+      actors: [
+        { name: 'Leonardo', surname: 'DiCaprio' },
+        { name: 'Kate', surname: 'Winslet' },
+        { name: 'Billy', surname: 'Zane' },
+      ],
       genres: ['drama', 'romance', 'history'],
       rate: {
         vote: 0,
@@ -321,7 +381,11 @@ export class TestComponent {
       ],
       year: 2009,
       director: 'James Cameron',
-      actors: ['Sam Worthington', 'Zoe Saldana', 'Sigourney Weaver'],
+      actors: [
+        { name: 'Sam', surname: 'Worthington' },
+        { name: 'Zoe', surname: 'Saldana' },
+        { name: 'Sigourney', surname: 'Weaver' },
+      ],
       genres: ['science fiction', 'action', 'adventure'],
       rate: {
         vote: 3,
@@ -341,7 +405,11 @@ export class TestComponent {
       ],
       year: 2010,
       director: 'David Fincher',
-      actors: ['Jesse Eisenberg', 'Andrew Garfield', 'Justin Timberlake'],
+      actors: [
+        { name: 'Jesse', surname: 'Eisenberg' },
+        { name: 'Andrew', surname: 'Garfield' },
+        { name: 'Justin', surname: 'Timberlake' },
+      ],
       genres: ['biography', 'drama'],
       rate: {
         vote: 0,
@@ -361,7 +429,11 @@ export class TestComponent {
       ],
       year: 1993,
       director: 'Steven Spielberg',
-      actors: ['Liam Neeson', 'Ben Kingsley', 'Ralph Fiennes'],
+      actors: [
+        { name: 'Liam', surname: 'Neeson' },
+        { name: 'Ben', surname: 'Kingsley' },
+        { name: 'Ralph', surname: 'Fiennes' },
+      ],
       genres: ['biography', 'drama', 'history'],
       rate: {
         vote: 0,
@@ -381,7 +453,11 @@ export class TestComponent {
       ],
       year: 1994,
       director: 'Roger Allers, Rob Minkoff',
-      actors: ['Matthew Broderick', 'James Earl Jones', 'Jeremy Irons'],
+      actors: [
+        { name: 'Matthew', surname: 'Broderick' },
+        { name: 'James', surname: 'Earl Jones' },
+        { name: 'Jeremy', surname: 'Irons' },
+      ],
       genres: ['animation', 'adventure', 'drama'],
       rate: {
         vote: 0,
@@ -401,7 +477,11 @@ export class TestComponent {
       ],
       year: 1977,
       director: 'George Lucas',
-      actors: ['Mark Hamill', 'Harrison Ford', 'Carrie Fisher'],
+      actors: [
+        { name: 'Mark', surname: 'Hamill' },
+        { name: 'Harrison', surname: 'Ford' },
+        { name: 'Carrie', surname: 'Fisher' },
+      ],
       genres: ['science fiction', 'adventure'],
       rate: {
         vote: 0,
@@ -421,7 +501,11 @@ export class TestComponent {
       ],
       year: 1974,
       director: 'Francis Ford Coppola',
-      actors: ['Al Pacino', 'Robert De Niro', 'Robert Duvall'],
+      actors: [
+        { name: 'Al', surname: 'Pacino' },
+        { name: 'Robert', surname: 'De Niro' },
+        { name: 'Robert', surname: 'Duvall' },
+      ],
       genres: ['crime', 'drama'],
       rate: {
         vote: 0,
@@ -441,7 +525,11 @@ export class TestComponent {
       ],
       year: 2006,
       director: 'Martin Scorsese',
-      actors: ['Leonardo DiCaprio', 'Matt Damon', 'Jack Nicholson'],
+      actors: [
+        { name: 'Leonardo', surname: 'DiCaprio' },
+        { name: 'Matt', surname: 'Damon' },
+        { name: 'Jack', surname: 'Nicholson' },
+      ],
       genres: ['crime', 'drama', 'thriller'],
       rate: {
         vote: 0,
@@ -461,7 +549,11 @@ export class TestComponent {
       ],
       year: 1990,
       director: 'Martin Scorsese',
-      actors: ['Ray Liotta', 'Robert De Niro', 'Joe Pesci'],
+      actors: [
+        { name: 'Ray', surname: 'Liotta' },
+        { name: 'Robert', surname: 'De Niro' },
+        { name: 'Joe', surname: 'Pesci' },
+      ],
       genres: ['crime', 'drama', 'biography'],
       rate: {
         vote: 0,
@@ -481,7 +573,11 @@ export class TestComponent {
       ],
       year: 2006,
       director: 'Christopher Nolan',
-      actors: ['Christian Bale', 'Hugh Jackman', 'Michael Caine'],
+      actors: [
+        { name: 'Christian', surname: 'Bale' },
+        { name: 'Hugh', surname: 'Jackman' },
+        { name: 'Michael', surname: 'Caine' },
+      ],
       genres: ['drama', 'mystery', 'thriller'],
       rate: {
         vote: 0,
@@ -501,7 +597,11 @@ export class TestComponent {
       ],
       year: 1957,
       director: 'Sidney Lumet',
-      actors: ['Henry Fonda', 'Lee J. Cobb', 'Ed Begley'],
+      actors: [
+        { name: 'Henry', surname: 'Fonda' },
+        { name: 'Lee', surname: 'Cobb' },
+        { name: 'Ed', surname: 'Begley' },
+      ],
       genres: ['drama'],
       rate: {
         vote: 0,
@@ -575,7 +675,6 @@ export class TestComponent {
     { name: 'Robert', surname: 'De Niro' },
     { name: 'Ray', surname: 'Liotta' },
     { name: 'Joe', surname: 'Pesci' },
-    { name: 'Christian', surname: 'Bale' },
     { name: 'Hugh', surname: 'Jackman' },
     { name: 'Michael', surname: 'Caine' },
     { name: 'Henry', surname: 'Fonda' },

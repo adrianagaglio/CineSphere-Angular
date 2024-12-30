@@ -18,7 +18,10 @@ export class AddbuttonComponent {
   ngOnInit() {}
 
   add() {
-    this.favSvc.addFavourite(this.movie, this.userId).subscribe();
-    this.addMovie.emit(true);
+    // this.favSvc.addFavourite(this.movie, this.userId).subscribe();
+    this.favSvc.addFav(this.userId, this.movie).subscribe((res) => {
+      console.log(res);
+      this.addMovie.emit(true);
+    });
   }
 }

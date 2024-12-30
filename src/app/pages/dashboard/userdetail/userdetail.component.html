@@ -11,7 +11,7 @@
               <p class="text-light mb-1">First Name:</p>
             </div>
             <div class="col">
-              <p class="text-light mb-1">{{ user.firstName }}</p>
+              <p class="text-light mb-1">{{ user.firstName | titlecase }}</p>
             </div>
           </div>
           <div class="row">
@@ -19,7 +19,7 @@
               <p class="text-light mb-1">Last Name:</p>
             </div>
             <div class="col">
-              <p class="text-light mb-1">{{ user.lastName }}</p>
+              <p class="text-light mb-1">{{ user.lastName | titlecase }}</p>
             </div>
           </div>
         </div>
