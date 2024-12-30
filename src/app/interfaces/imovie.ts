@@ -7,7 +7,7 @@ export interface iMovie {
   coverImage: string[];
   year: number;
   director: string;
-  cast: string[];
+  actors: string[];
   genres: string[];
   rate: iRate;
 }

@@ -24,7 +24,7 @@ export class FavouritesService {
 
   favouritesUrl = environment.favourites;
 
-  favouritesByUser$ = new BehaviorSubject<iMovie[]>([]);
+  favouritesByUser$ = new BehaviorSubject<iMovie[] | null>([]);
 
   getAllFavourites(): Observable<iFavourite[]> {
     return this.http.get<iFavourite[]>(this.favouritesUrl);
@@ -107,6 +107,16 @@ export class FavouritesService {
           });
         })
       );
+  }
+
+  getFavouritesLoggedUser() {
+    let jsonAuthData = localStorage.getItem('authData');
+    if (jsonAuthData) {
+      let userId = JSON.parse(jsonAuthData).user.id;
+      this.getFavouritesByUser(userId).subscribe((movies) => {
+        this.favouritesByUser$.next(movies);
+      });
+    }
   }
 
   removeUserFavourite(userId: number, movie: iMovie) {

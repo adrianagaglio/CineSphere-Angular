@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoggedinGuard } from './guards/loggedin.guard';
 import { GuestGuard } from './guards/guest.guard';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
     path: 'movie/:id',
     loadChildren: () =>
       import('./pages/movie/movie.module').then((m) => m.MovieModule),
+  },
+  {
+    path: 'test',
+    component: TestComponent,
   },
 ];
 

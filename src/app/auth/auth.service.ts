@@ -3,10 +3,18 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { iUser } from '../interfaces/iuser';
 import { iAuth } from '../interfaces/iauth';
-import { BehaviorSubject, catchError, map, tap, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  map,
+  Observable,
+  tap,
+  throwError,
+} from 'rxjs';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserService } from '../services/user.service';
+import { iLoginrequest } from '../interfaces/iloginrequest';
 
 @Injectable({
   providedIn: 'root',
@@ -54,9 +62,9 @@ export class AuthService {
       );
   }
 
-  login(auth: iAuth) {
+  login(auth: iLoginrequest): Observable<iAuth> {
     return this.http
-      .post<iAuth>(this.loginUrl, auth)
+      .put<iAuth>(this.loginUrl, auth)
       .pipe(
         catchError((error) => {
           return throwError(() => {
@@ -77,9 +85,7 @@ export class AuthService {
           setTimeout(() => {
             this.router.navigate(['/dashboard/userdetail']);
           }, 500);
-          const expDate = this.jwtHelp.getTokenExpirationDate(
-            accessData.accessToken
-          );
+          const expDate = this.jwtHelp.getTokenExpirationDate(accessData.token);
 
           if (!expDate) return;
 
@@ -95,7 +101,6 @@ export class AuthService {
   }
 
   autoLogout(expDate: Date) {
-    // clearTimeout(this.autoLogoutTimer)
     const expMs = expDate.getTime() - new Date().getTime();
 
     setTimeout(() => {
@@ -109,7 +114,7 @@ export class AuthService {
 
     const accessData: iAuth = JSON.parse(userJson);
 
-    if (this.jwtHelp.isTokenExpired(accessData.accessToken)) {
+    if (this.jwtHelp.isTokenExpired(accessData.token)) {
       localStorage.removeItem('authData');
       return;
     }

@@ -1,4 +1,4 @@
-<ng-container *ngIf="isLoading && !dataLoaded && !noFavourites">
+<ng-container *ngIf="isLoading">
   <div class="d-flex justify-content-center py-5">
     <div class="spinner-border text-warning" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -9,19 +9,17 @@
 <div class="row py-5">
   <div class="col-3"><app-sidebar></app-sidebar></div>
   <div class="col-9">
-    <ng-container *ngIf="!isLoading && movies.length > 0">
+    <ng-container *ngIf="movies">
       <div class="row row-cols-4 g-4">
         <div class="col" *ngFor="let movie of movies">
-          <app-card [movie]="movie" (removedMovie)="removeMovie($event)">
+          <app-card [movie]="movie">
             <ng-content>Remove favourite</ng-content>
           </app-card>
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf="dataLoaded && noFavourites && !isLoading">
-      <div
-        class="alert alert-danger text-center p-1 d-flex align-items-center justify-content-center gap-2"
-      >
+    <ng-container *ngIf="message && !isLoading">
+      <div class="alert alert-danger text-center p-1">
         <span>{{ message }} </span>
         <a class="btn btn-dark btn-sm" routerLink="/">Go to home</a>
       </div>

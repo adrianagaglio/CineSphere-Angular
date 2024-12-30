@@ -28,6 +28,6 @@ export class HeaderComponent {
   logout() {
     this.authSvc.logout();
     this.userSvc.user$.next(null);
-    this.favSvc.favouritesByUser$.next([]);
+    this.favSvc.favouritesByUser$.next(null);
   }
 }

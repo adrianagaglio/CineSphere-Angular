@@ -13,9 +13,10 @@ import { FooterComponent } from './main-components/footer/footer.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { NgIconsModule } from '@ng-icons/core';
 import { bootstrapPersonFill } from '@ng-icons/bootstrap-icons';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, TestComponent],
   imports: [
     BrowserModule,
     NgbModule,

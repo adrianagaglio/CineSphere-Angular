@@ -14,39 +14,21 @@ export class UserfavComponent {
     private authSvc: AuthService
   ) {}
 
-  movies: iMovie[] = [];
-  message!: string;
+  movies!: iMovie[];
+  message!: string | null;
   isLoading: boolean = true;
-  noFavourites!: boolean;
-  dataLoaded: boolean = false;
 
   ngOnInit() {
-    this.noFavourites = false;
-    let authData = localStorage.getItem('authData');
-    if (authData) {
-      this.favSvc
-        .getFavouritesByUser(JSON.parse(authData).user.id)
-        .subscribe((movies) => {
-          this.isLoading = false; // Caricamento completato
-          this.dataLoaded = true; // dati caricati
-          if (movies && movies.length > 0) {
-            this.movies = movies;
-            this.noFavourites = false; // Nasconde il messaggio
-          } else {
-            this.message = 'Favourites not found, please add some movies first';
-            this.noFavourites = true; // Mostra il messaggio
-          }
-        });
-    }
-  }
-
-  removeMovie(movie: iMovie) {
-    this.movies = this.movies.filter((m) => m.id !== movie.id);
-    if (this.movies.length === 0) {
-      this.message = 'Favourites not found, please add some movies first';
-      this.dataLoaded = true;
-      this.noFavourites = true;
-      this.isLoading = false;
-    }
+    this.favSvc.getFavouritesLoggedUser();
+    this.favSvc.favouritesByUser$.subscribe((movies) => {
+      if (movies && movies.length > 0) {
+        this.movies = movies;
+        this.message = null;
+        this.isLoading = false;
+      } else if (!movies || movies.length === 0) {
+        this.message = 'Favourites not found, please add some movies first';
+        this.isLoading = false;
+      }
+    });
   }
 }

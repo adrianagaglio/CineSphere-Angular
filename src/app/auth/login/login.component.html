@@ -5,28 +5,26 @@
 
       <div class="mb-3">
         <div class="d-flex justify-content-between">
-          <label for="username" class="form-label text-light">Email</label>
-          <span class="text-danger" *ngIf="isInvalidTouched('email')">
-            {{
-              loginForm.get("email")!.hasError("required")
-                ? "Email is required"
-                : "Email is invalid"
-            }}
+          <label for="emailOrUsername" class="form-label text-light"
+            >Email or Username</label
+          >
+          <span class="text-danger" *ngIf="isInvalidTouched('emailOrUsername')">
+            This field is required.
           </span>
         </div>
         <div class="input-group has-validation">
           <span class="input-group-text">&#64;</span>
           <input
-            type="email"
+            type="emailOrUsername"
             class="form-control"
-            id="email"
-            formControlName="email"
+            id="emailOrUsername"
+            formControlName="emailOrUsername"
           />
         </div>
       </div>
       <div class="mb-3">
         <div class="d-flex justify-content-between">
-          <label for="username" class="form-label text-light">Password</label>
+          <label for="password" class="form-label text-light">Password</label>
           <span class="text-danger" *ngIf="isInvalidTouched('password')">
             {{ loginForm.get("password")!.errors!["message"] }}
           </span>

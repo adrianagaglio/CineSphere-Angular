@@ -1,6 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { iUser } from './iuser';
 export interface iAuth {
-  accessToken: string;
+  token: string;
   user: Partial<iUser>;
 }

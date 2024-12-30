@@ -9,6 +9,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { last } from 'rxjs';
 
 @Component({
   selector: 'app-register',

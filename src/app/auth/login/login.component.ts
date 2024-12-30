@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { iAuth } from '../../interfaces/iauth';
 import { Router } from '@angular/router';
+import { iLoginrequest } from '../../interfaces/iloginrequest';
+import { iUser } from '../../interfaces/iuser';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +24,7 @@ export class LoginComponent {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: this.fb.control('', [Validators.email, Validators.required]),
+      emailOrUsername: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
     });
   }
@@ -43,8 +45,14 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
-      this.authSvc.login(this.loginForm.value).subscribe({
-        next: (result: iAuth) => {
+      let loginRequest: iLoginrequest = {
+        username: this.loginForm.get('emailOrUsername')?.value,
+        email: this.loginForm.get('emailOrUsername')?.value,
+        password: this.loginForm.get('password')?.value,
+      };
+
+      this.authSvc.login(loginRequest).subscribe({
+        next: (result: any) => {
           this.isSuccess = true;
           this.message = 'Logged in successfully';
         },

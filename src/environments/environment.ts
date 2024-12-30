@@ -1,7 +1,7 @@
 export const environment = {
-  register: 'http://localhost:3000/register',
-  login: 'http://localhost:3000/login',
-  users: 'http://localhost:3000/users',
-  movies: 'http://localhost:3000/movies-popular',
+  register: 'http://localhost:8000/auth/register',
+  login: 'http://localhost:8000/auth/login',
+  users: 'http://localhost:8000/users',
+  movies: 'http://localhost:8000/movies',
   favourites: 'http://localhost:3000/favourites',
 };
