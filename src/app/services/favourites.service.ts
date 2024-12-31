@@ -1,3 +1,4 @@
+import { Ifavrequest } from './../interfaces/ifavrequest';
 import { iFavourite } from './../interfaces/ifavourite';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -32,49 +33,49 @@ export class FavouritesService {
     return this.http.get<iFavourite[]>(this.favouritesUrl);
   }
 
-  addFavourite(movie: iMovie, id: number): Observable<iFavourite> {
-    // prendo tutti i preferiti
-    return this.getAllFavourites()
-      .pipe(
-        switchMap((favourites: iFavourite[]) => {
-          // controllo se l'utente esiste già
-          let userFav = favourites.find(
-            (favourite: iFavourite) => favourite.id === id
-          );
-          // se non esiste, faccio una post con un nuovo oggetto creato al momento
-          if (!userFav) {
-            let newFav: iFavourite = { id: id, movies: [movie] };
-            return this.http.post<iFavourite>(this.favouritesUrl, newFav);
-          }
-          // se esiste, aggiungo il movie all'array dell'utente e faccio una put
-          let movieFound = userFav.movies.find(
-            (userMovie) => userMovie.id === movie.id
-          );
-          if (!movieFound) {
-            userFav.movies.push(movie);
-          } else {
-            alert('Movie already in favourites');
-          }
-          return this.http.put<iFavourite>(
-            `${this.favouritesUrl}/${id}`,
-            userFav
-          );
-        })
-      )
-      .pipe(
-        catchError((error) => {
-          return throwError(() => {
-            let message = '';
-            if (error.status >= 400 && error.status < 500) {
-              message = 'Not found';
-            } else if (error.status === 500) {
-              message = 'Request error';
-            }
-            return message;
-          });
-        })
-      );
-  }
+  // addFavourite(movie: iMovie, id: number): Observable<iFavourite> {
+  //   // prendo tutti i preferiti
+  //   return this.getAllFavourites()
+  //     .pipe(
+  //       switchMap((favourites: iFavourite[]) => {
+  //         // controllo se l'utente esiste già
+  //         let userFav = favourites.find(
+  //           (favourite: iFavourite) => favourite.id === id
+  //         );
+  //         // se non esiste, faccio una post con un nuovo oggetto creato al momento
+  //         if (!userFav) {
+  //           let newFav: iFavourite = { id: id, movies: [movie] };
+  //           return this.http.post<iFavourite>(this.favouritesUrl, newFav);
+  //         }
+  //         // se esiste, aggiungo il movie all'array dell'utente e faccio una put
+  //         let movieFound = userFav.movies.find(
+  //           (userMovie) => userMovie.id === movie.id
+  //         );
+  //         if (!movieFound) {
+  //           userFav.movies.push(movie);
+  //         } else {
+  //           alert('Movie already in favourites');
+  //         }
+  //         return this.http.put<iFavourite>(
+  //           `${this.favouritesUrl}/${id}`,
+  //           userFav
+  //         );
+  //       })
+  //     )
+  //     .pipe(
+  //       catchError((error) => {
+  //         return throwError(() => {
+  //           let message = '';
+  //           if (error.status >= 400 && error.status < 500) {
+  //             message = 'Not found';
+  //           } else if (error.status === 500) {
+  //             message = 'Request error';
+  //           }
+  //           return message;
+  //         });
+  //       })
+  //     );
+  // }
 
   checkIfPresent(movie: iMovie): boolean {
     let userFavourites = this.favouritesByUser$.getValue();
@@ -121,37 +122,37 @@ export class FavouritesService {
     }
   }
 
-  removeUserFavourite(userId: number, movie: iMovie) {
-    return this.http
-      .get<iFavourite>(`${this.favouritesUrl}/${userId}`)
-      .pipe(
-        switchMap((userFav: iFavourite) => {
-          userFav.movies = userFav.movies.filter(
-            (m: iMovie) => m.id !== movie.id
-          );
-          return this.http.put<iFavourite>(
-            `${this.favouritesUrl}/${userId}`,
-            userFav
-          );
-        })
-      )
-      .pipe(
-        catchError((error) => {
-          return throwError(() => {
-            let message = '';
-            if (error.status >= 400 && error.status < 500) {
-              message = 'Not found';
-            } else if (error.status === 500) {
-              message = 'Request error';
-            }
-            return message;
-          });
-        })
-      )
-      .pipe(tap((favourite) => this.favouritesByUser$.next(favourite.movies)));
-  }
+  // removeUserFavourite(userId: number, movie: iMovie) {
+  //   return this.http
+  //     .get<iFavourite>(`${this.favouritesUrl}/${userId}`)
+  //     .pipe(
+  //       switchMap((userFav: iFavourite) => {
+  //         userFav.movies = userFav.movies.filter(
+  //           (m: iMovie) => m.id !== movie.id
+  //         );
+  //         return this.http.put<iFavourite>(
+  //           `${this.favouritesUrl}/${userId}`,
+  //           userFav
+  //         );
+  //       })
+  //     )
+  //     .pipe(
+  //       catchError((error) => {
+  //         return throwError(() => {
+  //           let message = '';
+  //           if (error.status >= 400 && error.status < 500) {
+  //             message = 'Not found';
+  //           } else if (error.status === 500) {
+  //             message = 'Request error';
+  //           }
+  //           return message;
+  //         });
+  //       })
+  //     )
+  //     .pipe(tap((favourite) => this.favouritesByUser$.next(favourite.movies)));
+  // }
 
-  addFav(id: number, movie: iMovie): Observable<iUser> {
-    return this.http.post<iUser>(`${this.userUrl}/${id}`, movie);
+  updateFav(favReq: Ifavrequest): Observable<iUser> {
+    return this.http.put<iUser>(`${this.userUrl}/${favReq.userId}`, favReq);
   }
 }

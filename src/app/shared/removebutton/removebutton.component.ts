@@ -15,7 +15,10 @@ export class RemovebuttonComponent {
   @Output() removeMovie = new EventEmitter<boolean>();
 
   remove() {
-    this.favSvc.removeUserFavourite(this.userId, this.movie).subscribe();
-    this.removeMovie.emit(false);
+    this.favSvc
+      .updateFav({ userId: this.userId, movieId: this.movie.id })
+      .subscribe((res) => {
+        this.removeMovie.emit(false);
+      });
   }
 }
