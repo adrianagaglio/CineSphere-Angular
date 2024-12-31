@@ -94,22 +94,9 @@ export class FavouritesService {
   }
 
   getFavouritesByUser(userId: number): Observable<iMovie[]> {
-    return this.http
-      .get<iFavourite>(`${this.favouritesUrl}/${userId}`)
-      .pipe(map((userFav: iFavourite) => userFav.movies))
-      .pipe(
-        catchError((error) => {
-          return throwError(() => {
-            let message = '';
-            if (error.status > 400 && error.status < 500) {
-              message = 'User has no favourites yet';
-            } else if (error.status === 500) {
-              message = 'Request error';
-            }
-            return message;
-          });
-        })
-      );
+    return this.http.get<iMovie[]>(this.favouritesUrl, {
+      params: { id: userId },
+    });
   }
 
   getFavouritesLoggedUser() {
@@ -122,37 +109,19 @@ export class FavouritesService {
     }
   }
 
-  // removeUserFavourite(userId: number, movie: iMovie) {
-  //   return this.http
-  //     .get<iFavourite>(`${this.favouritesUrl}/${userId}`)
-  //     .pipe(
-  //       switchMap((userFav: iFavourite) => {
-  //         userFav.movies = userFav.movies.filter(
-  //           (m: iMovie) => m.id !== movie.id
-  //         );
-  //         return this.http.put<iFavourite>(
-  //           `${this.favouritesUrl}/${userId}`,
-  //           userFav
-  //         );
-  //       })
-  //     )
-  //     .pipe(
-  //       catchError((error) => {
-  //         return throwError(() => {
-  //           let message = '';
-  //           if (error.status >= 400 && error.status < 500) {
-  //             message = 'Not found';
-  //           } else if (error.status === 500) {
-  //             message = 'Request error';
-  //           }
-  //           return message;
-  //         });
-  //       })
-  //     )
-  //     .pipe(tap((favourite) => this.favouritesByUser$.next(favourite.movies)));
-  // }
-
   updateFav(favReq: Ifavrequest): Observable<iUser> {
-    return this.http.put<iUser>(`${this.userUrl}/${favReq.userId}`, favReq);
+    return this.http.put<iUser>(this.favouritesUrl, favReq).pipe(
+      catchError((error) => {
+        return throwError(() => {
+          let message = '';
+          if (error.status >= 400 && error.status < 500) {
+            message = 'Not found';
+          } else if (error.status === 500) {
+            message = 'Request error';
+          }
+          return message;
+        });
+      })
+    );
   }
 }
