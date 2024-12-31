@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { iMovie } from '../../interfaces/imovie';
 import { AuthService } from '../../auth/auth.service';
 import { FavouritesService } from '../../services/favourites.service';
@@ -23,6 +23,8 @@ export class CardComponent {
     private router: Router
   ) {}
 
+  @Output() removedMovie = new EventEmitter<iMovie>();
+
   ngOnInit() {
     if (this.router.url === '/dashboard/userfav') {
       this.isHome = false;
@@ -39,7 +41,13 @@ export class CardComponent {
       let authData = JSON.parse(jsonAuthData);
       this.userId = authData.user.id;
     }
-    this.isPresent = this.favSvc.checkIfPresent(this.movie);
+    this.favSvc.favouritesByUser$.subscribe((favouritesByUser) => {
+      if (favouritesByUser?.find((m) => m.id === this.movie.id)) {
+        this.isPresent = true;
+      } else {
+        this.isPresent = false;
+      }
+    });
   }
 
   addMovie(add: boolean) {
@@ -48,5 +56,6 @@ export class CardComponent {
 
   removeMovie(remove: boolean) {
     this.isPresent = remove;
+    this.removedMovie.emit(this.movie);
   }
 }

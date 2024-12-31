@@ -2,7 +2,7 @@
   <div class="card border-0 mb-3 bg-light bg-opacity-10">
     <div class="card-body bg-light bg-opacity-10 border-0 px-3">
       <h3 class="card-title text-light">
-        {{ user.firstName }} {{ user.lastName }}
+        {{ user.firstName | titlecase }} {{ user.lastName | titlecase }}
       </h3>
       <p class="text-light">User email: {{ user.email }}</p>
       <div class="fs-7 mb-3">

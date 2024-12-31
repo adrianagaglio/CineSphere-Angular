@@ -12,7 +12,7 @@
     <ng-container *ngIf="movies">
       <div class="row row-cols-4 g-4">
         <div class="col" *ngFor="let movie of movies">
-          <app-card [movie]="movie">
+          <app-card [movie]="movie" (removedMovie)="removeMovie($event)">
             <ng-content>Remove favourite</ng-content>
           </app-card>
         </div>

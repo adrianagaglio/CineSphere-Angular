@@ -31,4 +31,11 @@ export class UserfavComponent {
       }
     });
   }
+
+  removeMovie(removedMovie: iMovie) {
+    this.movies = this.movies.filter((movie) => movie.id !== removedMovie.id);
+    if (this.movies.length === 0) {
+      this.message = 'Favourites not found, please add some movies first';
+    }
+  }
 }
