@@ -27,11 +27,7 @@ export class TestComponent {
         { name: 'Elliot', surname: 'Page' },
       ],
       genres: ['science fiction', 'thriller'],
-      rate: {
-        vote: 3,
-        count: 1,
-        userIds: [1],
-      },
+      rates: [],
     },
     {
       id: 2,
@@ -51,11 +47,7 @@ export class TestComponent {
         { name: 'Aaron', surname: 'Eckhart' },
       ],
       genres: ['action', 'crime', 'drama'],
-      rate: {
-        vote: 8,
-        count: 2,
-        userIds: [1, 2],
-      },
+      rates: [],
     },
     {
       id: 3,
@@ -75,11 +67,7 @@ export class TestComponent {
         { name: 'Jessica', surname: 'Chastain' },
       ],
       genres: ['science fiction', 'adventure', 'drama'],
-      rate: {
-        vote: 3,
-        count: 1,
-        userIds: [12],
-      },
+      rates: [],
     },
     {
       id: 4,
@@ -99,11 +87,7 @@ export class TestComponent {
         { name: 'Carrie-Anne', surname: 'Moss' },
       ],
       genres: ['science fiction', 'action'],
-      rate: {
-        vote: 9,
-        count: 3,
-        userIds: [1, 2, 12],
-      },
+      rates: [],
     },
     {
       id: 5,
@@ -123,11 +107,7 @@ export class TestComponent {
         { name: 'Samuel L.', surname: 'Jackson' },
       ],
       genres: ['crime', 'drama'],
-      rate: {
-        vote: 6,
-        count: 2,
-        userIds: [1, 2],
-      },
+      rates: [],
     },
     {
       id: 6,
@@ -147,11 +127,7 @@ export class TestComponent {
         { name: 'James', surname: 'Caan' },
       ],
       genres: ['crime', 'drama'],
-      rate: {
-        vote: 6,
-        count: 2,
-        userIds: [1, 12],
-      },
+      rates: [],
     },
     {
       id: 7,
@@ -171,11 +147,7 @@ export class TestComponent {
         { name: 'Helena', surname: 'Bonham Carter' },
       ],
       genres: ['drama', 'thriller'],
-      rate: {
-        vote: 3,
-        count: 1,
-        userIds: [2],
-      },
+      rates: [],
     },
     {
       id: 8,
@@ -195,11 +167,7 @@ export class TestComponent {
         { name: 'Gary', surname: 'Sinise' },
       ],
       genres: ['drama', 'romance'],
-      rate: {
-        vote: 3,
-        count: 1,
-        userIds: [1],
-      },
+      rates: [],
     },
     {
       id: 9,
@@ -219,11 +187,7 @@ export class TestComponent {
         { name: 'Bob', surname: 'Gunton' },
       ],
       genres: ['drama'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 10,
@@ -243,11 +207,7 @@ export class TestComponent {
         { name: 'Connie', surname: 'Nielsen' },
       ],
       genres: ['action', 'drama', 'adventure'],
-      rate: {
-        vote: 5,
-        count: 2,
-        userIds: [1, 12],
-      },
+      rates: [],
     },
     {
       id: 11,
@@ -267,11 +227,7 @@ export class TestComponent {
         { name: 'Orlando', surname: 'Bloom' },
       ],
       genres: ['fantasy', 'adventure'],
-      rate: {
-        vote: 3,
-        count: 1,
-        userIds: [1],
-      },
+      rates: [],
     },
     {
       id: 12,
@@ -291,11 +247,7 @@ export class TestComponent {
         { name: 'Lawrence A.', surname: 'Bonney' },
       ],
       genres: ['thriller', 'crime', 'drama'],
-      rate: {
-        vote: 3,
-        count: 1,
-        userIds: [1],
-      },
+      rates: [],
     },
     {
       id: 13,
@@ -315,11 +267,7 @@ export class TestComponent {
         { name: 'Tom', surname: 'Sizemore' },
       ],
       genres: ['war', 'drama', 'action'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 14,
@@ -339,11 +287,7 @@ export class TestComponent {
         { name: 'Jeff', surname: 'Goldblum' },
       ],
       genres: ['adventure', 'sci-fi', 'thriller'],
-      rate: {
-        vote: 3,
-        count: 1,
-        userIds: [1],
-      },
+      rates: [],
     },
     {
       id: 15,
@@ -363,11 +307,7 @@ export class TestComponent {
         { name: 'Billy', surname: 'Zane' },
       ],
       genres: ['drama', 'romance', 'history'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 16,
@@ -387,11 +327,7 @@ export class TestComponent {
         { name: 'Sigourney', surname: 'Weaver' },
       ],
       genres: ['science fiction', 'action', 'adventure'],
-      rate: {
-        vote: 3,
-        count: 1,
-        userIds: [12],
-      },
+      rates: [],
     },
     {
       id: 17,
@@ -411,11 +347,7 @@ export class TestComponent {
         { name: 'Justin', surname: 'Timberlake' },
       ],
       genres: ['biography', 'drama'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 18,
@@ -435,11 +367,7 @@ export class TestComponent {
         { name: 'Ralph', surname: 'Fiennes' },
       ],
       genres: ['biography', 'drama', 'history'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 19,
@@ -459,11 +387,7 @@ export class TestComponent {
         { name: 'Jeremy', surname: 'Irons' },
       ],
       genres: ['animation', 'adventure', 'drama'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 20,
@@ -483,11 +407,7 @@ export class TestComponent {
         { name: 'Carrie', surname: 'Fisher' },
       ],
       genres: ['science fiction', 'adventure'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 21,
@@ -507,11 +427,7 @@ export class TestComponent {
         { name: 'Robert', surname: 'Duvall' },
       ],
       genres: ['crime', 'drama'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 22,
@@ -531,11 +447,7 @@ export class TestComponent {
         { name: 'Jack', surname: 'Nicholson' },
       ],
       genres: ['crime', 'drama', 'thriller'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 23,
@@ -555,11 +467,7 @@ export class TestComponent {
         { name: 'Joe', surname: 'Pesci' },
       ],
       genres: ['crime', 'drama', 'biography'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 24,
@@ -579,11 +487,7 @@ export class TestComponent {
         { name: 'Michael', surname: 'Caine' },
       ],
       genres: ['drama', 'mystery', 'thriller'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
     {
       id: 25,
@@ -603,11 +507,7 @@ export class TestComponent {
         { name: 'Ed', surname: 'Begley' },
       ],
       genres: ['drama'],
-      rate: {
-        vote: 0,
-        count: 0,
-        userIds: [],
-      },
+      rates: [],
     },
   ];
 

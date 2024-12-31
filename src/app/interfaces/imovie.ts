@@ -10,5 +10,5 @@ export interface iMovie {
   director: string;
   actors: iActor[];
   genres: string[];
-  rate: iRate;
+  rates: iRate[];
 }

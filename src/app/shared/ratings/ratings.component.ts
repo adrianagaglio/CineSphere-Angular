@@ -1,9 +1,11 @@
+import { iRaterequest } from './../../interfaces/iraterequest';
 import { Component, ElementRef, Input } from '@angular/core';
 import { iMovie } from '../../interfaces/imovie';
 import { AuthService } from '../../auth/auth.service';
 import { MoviesService } from '../../services/movies.service';
 import { Router } from '@angular/router';
 import { iRate } from '../../interfaces/irate';
+import { RateService } from '../../services/rate.service';
 
 @Component({
   selector: 'app-ratings',
@@ -13,7 +15,7 @@ import { iRate } from '../../interfaces/irate';
 export class RatingsComponent {
   constructor(
     private authSvc: AuthService,
-    private movieSvc: MoviesService,
+    private rateSvc: RateService,
     private router: Router
   ) {}
 
@@ -24,6 +26,7 @@ export class RatingsComponent {
   userId!: number;
   alreadyVoted!: boolean;
   message!: string;
+  rates: iRate[] = [];
 
   stars = [
     { value: 1 },
@@ -37,24 +40,30 @@ export class RatingsComponent {
     this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
       if (isLoggedIn) {
         this.userId = this.authSvc.authData$.value!.user.id as number;
-
-        if (this.movie) {
-          this.movieSvc
-            .checkIfRated(this.movie.id, this.userId)
-            .subscribe((rated) => {
-              this.alreadyVoted = rated;
-              this.message = 'You already rated this movie!';
-            });
-        }
+        this.rateSvc.usersRates$.asObservable().subscribe((rates) => {
+          if (this.movie && rates) {
+            this.rates = rates;
+            if (rates.find((r) => r.movieId === this.movie.id)) {
+              this.alreadyVoted = true;
+              // this.message = 'You already rated this movie!';
+            }
+          }
+        });
       }
     });
   }
 
   rate(star: number) {
     this.rating = star;
-    this.movieSvc
-      .rateMovie(this.movie.id, this.rating, this.userId)
-      .subscribe();
+    let rateRequest: iRaterequest = {
+      userId: this.userId,
+      movieId: this.movie.id,
+      vote: star,
+    };
+    this.rateSvc.rateMovie(rateRequest).subscribe((res) => {
+      this.rates.push(res);
+      this.rateSvc.usersRates$.next(this.rates);
+    });
     setTimeout(() => {
       this.alreadyVoted = true;
       this.message = 'Thanks for rating!';

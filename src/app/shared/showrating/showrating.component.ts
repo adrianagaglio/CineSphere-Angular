@@ -4,6 +4,7 @@ import { iRate } from '../../interfaces/irate';
 import { MoviesService } from '../../services/movies.service';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
+import { RateService } from '../../services/rate.service';
 
 @Component({
   selector: 'app-showrating',
@@ -13,13 +14,13 @@ import { Router } from '@angular/router';
 export class ShowratingComponent {
   constructor(
     private authSvc: AuthService,
-    private movieSvc: MoviesService,
+    private rateSvc: RateService,
     private router: Router
   ) {}
 
   @Input() movie!: iMovie;
 
-  rating: number = 0;
+  rating!: number;
   movieRate!: iRate;
   userId!: number;
   message!: string;
@@ -33,19 +34,22 @@ export class ShowratingComponent {
   ];
 
   ngOnInit() {
+    console.log(this.rating);
     this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
       if (isLoggedIn) {
         this.userId = this.authSvc.authData$.value!.user.id as number;
-
-        if (this.movie) {
-          this.movieSvc.restoreRatings(this.movie.id).subscribe((rateInfo) => {
-            this.rating = rateInfo.vote / rateInfo.count;
-            if (!this.rating || this.rating === 0) {
-              this.message = 'No ratings yet';
-            }
-          });
-        }
       }
     });
+    if (this.movie) {
+      this.rateSvc.getRatesByMovie(this.movie.id).subscribe((rates) => {
+        if (rates && rates.length > 0) {
+          this.rating =
+            rates.reduce((acc, rate) => acc + rate.vote, 0) / rates.length;
+        } else {
+          this.rating = 0;
+          this.message = 'No ratings yet';
+        }
+      });
+    }
   }
 }

@@ -4,4 +4,5 @@ export const environment = {
   users: 'http://localhost:8000/users',
   movies: 'http://localhost:8000/movies',
   favourites: 'http://localhost:8000/favourites',
+  rates: 'http://localhost:8000/rates',
 };
