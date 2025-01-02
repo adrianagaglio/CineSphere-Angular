@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { SharedModule } from '../../shared/shared.module';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserfavComponent } from './userfav/userfav.component';
@@ -14,6 +13,7 @@ import {
   bootstrapPencil,
 } from '@ng-icons/bootstrap-icons';
 import { NgIconsModule } from '@ng-icons/core';
+import { CardModule } from '../../shared-components/card/card.module';
 
 @NgModule({
   declarations: [
@@ -25,13 +25,13 @@ import { NgIconsModule } from '@ng-icons/core';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule,
     FormsModule,
     NgIconsModule.withIcons({
       bootstrapPencil,
       bootstrapCheck,
       bootstrapArrowCounterclockwise,
     }),
+    CardModule,
   ],
 })
 export class DashboardModule {}

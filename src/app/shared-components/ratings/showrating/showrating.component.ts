@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { iMovie } from '../../interfaces/imovie';
-import { iRate } from '../../interfaces/irate';
-import { MoviesService } from '../../services/movies.service';
-import { AuthService } from '../../auth/auth.service';
+import { iMovie } from '../../../interfaces/imovie';
+import { iRate } from '../../../interfaces/irate';
+import { MoviesService } from '../../../services/movies.service';
+import { AuthService } from '../../../auth/auth.service';
 import { Router } from '@angular/router';
-import { RateService } from '../../services/rate.service';
+import { RateService } from '../../../services/rate.service';
 
 @Component({
   selector: 'app-showrating',
@@ -34,7 +34,6 @@ export class ShowratingComponent {
   ];
 
   ngOnInit() {
-    console.log(this.rating);
     this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
       if (isLoggedIn) {
         this.userId = this.authSvc.authData$.value!.user.id as number;

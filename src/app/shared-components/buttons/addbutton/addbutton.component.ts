@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { iMovie } from '../../interfaces/imovie';
+import { iMovie } from '../../../interfaces/imovie';
 
-import { FavouritesService } from '../../services/favourites.service';
+import { FavouritesService } from '../../../services/favourites.service';
 
 @Component({
   selector: 'app-addbutton',

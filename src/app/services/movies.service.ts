@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment.development';
 import { iMovie } from '../interfaces/imovie';
 import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { iRate } from '../interfaces/irate';
+import { iActor } from '../interfaces/iactor';
 
 @Injectable({
   providedIn: 'root',

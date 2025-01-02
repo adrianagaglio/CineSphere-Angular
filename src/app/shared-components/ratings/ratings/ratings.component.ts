@@ -1,11 +1,11 @@
-import { iRaterequest } from './../../interfaces/iraterequest';
+import { iRaterequest } from '../../../interfaces/iraterequest';
 import { Component, ElementRef, Input } from '@angular/core';
-import { iMovie } from '../../interfaces/imovie';
-import { AuthService } from '../../auth/auth.service';
-import { MoviesService } from '../../services/movies.service';
+import { iMovie } from '../../../interfaces/imovie';
+import { AuthService } from '../../../auth/auth.service';
+import { MoviesService } from '../../../services/movies.service';
 import { Router } from '@angular/router';
-import { iRate } from '../../interfaces/irate';
-import { RateService } from '../../services/rate.service';
+import { iRate } from '../../../interfaces/irate';
+import { RateService } from '../../../services/rate.service';
 
 @Component({
   selector: 'app-ratings',

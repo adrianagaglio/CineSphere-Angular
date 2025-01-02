@@ -13,7 +13,8 @@ export class MovieComponent {
 
   movieId!: number;
   movie!: iMovie;
-  relateds!: iMovie[];
+  relatedsByGenre!: iMovie[];
+  relatedByActor: iMovie[] = [];
   byCast!: iMovie[];
   isLoading: boolean = true;
 
@@ -22,13 +23,31 @@ export class MovieComponent {
       this.movieId = params['id'];
       this.movieSvc.getMovieById(this.movieId).subscribe((movie) => {
         this.movie = movie;
+        console.log(this.movie);
         this.movieSvc
           .getRelatedsByGenre(this.movie.id, this.movie.genres)
           .subscribe((movies) => {
-            this.relateds = movies;
+            this.relatedsByGenre = movies;
             this.isLoading = false;
           });
+        this.movieSvc.getMovies().subscribe((movies) => {
+          for (let actor of this.movie.actors) {
+            for (let movie of movies) {
+              if (movie.actors.some((a) => a.id === actor.id)) {
+                this.relatedByActor.push(movie);
+              }
+            }
+            break;
+          }
+          this.relatedByActor = this.relatedByActor.filter(
+            (movie) => movie.id !== this.movie.id
+          );
+        });
       });
     });
+  }
+
+  updateList(event: any) {
+    if (event.target) this.relatedByActor = [];
   }
 }

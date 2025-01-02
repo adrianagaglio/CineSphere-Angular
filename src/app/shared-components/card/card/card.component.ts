@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { iMovie } from '../../interfaces/imovie';
-import { AuthService } from '../../auth/auth.service';
-import { FavouritesService } from '../../services/favourites.service';
+import { iMovie } from '../../../interfaces/imovie';
+import { AuthService } from '../../../auth/auth.service';
+import { FavouritesService } from '../../../services/favourites.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,0 +1,14 @@
+@if (movies) {
+<ngb-carousel
+  [showNavigationArrows]="showNavigationArrows"
+  [showNavigationIndicators]="showNavigationIndicators"
+>
+  <ng-template ngbSlide *ngFor="let group of groupedMovies" class="">
+    <div class="d-flex justify-content-start">
+      <div *ngFor="let movie of group" class="movie-card mx-2">
+        <app-card [movie]="movie"></app-card>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+}

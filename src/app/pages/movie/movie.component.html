@@ -15,11 +15,17 @@
     </app-hero>
   </ng-container>
 
-  <ng-container *ngIf="relateds">
+  <ng-container *ngIf="relatedsByGenre">
     <h3 class="text-light">Related movies by genre</h3>
+
+    <app-carousel [movies]="relatedsByGenre"></app-carousel>
+  </ng-container>
+
+  <ng-container *ngIf="relatedByActor && relatedByActor.length > 0">
+    <h3 class="text-light">Related movies by actors</h3>
     <div class="row row-cols-6 g-4">
-      <div class="col" *ngFor="let movie of relateds">
-        <app-card [movie]="movie"></app-card>
+      <div class="col" *ngFor="let movie of relatedByActor">
+        <app-card [movie]="movie" (click)="updateList($event)"></app-card>
       </div>
     </div>
   </ng-container>

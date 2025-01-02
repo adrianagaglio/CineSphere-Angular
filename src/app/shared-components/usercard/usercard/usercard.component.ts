@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { iUser } from '../../interfaces/iuser';
-import { FavouritesService } from '../../services/favourites.service';
-import { iMovie } from '../../interfaces/imovie';
+import { iUser } from '../../../interfaces/iuser';
+import { FavouritesService } from '../../../services/favourites.service';
+import { iMovie } from '../../../interfaces/imovie';
 
 @Component({
   selector: 'app-usercard',

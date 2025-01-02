@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FavouritesService } from '../../services/favourites.service';
-import { iMovie } from '../../interfaces/imovie';
+import { FavouritesService } from '../../../services/favourites.service';
+import { iMovie } from '../../../interfaces/imovie';
 
 @Component({
   selector: 'app-removebutton',
