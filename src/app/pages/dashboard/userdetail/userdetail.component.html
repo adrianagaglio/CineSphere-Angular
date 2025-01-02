@@ -1,26 +1,48 @@
 <div class="row py-5">
   <div class="col-3"><app-sidebar></app-sidebar></div>
   <div class="col-9">
-    <ng-container *ngIf="user">
+    <ng-container *ngIf="changeRequest">
       <div class="row">
         <h1 class="text-light mb-5">Welcome {{ user.username }},</h1>
-        <div class="row mb-5">
-          <h5 class="text-light fw-normal">Here your personal info:</h5>
-          <div class="row">
-            <div class="col-2">
-              <p class="text-light mb-1">First Name:</p>
-            </div>
-            <div class="col">
-              <p class="text-light mb-1">{{ user.firstName | titlecase }}</p>
-            </div>
+      </div>
+      <div class="row mb-5">
+        <h5 class="text-light fw-normal">Here your personal info:</h5>
+        <div class="row">
+          <div class="col-2">
+            <p class="text-light mb-1">First Name:</p>
           </div>
-          <div class="row">
-            <div class="col-2">
-              <p class="text-light mb-1">Last Name:</p>
-            </div>
-            <div class="col">
-              <p class="text-light mb-1">{{ user.lastName | titlecase }}</p>
-            </div>
+          <div class="col">
+            <p class="text-light mb-1" *ngIf="!changeMode">
+              {{ user.firstName | titlecase }}
+            </p>
+            <input
+              *ngIf="changeMode"
+              type="text"
+              class="form-control inputs"
+              id="firstName"
+              name="firstName"
+              [(ngModel)]="changeRequest.firstName"
+              placeholder="New first name"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <p class="text-light mb-1">Last Name:</p>
+          </div>
+          <div class="col">
+            <p class="text-light mb-1" *ngIf="!changeMode">
+              {{ user.lastName | titlecase }}
+            </p>
+            <input
+              *ngIf="changeMode"
+              type="text"
+              class="form-control inputs"
+              id="lastName"
+              name="lastName"
+              placeholder="New last name"
+              [(ngModel)]="changeRequest.lastName"
+            />
           </div>
         </div>
       </div>
@@ -28,18 +50,93 @@
         <h5 class="text-light fw-normal">Here your access data:</h5>
         <div class="row">
           <div class="col-2">
-            <p class="text-light mb-1">Email:</p>
+            <p class="text-light mb-1">Username:</p>
           </div>
           <div class="col">
-            <p class="text-light mb-1">{{ user.email }}</p>
+            <p class="text-light mb-1" *ngIf="!changeMode">
+              {{ changeRequest.username }}
+            </p>
+            <input
+              *ngIf="changeMode"
+              type="text"
+              class="form-control inputs"
+              id="username"
+              name="username"
+              placeholder="New username"
+              [(ngModel)]="changeRequest.username"
+            />
           </div>
         </div>
         <div class="row">
           <div class="col-2">
+            <p class="text-light mb-1">Email:</p>
+          </div>
+          <div class="col">
+            <p class="text-light mb-1" *ngIf="!changeMode">
+              {{ user.email }}
+            </p>
+            <input
+              *ngIf="changeMode"
+              type="text"
+              class="form-control inputs"
+              id="email"
+              name="email"
+              placeholder="New email"
+              [(ngModel)]="changeRequest.email"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2 d-flex justify-content-between align-items-center">
             <p class="text-light mb-1">Password:</p>
           </div>
           <div class="col">
-            <p class="text-light mb-1">{{ user.password! | crypto }}</p>
+            <p class="text-light mb-1" *ngIf="!changeMode">
+              **********************
+            </p>
+
+            <div class="d-flex align-items-center gap-2">
+              <input
+                *ngIf="changeMode"
+                type="password"
+                class="form-control inputs"
+                id="actualPassword"
+                name="actualPassword"
+                placeholder="Actual Password"
+                [(ngModel)]="changeRequest.actualPassword"
+                #actualPassword
+                minlength="8"
+              />
+              <input
+                *ngIf="changeMode"
+                type="password"
+                class="form-control inputs"
+                id="newPassword"
+                name="newPassword"
+                #newPassword
+                placeholder="New Password"
+                [(ngModel)]="changeRequest.newPassword"
+                minlength="8"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="col">
+            <div class="d-flex justify-content-end gap-2">
+              <button
+                class="btn btn-success"
+                *ngIf="changeMode"
+                (click)="updateUser()"
+              >
+                Confirm changes
+              </button>
+              <button class="btn btn-warning" (click)="change()">
+                {{ !changeMode ? "Change user info" : "Undo" }}
+              </button>
+            </div>
           </div>
         </div>
       </div>

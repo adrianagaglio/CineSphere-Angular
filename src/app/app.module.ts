@@ -12,7 +12,10 @@ import { HeaderComponent } from './main-components/header/header.component';
 import { FooterComponent } from './main-components/footer/footer.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { NgIconsModule } from '@ng-icons/core';
-import { bootstrapPersonFill } from '@ng-icons/bootstrap-icons';
+import {
+  bootstrapPencil,
+  bootstrapPersonFill,
+} from '@ng-icons/bootstrap-icons';
 import { TestComponent } from './test/test.component';
 
 @NgModule({
@@ -23,6 +26,7 @@ import { TestComponent } from './test/test.component';
     AppRoutingModule,
     NgIconsModule.withIcons({
       bootstrapPersonFill,
+      bootstrapPencil,
     }),
   ],
   providers: [
