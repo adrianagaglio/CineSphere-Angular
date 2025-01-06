@@ -3,6 +3,7 @@ import { iMovie } from '../../../interfaces/imovie';
 import { AuthService } from '../../../auth/auth.service';
 import { FavouritesService } from '../../../services/favourites.service';
 import { Router } from '@angular/router';
+import { MoviesService } from '../../../services/movies.service';
 
 @Component({
   selector: 'app-card',
@@ -20,7 +21,8 @@ export class CardComponent {
   constructor(
     private authSvc: AuthService,
     private favSvc: FavouritesService,
-    private router: Router
+    private router: Router,
+    private movieSvc: MoviesService
   ) {}
 
   @Output() removedMovie = new EventEmitter<iMovie>();
@@ -57,5 +59,11 @@ export class CardComponent {
   removeMovie(remove: boolean) {
     this.isPresent = remove;
     this.removedMovie.emit(this.movie);
+  }
+
+  searchByGenre(genre: string) {
+    this.movieSvc.queryString$.next(genre);
+    this.movieSvc.searchType$.next('genre');
+    this.router.navigate(['/search-result']);
   }
 }

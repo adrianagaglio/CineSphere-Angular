@@ -3,6 +3,7 @@ import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { FavouritesService } from '../../services/favourites.service';
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,14 @@ import { FavouritesService } from '../../services/favourites.service';
 export class HeaderComponent {
   constructor(
     private authSvc: AuthService,
-    private router: Router,
     private userSvc: UserService,
-    private favSvc: FavouritesService
+    private favSvc: FavouritesService,
+    private movieSvc: MoviesService,
+    private router: Router
   ) {}
 
   isLoggedIn!: boolean;
+  query!: string;
 
   ngOnInit() {
     this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
@@ -29,5 +32,16 @@ export class HeaderComponent {
     this.authSvc.logout();
     this.userSvc.user$.next(null);
     this.favSvc.favouritesByUser$.next(null);
+  }
+
+  search(query: string) {
+    if (query) {
+      this.movieSvc.queryString$.next(query);
+      this.query = '';
+      this.movieSvc.searchType$.next('title');
+      setTimeout(() => {
+        this.router.navigate(['/search-result']);
+      }, 100);
+    }
   }
 }

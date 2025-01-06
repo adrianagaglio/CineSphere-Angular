@@ -15,7 +15,7 @@ export class UsersComponent {
 
   ngOnInit() {
     this.userSvc.getAllUsers().subscribe((users) => {
-      this.users = users;
+      this.users = users.filter((user) => user.role !== 'admin');
       this.isLoading = false;
     });
   }

@@ -1,3 +1,4 @@
+import { SearchResultComponent } from './pages/search-result/search-result.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,18 +16,26 @@ import { NgIconsModule } from '@ng-icons/core';
 import {
   bootstrapPencil,
   bootstrapPersonFill,
+  bootstrapSearch,
 } from '@ng-icons/bootstrap-icons';
 import { TestComponent } from './test/test.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { SearchResultModule } from './pages/search-result/search-result.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, TestComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     NgbModule,
     AppRoutingModule,
+    FormsModule,
+    SearchResultModule,
     NgIconsModule.withIcons({
       bootstrapPersonFill,
       bootstrapPencil,
+      bootstrapSearch,
     }),
   ],
   providers: [

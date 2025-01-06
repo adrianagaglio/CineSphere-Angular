@@ -14,6 +14,7 @@ import {
 } from '@ng-icons/bootstrap-icons';
 import { NgIconsModule } from '@ng-icons/core';
 import { CardModule } from '../../shared-components/card/card.module';
+import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CardModule } from '../../shared-components/card/card.module';
     UserdetailComponent,
     SidebarComponent,
     UserfavComponent,
+    ManageMoviesComponent,
   ],
   imports: [
     CommonModule,

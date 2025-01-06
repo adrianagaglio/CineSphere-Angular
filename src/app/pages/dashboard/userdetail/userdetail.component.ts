@@ -24,6 +24,7 @@ export class UserdetailComponent {
       if (authData) {
         this.authData = authData;
         this.user = authData.user;
+        console.log(this.user);
         this.changeRequest = {
           id: this.user.id,
           firstName: '',

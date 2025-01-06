@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { iUser } from '../../../interfaces/iuser';
 import { FavouritesService } from '../../../services/favourites.service';
 import { iMovie } from '../../../interfaces/imovie';
+import { AuthService } from '../../../auth/auth.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-usercard',
@@ -9,15 +11,26 @@ import { iMovie } from '../../../interfaces/imovie';
   styleUrl: './usercard.component.scss',
 })
 export class UsercardComponent {
-  constructor(private favSvc: FavouritesService) {}
+  constructor(
+    private favSvc: FavouritesService,
+    private authSvc: AuthService,
+    private userSvc: UserService
+  ) {}
 
   @Input() user!: iUser;
+
+  loggedUser!: iUser;
 
   movies!: iMovie[];
 
   message!: string;
 
   ngOnInit() {
+    this.authSvc.authData$.subscribe((data) => {
+      if (data) {
+        this.loggedUser = data.user;
+      }
+    });
     this.favSvc.getFavouritesByUser(this.user.id).subscribe({
       next: (movies) => {
         this.movies = movies;
@@ -26,5 +39,11 @@ export class UsercardComponent {
         this.message = err;
       },
     });
+  }
+
+  deleteUser() {
+    this.userSvc
+      .deleteUser(this.user.id)
+      .subscribe((res) => console.log('User deleted successfullu'));
   }
 }

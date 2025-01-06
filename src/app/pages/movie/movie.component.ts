@@ -23,7 +23,6 @@ export class MovieComponent {
       this.movieId = params['id'];
       this.movieSvc.getMovieById(this.movieId).subscribe((movie) => {
         this.movie = movie;
-        console.log(this.movie);
         this.movieSvc
           .getRelatedsByGenre(this.movie.id, this.movie.genres)
           .subscribe((movies) => {
@@ -33,7 +32,7 @@ export class MovieComponent {
         this.movieSvc.getMovies().subscribe((movies) => {
           for (let actor of this.movie.actors) {
             for (let movie of movies) {
-              if (movie.actors.some((a) => a.id === actor.id)) {
+              if (movie.actors.some((a) => a.actorName === actor.actorName)) {
                 this.relatedByActor.push(movie);
               }
             }

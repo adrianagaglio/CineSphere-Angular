@@ -1,0 +1,19 @@
+<div class="py-5">
+  <ng-container *ngIf="isLoading">
+    <div class="d-flex justify-content-center py-5">
+      <div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="movies">
+    <div class="mb-3">
+      <h1 class="text-light">Search result for "{{ query }}"</h1>
+    </div>
+    <div class="row row-cols-6 g-4">
+      <div class="col" *ngFor="let movie of movies">
+        <app-card [movie]="movie"> </app-card>
+      </div>
+    </div>
+  </ng-container>
+</div>

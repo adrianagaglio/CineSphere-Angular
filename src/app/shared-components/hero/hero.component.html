@@ -17,7 +17,11 @@
         <div class="d-flex gap-3">
           <span class="text-light">Genres:</span>
           <span *ngFor="let genre of movie.genres">
-            <a class="text-warning text-opacity-75 text-decoration-none">
+            <a
+              role="button"
+              (click)="searchByGenre(genre)"
+              class="text-warning text-opacity-75 text-decoration-none"
+            >
               {{ genre | titlecase }}
             </a>
           </span>
@@ -25,8 +29,12 @@
         <div class="d-flex gap-3">
           <span class="text-light">Cast:</span>
           <span *ngFor="let actor of movie.actors">
-            <a class="text-warning text-opacity-75 text-decoration-none">
-              {{ actor.name | titlecase }} {{ actor.surname | titlecase }}
+            <a
+              role="button"
+              class="text-warning text-opacity-75 text-decoration-none"
+              (click)="searchByActor(actor)"
+            >
+              {{ actor.actorName | titlecase }}
             </a>
           </span>
         </div>

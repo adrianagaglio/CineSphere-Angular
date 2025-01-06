@@ -15,7 +15,6 @@ export class CarouselComponent {
   groupedMovies: iMovie[][] = [];
 
   ngOnInit() {
-    console.log(this.movies);
     this.groupMovies(this.movies, 6); // Raggruppa i film in slide da 6
   }
 

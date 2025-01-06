@@ -14,6 +14,7 @@ export class HomeComponent {
 
   movies!: iMovie[];
   isLoading: boolean = true;
+  query!: string;
 
   ngOnInit() {
     this.movieSvc.getRecentMovie().subscribe((movie) => {

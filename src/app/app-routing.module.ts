@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoggedinGuard } from './guards/loggedin.guard';
 import { GuestGuard } from './guards/guest.guard';
 import { TestComponent } from './test/test.component';
+import { SearchResultComponent } from './pages/search-result/search-result.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -38,6 +40,13 @@ const routes: Routes = [
   {
     path: 'test',
     component: TestComponent,
+  },
+  {
+    path: 'search-result',
+    loadChildren: () =>
+      import('./pages/search-result/search-result.module').then(
+        (m) => m.SearchResultModule
+      ),
   },
 ];
 

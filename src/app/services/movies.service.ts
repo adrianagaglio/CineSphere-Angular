@@ -2,7 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { iMovie } from '../interfaces/imovie';
-import { catchError, map, Observable, of, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  map,
+  Observable,
+  of,
+  ReplaySubject,
+  Subject,
+  throwError,
+} from 'rxjs';
 import { iRate } from '../interfaces/irate';
 import { iActor } from '../interfaces/iactor';
 
@@ -13,6 +22,9 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
 
   movieUrl = environment.movies;
+
+  queryString$ = new BehaviorSubject<string>('');
+  searchType$ = new BehaviorSubject<string>('');
 
   getMovies(): Observable<iMovie[]> {
     return this.http.get<iMovie[]>(this.movieUrl).pipe(
@@ -132,5 +144,15 @@ export class MoviesService {
           });
         })
       );
+  }
+
+  getMoviesByTitle(title: string): Observable<iMovie[]> {
+    return this.getMovies().pipe(
+      map((movies) =>
+        movies.filter((movie) =>
+          movie.title.toLowerCase().includes(title.toLowerCase())
+        )
+      )
+    );
   }
 }

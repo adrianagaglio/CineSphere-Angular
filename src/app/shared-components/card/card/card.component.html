@@ -47,7 +47,11 @@
       </h6>
       <div class="d-flex justify-content-center gap-2 fs-7 mb-2">
         <span *ngFor="let genre of movie.genres">
-          <a class="text-warning text-decoration-none text-opacity-75">
+          <a
+            role="button"
+            (click)="searchByGenre(genre)"
+            class="text-warning text-decoration-none text-opacity-75"
+          >
             {{ genre | titlecase }}
           </a>
         </span>
