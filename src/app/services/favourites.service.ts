@@ -24,13 +24,13 @@ import { iUser } from '../interfaces/iuser';
 export class FavouritesService {
   constructor(private http: HttpClient) {}
 
-  favouritesUrl = environment.favourites;
-  userUrl = environment.users;
+  favUrl = environment.baseUrl + 'favourites';
+  userUrl = environment.baseUrl + 'users';
 
   favouritesByUser$ = new BehaviorSubject<iMovie[] | null>([]);
 
   getFavouritesByUser(userId: number): Observable<iMovie[]> {
-    return this.http.get<iMovie[]>(this.favouritesUrl, {
+    return this.http.get<iMovie[]>(this.favUrl, {
       params: { id: userId },
     });
   }
@@ -46,7 +46,7 @@ export class FavouritesService {
   }
 
   updateFav(favReq: Ifavrequest): Observable<iUser> {
-    return this.http.put<iUser>(this.favouritesUrl, favReq).pipe(
+    return this.http.put<iUser>(this.favUrl, favReq).pipe(
       catchError((error) => {
         return throwError(() => {
           let message = '';

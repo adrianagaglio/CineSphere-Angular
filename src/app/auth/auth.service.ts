@@ -22,8 +22,8 @@ import { iLoginrequest } from '../interfaces/iloginrequest';
 export class AuthService {
   jwtHelp = new JwtHelperService();
 
-  registerUrl = environment.register;
-  loginUrl = environment.login;
+  registerUrl = environment.baseUrl + 'auth/register';
+  loginUrl = environment.baseUrl + 'auth/login';
 
   authData$ = new BehaviorSubject<iAuth | null>(null);
 

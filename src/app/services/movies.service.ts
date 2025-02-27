@@ -21,13 +21,13 @@ import { iActor } from '../interfaces/iactor';
 export class MoviesService {
   constructor(private http: HttpClient) {}
 
-  movieUrl = environment.movies;
+  url = environment.baseUrl + 'movies';
 
   queryString$ = new BehaviorSubject<string>('');
   searchType$ = new BehaviorSubject<string>('');
 
   getMovies(): Observable<iMovie[]> {
-    return this.http.get<iMovie[]>(this.movieUrl).pipe(
+    return this.http.get<iMovie[]>(this.url).pipe(
       catchError((error) => {
         return throwError(() => {
           let message = '';
@@ -43,7 +43,7 @@ export class MoviesService {
   }
 
   getMovieById(id: number): Observable<iMovie> {
-    return this.http.get<iMovie>(`${this.movieUrl}/${id}`).pipe(
+    return this.http.get<iMovie>(`${this.url}/${id}`).pipe(
       catchError((error) => {
         return throwError(() => {
           let message = '';
@@ -60,7 +60,7 @@ export class MoviesService {
 
   getMoviesByGenre(genre: string): Observable<iMovie[]> {
     return this.http
-      .get<iMovie[]>(this.movieUrl)
+      .get<iMovie[]>(this.url)
       .pipe(
         map((movies: iMovie[]) =>
           movies.filter((movie) => movie.genres.some((g) => g.name === genre))
@@ -82,7 +82,7 @@ export class MoviesService {
   }
 
   getRecentMovie(): Observable<iMovie> {
-    return this.http.get<iMovie>(this.movieUrl + '/latest');
+    return this.http.get<iMovie>(this.url + '/latest');
   }
 
   getOthersMovie(id: number): Observable<iMovie[]> {

@@ -15,10 +15,10 @@ export class UserService {
 
   user$ = new BehaviorSubject<Partial<iUser> | null>(null);
 
-  usersUrl = environment.users;
+  url = environment.baseUrl + 'users';
 
   getAllUsers(): Observable<iUser[]> {
-    return this.http.get<iUser[]>(this.usersUrl).pipe(
+    return this.http.get<iUser[]>(this.url).pipe(
       catchError((error) => {
         return throwError(() => {
           let message = '';
@@ -34,7 +34,7 @@ export class UserService {
   }
 
   getUserById(userId: number): Observable<iUser> {
-    return this.http.get<iUser>(`${this.usersUrl}/${userId}`).pipe(
+    return this.http.get<iUser>(`${this.url}/${userId}`).pipe(
       catchError((error) => {
         return throwError(() => {
           let message = '';
@@ -49,8 +49,8 @@ export class UserService {
     );
   }
 
-  updateUser(user: iUpdateuserinfo): Observable<iUser> {
-    return this.http.put<iUser>(`${this.usersUrl}/${user.id}`, user).pipe(
+  updateUser(user: Partial<iUpdateuserinfo>): Observable<iUser> {
+    return this.http.put<iUser>(`${this.url}/${user.id}`, user).pipe(
       catchError((error) => {
         return throwError(() => {
           let message = '';
@@ -66,6 +66,6 @@ export class UserService {
   }
 
   deleteUser(userId: number) {
-    return this.http.delete(`${this.usersUrl}/${userId}`);
+    return this.http.delete(`${this.url}/${userId}`);
   }
 }

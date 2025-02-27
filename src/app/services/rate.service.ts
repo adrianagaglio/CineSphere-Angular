@@ -11,24 +11,24 @@ import { iRaterequest } from '../interfaces/iraterequest';
 export class RateService {
   constructor(private http: HttpClient) {}
 
-  ratesUrl: string = environment.rates;
+  url: string = environment.baseUrl + 'rates';
 
   usersRates$ = new BehaviorSubject<iRate[]>([]);
 
   getRates(): Observable<iRate[]> {
-    return this.http.get<iRate[]>(this.ratesUrl);
+    return this.http.get<iRate[]>(this.url);
   }
 
   getRatesByUser(userId: number): Observable<iRate[]> {
-    return this.http.get<iRate[]>(`${this.ratesUrl}/by-user/${userId}`);
+    return this.http.get<iRate[]>(`${this.url}/by-user/${userId}`);
   }
 
   getRatesByMovie(movieId: number): Observable<iRate[]> {
-    return this.http.get<iRate[]>(`${this.ratesUrl}/by-movie/${movieId}`);
+    return this.http.get<iRate[]>(`${this.url}/by-movie/${movieId}`);
   }
 
   rateMovie(rateRequest: iRaterequest): Observable<iRate> {
-    return this.http.post<iRate>(this.ratesUrl, rateRequest);
+    return this.http.post<iRate>(this.url, rateRequest);
   }
 
   // restoreRatings(movieId: number): Observable<iRate> {
