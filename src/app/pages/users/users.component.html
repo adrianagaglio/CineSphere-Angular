@@ -10,7 +10,7 @@
   <div class="row py-5">
     <h1 class="text-light mb-3">All registered users</h1>
     <div class="col-12" *ngFor="let user of users">
-      <app-usercard [user]="user"></app-usercard>
+      <app-usercard *ngIf="user" [user]="user"></app-usercard>
     </div>
   </div>
 </ng-container>

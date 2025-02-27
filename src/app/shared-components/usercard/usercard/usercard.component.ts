@@ -25,12 +25,21 @@ export class UsercardComponent {
 
   message!: string;
 
+  role!: string;
+
   ngOnInit() {
     this.userSvc.user$.subscribe((user) => {
       if (user) {
         this.loggedUser = user;
       }
     });
+
+    this.authSvc.authData$.subscribe((authData) => {
+      if (authData) {
+        this.role = authData.role;
+      }
+    });
+
     this.favSvc.getFavouritesByUser(this.user.id).subscribe({
       next: (movies) => {
         this.movies = movies;

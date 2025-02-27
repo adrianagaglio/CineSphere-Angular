@@ -17,8 +17,7 @@ export class AppComponent {
   ngOnInit() {
     this.userSvc.user$.subscribe((user) => {
       if (user) {
-        this.userId = user.id!;
-        this.rateSvc.getRatesByUser(this.userId).subscribe((rates) => {
+        this.rateSvc.getRatesByUser(user.id).subscribe((rates) => {
           this.rateSvc.usersRates$.next(rates);
         });
       }
