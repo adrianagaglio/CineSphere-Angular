@@ -25,6 +25,7 @@ export class SearchResultComponent {
               this.movies = movies;
             });
           } else if (type === 'genre') {
+            console.log(query);
             this.movieSvc.getMoviesByGenre(query).subscribe((movies) => {
               this.isLoading = false;
               this.movies = movies;

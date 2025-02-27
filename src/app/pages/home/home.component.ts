@@ -20,7 +20,7 @@ export class HomeComponent {
     this.movieSvc.getRecentMovie().subscribe((movie) => {
       this.recentMovie = movie;
       this.movieSvc.getOthersMovie(this.recentMovie.id).subscribe((movies) => {
-        this.movies = movies;
+        this.movies = movies.filter((m) => m.id !== this.recentMovie.id);
         this.isLoading = false;
       });
     });

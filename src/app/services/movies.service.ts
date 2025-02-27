@@ -63,7 +63,7 @@ export class MoviesService {
       .get<iMovie[]>(this.movieUrl)
       .pipe(
         map((movies: iMovie[]) =>
-          movies.filter((movie) => movie.genres.filter((g) => g.name === genre))
+          movies.filter((movie) => movie.genres.some((g) => g.name === genre))
         )
       )
       .pipe(
@@ -82,23 +82,7 @@ export class MoviesService {
   }
 
   getRecentMovie(): Observable<iMovie> {
-    return this.getMovies()
-      .pipe(
-        map((movies: iMovie[]) => movies.sort((a, b) => b.year - a.year)[0])
-      )
-      .pipe(
-        catchError((error) => {
-          return throwError(() => {
-            let message = '';
-            if (error.status >= 400 && error.status < 500) {
-              message = 'Not found';
-            } else if (error.status === 500) {
-              message = 'Request error';
-            }
-            return message;
-          });
-        })
-      );
+    return this.http.get<iMovie>(this.movieUrl + '/latest');
   }
 
   getOthersMovie(id: number): Observable<iMovie[]> {
