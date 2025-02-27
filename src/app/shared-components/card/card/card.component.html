@@ -4,7 +4,7 @@
       <div class="overlay position-relative">
         <img
           [routerLink]="['/movie', movie.id]"
-          src="{{ movie.coverImage[0] }}"
+          [src]="movie.coverImage"
           class="w-100 object-fit-cover sm-image"
           alt="{{ movie.title }}"
         />
@@ -49,10 +49,10 @@
         <span *ngFor="let genre of movie.genres">
           <a
             role="button"
-            (click)="searchByGenre(genre)"
+            (click)="searchByGenre(genre.name)"
             class="text-warning text-decoration-none text-opacity-75"
           >
-            {{ genre | titlecase }}
+            {{ genre.name | titlecase }}
           </a>
         </span>
       </div>

@@ -18,13 +18,12 @@ import {
   bootstrapPersonFill,
   bootstrapSearch,
 } from '@ng-icons/bootstrap-icons';
-import { TestComponent } from './test/test.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SearchResultModule } from './pages/search-result/search-result.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, TestComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     CommonModule,
     BrowserModule,

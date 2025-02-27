@@ -63,7 +63,7 @@ export class MoviesService {
       .get<iMovie[]>(this.movieUrl)
       .pipe(
         map((movies: iMovie[]) =>
-          movies.filter((movie) => movie.genres.includes(genre))
+          movies.filter((movie) => movie.genres.filter((g) => g.name === genre))
         )
       )
       .pipe(
@@ -126,7 +126,7 @@ export class MoviesService {
       .pipe(
         map((movies) =>
           movies.filter((movie) =>
-            movie.genres.some((movieGenre) => genres.includes(movieGenre))
+            movie.genres.some((movieGenre) => genres.includes(movieGenre.name))
           )
         )
       )

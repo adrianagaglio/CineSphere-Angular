@@ -2,9 +2,6 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoggedinGuard } from './guards/loggedin.guard';
 import { GuestGuard } from './guards/guest.guard';
-import { TestComponent } from './test/test.component';
-import { SearchResultComponent } from './pages/search-result/search-result.component';
-import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -37,10 +34,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/movie/movie.module').then((m) => m.MovieModule),
   },
-  {
-    path: 'test',
-    component: TestComponent,
-  },
+
   {
     path: 'search-result',
     loadChildren: () =>

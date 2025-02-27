@@ -24,7 +24,10 @@ export class MovieComponent {
       this.movieSvc.getMovieById(this.movieId).subscribe((movie) => {
         this.movie = movie;
         this.movieSvc
-          .getRelatedsByGenre(this.movie.id, this.movie.genres)
+          .getRelatedsByGenre(
+            this.movie.id,
+            this.movie.genres.map((movie) => movie.name)
+          )
           .subscribe((movies) => {
             this.relatedsByGenre = movies;
             this.isLoading = false;
