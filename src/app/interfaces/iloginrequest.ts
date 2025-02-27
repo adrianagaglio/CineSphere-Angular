@@ -1,5 +1,4 @@
 export interface iLoginrequest {
-  username: string;
-  email: string;
+  identifier: string;
   password: number;
 }

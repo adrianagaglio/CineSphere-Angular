@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FavouritesService } from './services/favourites.service';
 import { AuthService } from './auth/auth.service';
 import { RateService } from './services/rate.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,14 @@ import { RateService } from './services/rate.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private authSvc: AuthService, private rateSvc: RateService) {}
+  constructor(private userSvc: UserService, private rateSvc: RateService) {}
 
   userId!: number;
 
   ngOnInit() {
-    this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
-      if (isLoggedIn) {
-        this.userId = this.authSvc.authData$.value!.user.id as number;
+    this.userSvc.user$.subscribe((user) => {
+      if (user) {
+        this.userId = user.id!;
         this.rateSvc.getRatesByUser(this.userId).subscribe((rates) => {
           this.rateSvc.usersRates$.next(rates);
         });

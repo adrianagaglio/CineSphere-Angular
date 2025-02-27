@@ -26,9 +26,9 @@ export class UsercardComponent {
   message!: string;
 
   ngOnInit() {
-    this.authSvc.authData$.subscribe((data) => {
-      if (data) {
-        this.loggedUser = data.user;
+    this.userSvc.user$.subscribe((user) => {
+      if (user) {
+        this.loggedUser = user;
       }
     });
     this.favSvc.getFavouritesByUser(this.user.id).subscribe({

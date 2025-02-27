@@ -1,19 +1,29 @@
+import { AuthService } from './../auth/auth.service';
 import { iFavourite } from './../interfaces/ifavourite';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  map,
+  Observable,
+  tap,
+  throwError,
+} from 'rxjs';
 import { iUser } from '../interfaces/iuser';
-import { AuthService } from '../auth/auth.service';
+
 import { iUpdateuserinfo } from '../interfaces/iupdateuserinfo';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authSvc: AuthService) {
+    this.restoreUser();
+  }
 
-  user$ = new BehaviorSubject<Partial<iUser> | null>(null);
+  user$ = new BehaviorSubject<iUser | null>(null);
 
   url = environment.baseUrl + 'users';
 
@@ -31,6 +41,12 @@ export class UserService {
         });
       })
     );
+  }
+
+  getUser(): Observable<iUser> {
+    return this.http
+      .get<iUser>(this.url + '/user')
+      .pipe(tap((u) => this.user$.next(u)));
   }
 
   getUserById(userId: number): Observable<iUser> {
@@ -67,5 +83,13 @@ export class UserService {
 
   deleteUser(userId: number) {
     return this.http.delete(`${this.url}/${userId}`);
+  }
+
+  restoreUser() {
+    this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
+      if (isLoggedIn) {
+        this.getUser().subscribe();
+      }
+    });
   }
 }

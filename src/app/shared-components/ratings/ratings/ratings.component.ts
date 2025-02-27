@@ -6,6 +6,7 @@ import { MoviesService } from '../../../services/movies.service';
 import { Router } from '@angular/router';
 import { iRate } from '../../../interfaces/irate';
 import { RateService } from '../../../services/rate.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-ratings',
@@ -16,6 +17,7 @@ export class RatingsComponent {
   constructor(
     private authSvc: AuthService,
     private rateSvc: RateService,
+    private userSvc: UserService,
     private router: Router
   ) {}
 
@@ -37,9 +39,9 @@ export class RatingsComponent {
   ];
 
   ngOnInit() {
-    this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
-      if (isLoggedIn) {
-        this.userId = this.authSvc.authData$.value!.user.id as number;
+    this.userSvc.user$.subscribe((user) => {
+      if (user) {
+        this.userId = user.id;
         this.rateSvc.usersRates$.asObservable().subscribe((rates) => {
           if (this.movie && rates) {
             this.rates = rates;

@@ -5,6 +5,7 @@ import { MoviesService } from '../../../services/movies.service';
 import { AuthService } from '../../../auth/auth.service';
 import { Router } from '@angular/router';
 import { RateService } from '../../../services/rate.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-showrating',
@@ -14,6 +15,7 @@ import { RateService } from '../../../services/rate.service';
 export class ShowratingComponent {
   constructor(
     private authSvc: AuthService,
+    private userSvc: UserService,
     private rateSvc: RateService,
     private router: Router
   ) {}
@@ -34,9 +36,9 @@ export class ShowratingComponent {
   ];
 
   ngOnInit() {
-    this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
-      if (isLoggedIn) {
-        this.userId = this.authSvc.authData$.value!.user.id as number;
+    this.userSvc.user$.subscribe((user) => {
+      if (user) {
+        this.userId = user.id;
       }
     });
     if (this.movie) {

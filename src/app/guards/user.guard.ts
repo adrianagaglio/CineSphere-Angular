@@ -19,7 +19,7 @@ export class UserGuard implements CanActivate, CanActivateChild {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): MaybeAsync<GuardResult> {
-    if (this.authSvc.authData$.getValue()?.user.role === 'admin') return false;
+    if (this.authSvc.authData$.getValue()?.role === 'ADMIN') return false;
     return true;
   }
   canActivateChild(

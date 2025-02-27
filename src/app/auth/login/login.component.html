@@ -8,17 +8,17 @@
           <label for="emailOrUsername" class="form-label text-light"
             >Email or Username</label
           >
-          <span class="text-danger" *ngIf="isInvalidTouched('emailOrUsername')">
+          <span class="text-danger" *ngIf="isInvalidTouched('identifier')">
             This field is required.
           </span>
         </div>
         <div class="input-group has-validation">
           <span class="input-group-text">&#64;</span>
           <input
-            type="emailOrUsername"
+            type="text"
             class="form-control"
-            id="emailOrUsername"
-            formControlName="emailOrUsername"
+            id="identifier"
+            formControlName="identifier"
           />
         </div>
       </div>

@@ -13,7 +13,7 @@ import {
 } from 'rxjs';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { UserService } from '../services/user.service';
+
 import { iLoginrequest } from '../interfaces/iloginrequest';
 
 @Injectable({
@@ -29,11 +29,7 @@ export class AuthService {
 
   isLoggedIn$ = this.authData$.pipe(map((accessData) => !!accessData));
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private userSvc: UserService
-  ) {
+  constructor(private http: HttpClient, private router: Router) {
     this.restoreUser();
   }
 
@@ -64,7 +60,7 @@ export class AuthService {
 
   login(auth: iLoginrequest): Observable<iAuth> {
     return this.http
-      .put<iAuth>(this.loginUrl, auth)
+      .post<iAuth>(this.loginUrl, auth)
       .pipe(
         catchError((error) => {
           return throwError(() => {
@@ -120,6 +116,5 @@ export class AuthService {
     }
 
     this.authData$.next(accessData);
-    this.userSvc.user$.next(accessData.user);
   }
 }

@@ -4,6 +4,7 @@ import { AuthService } from '../../../auth/auth.service';
 import { FavouritesService } from '../../../services/favourites.service';
 import { Router } from '@angular/router';
 import { MoviesService } from '../../../services/movies.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-card',
@@ -21,6 +22,7 @@ export class CardComponent {
   constructor(
     private authSvc: AuthService,
     private favSvc: FavouritesService,
+    private userSvc: UserService,
     private router: Router,
     private movieSvc: MoviesService
   ) {}
@@ -38,11 +40,12 @@ export class CardComponent {
       this.isLoggedIn = isLoggedIn;
     });
 
-    let jsonAuthData = localStorage.getItem('authData');
-    if (jsonAuthData) {
-      let authData = JSON.parse(jsonAuthData);
-      this.userId = authData.user.id;
-    }
+    this.userSvc.user$.subscribe((user) => {
+      if (user) {
+        this.userId = user.id;
+      }
+    });
+
     this.favSvc.favouritesByUser$.subscribe((favouritesByUser) => {
       if (favouritesByUser?.find((m) => m.id === this.movie.id)) {
         this.isPresent = true;

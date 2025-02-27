@@ -17,12 +17,13 @@ import {
   throwError,
 } from 'rxjs';
 import { iUser } from '../interfaces/iuser';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavouritesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userSvc: UserService) {}
 
   favUrl = environment.baseUrl + 'favourites';
   userUrl = environment.baseUrl + 'users';
@@ -36,13 +37,14 @@ export class FavouritesService {
   }
 
   getFavouritesLoggedUser() {
-    let jsonAuthData = localStorage.getItem('authData');
-    if (jsonAuthData) {
-      let userId = JSON.parse(jsonAuthData).user.id;
-      this.getFavouritesByUser(userId).subscribe((movies) => {
-        this.favouritesByUser$.next(movies);
-      });
-    }
+    this.userSvc.user$.subscribe((user) => {
+      if (user) {
+        let userId = user.id;
+        this.getFavouritesByUser(userId).subscribe((movies) => {
+          this.favouritesByUser$.next(movies);
+        });
+      }
+    });
   }
 
   updateFav(favReq: Ifavrequest): Observable<iUser> {

@@ -24,7 +24,7 @@ export class LoginComponent {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      emailOrUsername: this.fb.control('', [Validators.required]),
+      identifier: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
     });
   }
@@ -45,13 +45,7 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
-      let loginRequest: iLoginrequest = {
-        username: this.loginForm.get('emailOrUsername')?.value,
-        email: this.loginForm.get('emailOrUsername')?.value,
-        password: this.loginForm.get('password')?.value,
-      };
-
-      this.authSvc.login(loginRequest).subscribe({
+      this.authSvc.login(this.loginForm.value).subscribe({
         next: (result: any) => {
           this.isSuccess = true;
           this.message = 'Logged in successfully';

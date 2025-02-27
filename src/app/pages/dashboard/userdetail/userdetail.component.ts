@@ -23,10 +23,9 @@ export class UserdetailComponent {
   @ViewChild('form') form!: NgForm;
 
   ngOnInit() {
-    this.authSvc.authData$.subscribe((authData: iAuth | null) => {
-      if (authData) {
-        this.authData = authData;
-        this.user = authData.user;
+    this.userSvc.user$.subscribe((user) => {
+      if (user) {
+        this.user = user;
         this.changeRequest = {
           id: this.user.id,
           actualPassword: '',
@@ -40,8 +39,6 @@ export class UserdetailComponent {
     if (this.form.valid) {
       this.userSvc.updateUser(this.changeRequest).subscribe((res) => {
         this.user = res;
-        this.authData!.user = this.user;
-        localStorage.setItem('authData', JSON.stringify(this.authData));
         this.changeMode = false;
       });
     }

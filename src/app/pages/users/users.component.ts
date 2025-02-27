@@ -12,11 +12,4 @@ export class UsersComponent {
 
   users!: iUser[];
   isLoading: boolean = true;
-
-  ngOnInit() {
-    this.userSvc.getAllUsers().subscribe((users) => {
-      this.users = users.filter((user) => user.role !== 'admin');
-      this.isLoading = false;
-    });
-  }
 }

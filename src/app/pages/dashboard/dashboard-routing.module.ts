@@ -11,20 +11,27 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-  },
-  {
-    path: 'userdetail',
-    component: UserdetailComponent,
-  },
-  {
-    path: 'userfav',
-    component: UserfavComponent,
-    canActivate: [UserGuard],
-  },
-  {
-    path: 'manage-movies',
-    component: ManageMoviesComponent,
-    canActivate: [AdminGuard],
+    children: [
+      {
+        path: '',
+        redirectTo: 'userdetail',
+        pathMatch: 'full',
+      },
+      {
+        path: 'userdetail',
+        component: UserdetailComponent,
+      },
+      {
+        path: 'userfav',
+        component: UserfavComponent,
+        canActivate: [UserGuard],
+      },
+      {
+        path: 'manage-movies',
+        component: ManageMoviesComponent,
+        canActivate: [AdminGuard],
+      },
+    ],
   },
 ];
 
