@@ -2,18 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { iMovie } from '../interfaces/imovie';
-import {
-  BehaviorSubject,
-  catchError,
-  map,
-  Observable,
-  of,
-  ReplaySubject,
-  Subject,
-  throwError,
-} from 'rxjs';
-import { iRate } from '../interfaces/irate';
-import { iActor } from '../interfaces/iactor';
+import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
+import { iMoviePaged } from '../interfaces/ipageable';
 
 @Injectable({
   providedIn: 'root',
@@ -137,6 +127,16 @@ export class MoviesService {
           movie.title.toLowerCase().includes(title.toLowerCase())
         )
       )
+    );
+  }
+
+  paged(
+    page: number = 0,
+    size: number = 4,
+    sortBy: string[] = ['title']
+  ): Observable<iMoviePaged> {
+    return this.http.get<iMoviePaged>(
+      this.url + `/paged?page=${page}&size=${size}&sort=${sortBy.join(',')}`
     );
   }
 }

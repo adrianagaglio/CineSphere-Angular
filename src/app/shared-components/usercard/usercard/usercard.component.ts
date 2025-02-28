@@ -51,8 +51,6 @@ export class UsercardComponent {
   }
 
   deleteUser() {
-    this.userSvc
-      .deleteUser(this.user.id)
-      .subscribe((res) => console.log('User deleted successfullu'));
+    this.userSvc.deleteUser(this.user.id).subscribe();
   }
 }

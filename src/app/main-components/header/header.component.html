@@ -23,7 +23,7 @@
               routerLinkActive="fw-bold"
               [routerLinkActiveOptions]="{ exact: true }"
               class="nav-link text-dark px-2 active"
-              aria-current="page"
+              (click)="$event.preventDefault()"
               >Home</a
             >
           </li>
@@ -33,6 +33,7 @@
               routerLink="/users"
               routerLinkActive="fw-bold"
               class="nav-link text-dark px-2"
+              (click)="$event.preventDefault()"
               >Users</a
             >
           </li>
@@ -87,10 +88,18 @@
             >Profile info</a
           >
           <a
+            *ngIf="!isAdmin"
             ngbDropdownItem
             routerLink="/dashboard/userfav"
             (click)="$event.preventDefault()"
             >Your favourites</a
+          >
+          <a
+            *ngIf="isAdmin"
+            ngbDropdownItem
+            routerLink="/dashboard/manage-movies"
+            (click)="$event.preventDefault()"
+            >Manage movies</a
           >
         </div>
       </li>

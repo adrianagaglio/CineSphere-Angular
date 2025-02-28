@@ -20,8 +20,6 @@ import { iLoginrequest } from '../interfaces/iloginrequest';
   providedIn: 'root',
 })
 export class AuthService {
-  jwtHelp = new JwtHelperService();
-
   registerUrl = environment.baseUrl + 'auth/register';
   loginUrl = environment.baseUrl + 'auth/login';
 
@@ -81,11 +79,6 @@ export class AuthService {
           setTimeout(() => {
             this.router.navigate(['/dashboard/userdetail']);
           }, 500);
-          const expDate = this.jwtHelp.getTokenExpirationDate(accessData.token);
-
-          if (!expDate) return;
-
-          this.autoLogout(expDate);
         })
       );
   }
@@ -96,24 +89,11 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  autoLogout(expDate: Date) {
-    const expMs = expDate.getTime() - new Date().getTime();
-
-    setTimeout(() => {
-      this.logout();
-    }, expMs);
-  }
-
   restoreUser() {
     const userJson: string | null = localStorage.getItem('authData');
     if (!userJson) return;
 
     const accessData: iAuth = JSON.parse(userJson);
-
-    if (this.jwtHelp.isTokenExpired(accessData.token)) {
-      localStorage.removeItem('authData');
-      return;
-    }
 
     this.authData$.next(accessData);
   }

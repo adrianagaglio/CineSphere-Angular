@@ -1,0 +1,59 @@
+<ng-container>
+  <div class="row">
+    <h1 class="text-light mb-5">Manage movies</h1>
+  </div>
+  <div class="row">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h5 class="text-light fw-normal mb-0">Available movies:</h5>
+      <div class="btn-group">
+        <button
+          class="btn btn-sm btn-warning"
+          (click)="order(currentPage, ['title'])"
+        >
+          Title
+          <ng-icon
+            [name]="
+              sort[0].includes('title') && orderAsc
+                ? 'bootstrapArrowUp'
+                : 'bootstrapArrowDown'
+            "
+          ></ng-icon>
+        </button>
+        <button
+          class="btn btn-sm btn-warning"
+          (click)="order(currentPage, ['year'])"
+        >
+          Year
+          <ng-icon
+            [name]="
+              sort[0].includes('year') && orderAsc
+                ? 'bootstrapArrowUp'
+                : 'bootstrapArrowDown'
+            "
+          ></ng-icon>
+        </button>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <button
+          [disabled]="currentPage === 0"
+          class="btn btn-sm btn-warning rounded-pill"
+          (click)="changePageAndSize(currentPage - 1)"
+        >
+          <ng-icon name="bootstrapArrowLeft"></ng-icon>
+        </button>
+        <div class="px-1 text-warning fw-bold">
+          {{ currentPage + 1 }}/{{ totalElements }}
+        </div>
+        <button
+          class="btn btn-sm btn-warning rounded-pill"
+          (click)="changePageAndSize(currentPage + 1)"
+        >
+          <ng-icon name="bootstrapArrowRight"></ng-icon>
+        </button>
+      </div>
+    </div>
+    <div class="col-3" *ngFor="let m of movies">
+      <app-card [movie]="m"></app-card>
+    </div>
+  </div>
+</ng-container>

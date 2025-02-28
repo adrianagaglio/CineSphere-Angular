@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { FavouritesService } from '../../services/favourites.service';
 import { MoviesService } from '../../services/movies.service';
+import { combineLatest, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -22,10 +23,17 @@ export class HeaderComponent {
   isLoggedIn!: boolean;
   query!: string;
 
+  isAdmin: boolean = false;
+
   ngOnInit() {
-    this.authSvc.isLoggedIn$.subscribe((isLoggedIn) => {
-      this.isLoggedIn = isLoggedIn;
-    });
+    combineLatest(this.authSvc.authData$, this.authSvc.isLoggedIn$).subscribe(
+      ([authData, isLoggedIn]) => {
+        this.isLoggedIn = isLoggedIn;
+        if (authData && authData.role === 'ADMIN') {
+          this.isAdmin = true;
+        }
+      }
+    );
   }
 
   logout() {

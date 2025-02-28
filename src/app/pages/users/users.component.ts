@@ -16,6 +16,7 @@ export class UsersComponent {
   ngOnInit() {
     this.userSvc.getAllUsers().subscribe((users) => {
       this.users = users;
+      console.log(users);
       this.isLoading = false;
     });
   }
