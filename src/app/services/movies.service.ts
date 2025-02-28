@@ -4,6 +4,8 @@ import { environment } from '../../environments/environment.development';
 import { iMovie } from '../interfaces/imovie';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { iMoviePaged } from '../interfaces/ipageable';
+import { iGenre } from '../interfaces/igenre';
+import { iActor } from '../interfaces/iactor';
 
 @Injectable({
   providedIn: 'root',
@@ -138,5 +140,17 @@ export class MoviesService {
     return this.http.get<iMoviePaged>(
       this.url + `/paged?page=${page}&size=${size}&sort=${sortBy.join(',')}`
     );
+  }
+
+  addMovie(newMovie: Partial<iMovie>): Observable<iMovie> {
+    return this.http.post<iMovie>(this.url, newMovie);
+  }
+
+  getAllGenres(): Observable<iGenre[]> {
+    return this.http.get<iGenre[]>(this.url + '/genres');
+  }
+
+  getAllActors(): Observable<iActor[]> {
+    return this.http.get<iActor[]>(this.url + '/actors');
   }
 }

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MoviesService } from '../../../services/movies.service';
 import { iMovie } from '../../../interfaces/imovie';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddMovieComponent } from './add-movie/add-movie.component';
 
 @Component({
   selector: 'app-manage-movies',
@@ -9,6 +11,8 @@ import { iMovie } from '../../../interfaces/imovie';
 })
 export class ManageMoviesComponent {
   constructor(private movieSvc: MoviesService) {}
+
+  private modalService = inject(NgbModal);
 
   movies!: iMovie[];
 
@@ -54,5 +58,22 @@ export class ManageMoviesComponent {
     this.orderAsc = !this.orderAsc;
     this.sort = [this.sort[0] + (this.orderAsc ? ',asc' : ',desc')];
     this.changePageAndSize(this.currentPage, this.sort);
+  }
+
+  addMovie() {
+    const modalRef = this.modalService.open(AddMovieComponent, {
+      size: 'lg',
+      centered: true,
+    });
+
+    modalRef.result
+      .then((movie) => {
+        if (movie) {
+          console.log(movie);
+        }
+      })
+      .catch((err) => {
+        this.modalService.dismissAll();
+      });
   }
 }

@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserfavComponent } from './userfav/userfav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   bootstrapArrowCounterclockwise,
   bootstrapCheck,
@@ -15,6 +15,8 @@ import {
 import { NgIconsModule } from '@ng-icons/core';
 import { CardModule } from '../../shared-components/card/card.module';
 import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
+import { AddMovieComponent } from './manage-movies/add-movie/add-movie.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
     SidebarComponent,
     UserfavComponent,
     ManageMoviesComponent,
+    AddMovieComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +37,8 @@ import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
       bootstrapArrowCounterclockwise,
     }),
     CardModule,
+    NgbModalModule,
+    ReactiveFormsModule,
   ],
 })
 export class DashboardModule {}
