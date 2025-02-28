@@ -21,6 +21,8 @@ export class RegisterComponent {
   message: string = '';
   isSuccess: boolean = false;
 
+  showPassword: boolean = false;
+
   constructor(
     private authSvc: AuthService,
     private router: Router,

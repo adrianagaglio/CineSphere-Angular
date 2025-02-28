@@ -1,89 +1,121 @@
 <nav class="py-2 bg-dark border-bottom">
-  <div class="container d-flex flex-wrap">
-    <ul class="nav me-auto">
-      <li class="nav-item">
-        <a
-          routerLink="/"
-          class="nav-link text-light px-2 active"
-          aria-current="page"
-          >Home</a
-        >
-      </li>
-
-      <li class="nav-item" *ngIf="isLoggedIn">
-        <a routerLink="/users" class="nav-link text-light px-2">Users</a>
-      </li>
-    </ul>
-    <div class="d-flex align-items-center gap-2">
-      <form
-        class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
-        role="search"
-        (submit)="search(query)"
+  <div class="container d-flex flex-wrap align-items-center">
+    <a routerLink="/"><img src="logo.png" alt="logo" class="w-fixed-100" /></a>
+    <div
+      ngbDropdown
+      class="d-inline-block text-light d-flex align-items-center justify-content-between"
+    >
+      <button
+        type="button"
+        class="btn border-0 text-light position-relative w-fixed-50 h-fixed-50"
+        ngbDropdownToggle
       >
+        <ng-icon
+          name="bootstrapList"
+          class="fs-3 position-absolute start-50 left-50 translate-middle"
+        ></ng-icon>
+      </button>
+      <div ngbDropdownMenu>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              routerLink="/"
+              routerLinkActive="fw-bold"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="nav-link text-dark px-2 active"
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a
+              routerLink="/users"
+              routerLinkActive="fw-bold"
+              class="nav-link text-dark px-2"
+              >Users</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="d-flex align-items-center gap-2 flex-grow-1 justify-content-center"
+    >
+      <form class="w-100 px-5" role="search" (submit)="search(query)">
         <div class="d-flex align-items-center gap-1">
           <input
             type="search"
-            class="form-control form-control"
+            class="form-control form-control-sm"
             placeholder="Search by title"
             aria-label="Search"
             name="query"
             [(ngModel)]="query"
           />
-          <button class="btn btn-warning">
-            <ng-icon name="bootstrapSearch"></ng-icon>
+          <button
+            class="btn btn-warning btn-sm position-relative w-fixed-30 h-fixed-30"
+          >
+            <ng-icon
+              name="bootstrapSearch"
+              class="position-absolute start-50 top-50 translate-middle"
+            ></ng-icon>
           </button>
         </div>
       </form>
-      <ul class="nav ms-auto" *ngIf="isLoggedIn">
-        <li
-          class="nav-item"
-          ngbDropdown
-          display="dynamic"
-          placement="bottom-end"
+    </div>
+    <ul class="nav ms-auto" *ngIf="isLoggedIn">
+      <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+        <a
+          class="nav-link text-light"
+          tabindex="0"
+          ngbDropdownToggle
+          id="navbarDropdown3"
+          role="button"
+        >
+          <ng-icon name="bootstrapPersonFill"></ng-icon>
+        </a>
+        <div
+          ngbDropdownMenu
+          aria-labelledby="navbarDropdown3"
+          class="dropdown-menu"
         >
           <a
-            class="nav-link text-light"
-            tabindex="0"
-            ngbDropdownToggle
-            id="navbarDropdown3"
-            role="button"
+            ngbDropdownItem
+            routerLink="/dashboard/userdetail"
+            (click)="$event.preventDefault()"
+            >Profile info</a
           >
-            <ng-icon name="bootstrapPersonFill"></ng-icon>
-          </a>
-          <div
-            ngbDropdownMenu
-            aria-labelledby="navbarDropdown3"
-            class="dropdown-menu"
+          <a
+            ngbDropdownItem
+            routerLink="/dashboard/userfav"
+            (click)="$event.preventDefault()"
+            >Your favourites</a
           >
-            <a
-              ngbDropdownItem
-              routerLink="/dashboard/userdetail"
-              (click)="$event.preventDefault()"
-              >Profile info</a
-            >
-            <a
-              ngbDropdownItem
-              routerLink="/dashboard/userfav"
-              (click)="$event.preventDefault()"
-              >Your favourites</a
-            >
-          </div>
-        </li>
-      </ul>
+        </div>
+      </li>
+    </ul>
+    <div>
       <ul class="nav">
         <ng-container *ngIf="!isLoggedIn">
           <li class="nav-item">
-            <a routerLink="/auth/login" class="btn btn-outline-light me-2"
+            <a
+              routerLink="/auth/login"
+              class="btn btn-sm btn-outline-light me-2"
               >Login</a
             >
           </li>
           <li class="nav-item">
-            <a routerLink="/auth/register" class="btn btn-light">Sign up</a>
+            <a routerLink="/auth/register" class="btn btn-sm btn-light"
+              >Sign up</a
+            >
           </li>
         </ng-container>
         <ng-container *ngIf="isLoggedIn">
           <li class="nav-item">
-            <button (click)="logout()" class="btn btn-light">Logout</button>
+            <button (click)="logout()" class="btn btn-sm btn-light">
+              Logout
+            </button>
           </li>
         </ng-container>
       </ul>

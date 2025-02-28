@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+app-root {
+  flex-grow: 1;
+}
+
+main {
+  height: 100%;
+}
+
+app-login {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

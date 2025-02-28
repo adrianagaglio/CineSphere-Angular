@@ -7,7 +7,7 @@
       <div class="row g-3 mb-3">
         <div class="col-sm-6">
           <div class="d-flex justify-content-between">
-            <label for="firstName" class="form-label text-light"
+            <label for="firstName" class="form-label fs-sm mb-1 text-light"
               >First name</label
             >
             <span class="text-danger" *ngIf="isInvalidTouched('firstName')">
@@ -16,7 +16,7 @@
           </div>
           <input
             type="text"
-            class="form-control"
+            class="form-control form-control-sm"
             id="firstName"
             formControlName="firstName"
           />
@@ -24,7 +24,7 @@
 
         <div class="col-sm-6">
           <div class="d-flex justify-content-between">
-            <label for="lastName" class="form-label text-light"
+            <label for="lastName" class="form-label fs-sm mb-1 text-light"
               >Last name</label
             >
             <span class="text-danger" *ngIf="isInvalidTouched('lastName')">
@@ -33,7 +33,7 @@
           </div>
           <input
             type="text"
-            class="form-control"
+            class="form-control form-control-sm"
             id="lastName"
             formControlName="lastName"
           />
@@ -43,21 +43,25 @@
       <div class="row mb-3">
         <div class="col">
           <div class="d-flex justify-content-between">
-            <label for="username" class="form-label text-light">Username</label>
+            <label for="username" class="form-label mb-1 fs-sm text-light"
+              >Username</label
+            >
             <span class="text-danger" *ngIf="isInvalidTouched('username')">
               {{ registerForm.get("username")!.errors!["message"] }}
             </span>
           </div>
           <input
             type="text"
-            class="form-control"
+            class="form-control form-control-sm"
             id="username"
             formControlName="username"
           />
         </div>
         <div class="col">
           <div class="d-flex justify-content-between">
-            <label for="email" class="form-label text-light">Email</label>
+            <label for="email" class="form-label fs-sm mb-1 text-light"
+              >Email</label
+            >
             <span class="text-danger" *ngIf="isInvalidTouched('email')">
               {{
                 registerForm.get("email")!.hasError("required")
@@ -66,11 +70,10 @@
               }}
             </span>
           </div>
-          <div class="input-group has-validation">
-            <span class="input-group-text">&#64;</span>
+          <div class="has-validation">
             <input
               type="email"
-              class="form-control"
+              class="form-control form-control-sm"
               id="email"
               formControlName="email"
             />
@@ -78,18 +81,28 @@
         </div>
         <div class="col">
           <div class="d-flex justify-content-between">
-            <label for="password" class="form-label text-light">Password</label>
+            <label for="password" class="form-label mb-1 fs-sm text-light"
+              >Password</label
+            >
             <span class="text-danger" *ngIf="isInvalidTouched('password')">
               {{ registerForm.get("password")!.errors!["message"] }}
             </span>
           </div>
-          <div class="input-group has-validation">
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              formControlName="password"
-            />
+          <div class="has-validation">
+            <div class="position-relative">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                class="form-control form-control-sm"
+                id="password"
+                formControlName="password"
+              />
+              <ng-icon
+                role="button"
+                (click)="showPassword = !showPassword"
+                class="position-absolute end-0 top-50 translate-middle-y me-2 opacity-75"
+                [name]="!showPassword ? 'bootstrapEye' : 'bootstrapEyeSlash'"
+              ></ng-icon>
+            </div>
           </div>
         </div>
       </div>
@@ -106,8 +119,12 @@
             >{{ message }}</span
           >
         </div>
-        <div class="col-6 d-flex justify-content-end align-items-center">
-          <button (click)="register()" type="submit" class="btn btn-warning">
+        <div class="col-12 d-flex justify-content-start align-items-center">
+          <button
+            (click)="register()"
+            type="submit"
+            class="btn btn-sm btn-warning"
+          >
             Register
           </button>
         </div>

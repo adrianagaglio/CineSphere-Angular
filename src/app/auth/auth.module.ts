@@ -6,9 +6,15 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgIconsModule } from '@ng-icons/core';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, RegisterComponent],
-  imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    NgIconsModule,
+  ],
 })
 export class AuthModule {}

@@ -5,7 +5,7 @@
 
       <div class="mb-3">
         <div class="d-flex justify-content-between">
-          <label for="emailOrUsername" class="form-label text-light"
+          <label for="emailOrUsername" class="form-label mb-1 fs-sm text-light"
             >Email or Username</label
           >
           <span class="text-danger" *ngIf="isInvalidTouched('identifier')">
@@ -13,10 +13,9 @@
           </span>
         </div>
         <div class="input-group has-validation">
-          <span class="input-group-text">&#64;</span>
           <input
             type="text"
-            class="form-control"
+            class="form-control form-control-sm"
             id="identifier"
             formControlName="identifier"
           />
@@ -24,18 +23,28 @@
       </div>
       <div class="mb-3">
         <div class="d-flex justify-content-between">
-          <label for="password" class="form-label text-light">Password</label>
+          <label for="password" class="form-label mb-1 fs-sm text-light"
+            >Password</label
+          >
           <span class="text-danger" *ngIf="isInvalidTouched('password')">
             {{ loginForm.get("password")!.errors!["message"] }}
           </span>
         </div>
-        <div class="input-group has-validation">
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            formControlName="password"
-          />
+        <div class="has-validation">
+          <div class="position-relative">
+            <input
+              [type]="!showPassword ? 'password' : 'text'"
+              class="form-control form-control-sm"
+              id="password"
+              formControlName="password"
+            />
+            <ng-icon
+              role="button"
+              (click)="showPassword = !showPassword"
+              class="position-absolute end-0 top-50 translate-middle-y me-2 opacity-75"
+              [name]="!showPassword ? 'bootstrapEye' : 'bootstrapEyeSlash'"
+            ></ng-icon>
+          </div>
         </div>
       </div>
       <div class="row align-items-center">
@@ -50,8 +59,12 @@
             >{{ message }}</span
           >
         </div>
-        <div class="col-6 d-flex justify-content-end align-items-center">
-          <button (click)="login()" type="submit" class="btn btn-warning">
+        <div class="col-12">
+          <button
+            (click)="login()"
+            type="submit"
+            class="btn btn-sm btn-warning"
+          >
             Login
           </button>
         </div>

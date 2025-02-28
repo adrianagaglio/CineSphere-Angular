@@ -19,6 +19,8 @@ export class CardComponent {
   isHome: boolean = false;
   isPresent!: boolean;
 
+  isAdmin: boolean = false;
+
   constructor(
     private authSvc: AuthService,
     private favSvc: FavouritesService,
@@ -30,6 +32,12 @@ export class CardComponent {
   @Output() removedMovie = new EventEmitter<iMovie>();
 
   ngOnInit() {
+    this.authSvc.authData$.subscribe((authData) => {
+      if (authData && authData.role === 'ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+
     if (this.router.url === '/dashboard/userfav') {
       this.isHome = false;
     } else {

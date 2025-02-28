@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
@@ -14,6 +14,9 @@ import { FooterComponent } from './main-components/footer/footer.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { NgIconsModule } from '@ng-icons/core';
 import {
+  bootstrapEye,
+  bootstrapEyeSlash,
+  bootstrapList,
   bootstrapPencil,
   bootstrapPersonFill,
   bootstrapSearch,
@@ -35,7 +38,11 @@ import { SearchResultModule } from './pages/search-result/search-result.module';
       bootstrapPersonFill,
       bootstrapPencil,
       bootstrapSearch,
+      bootstrapList,
+      bootstrapEye,
+      bootstrapEyeSlash,
     }),
+    NgbDropdownModule,
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),

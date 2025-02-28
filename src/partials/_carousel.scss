@@ -1,0 +1,29 @@
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0;
+  visibility: hidden; /* Nasconde l'elemento senza rimuoverlo dal flusso */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 1.5s; /* La visibilità cambia dopo l'animazione */
+}
+
+.carousel-control-prev {
+  transform: translateX(-150px);
+}
+
+.carousel-control-next {
+  transform: translateX(150px);
+}
+
+/* Quando si passa con il mouse sul carosello */
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+  opacity: 1;
+  visibility: visible; /* Rende visibili le frecce */
+  transition: opacity 0.5s ease-in-out, visibility 0s;
+}
+
+.carousel:not(:hover) .carousel-control-prev,
+.carousel:not(:hover) .carousel-control-next {
+  opacity: 0; /* Ritorna gradualmente all'invisibilità */
+  visibility: hidden; /* Rende invisibile dopo l'opacità */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 1.5s; /* Sincronizzazione con l'opacità */
+}
