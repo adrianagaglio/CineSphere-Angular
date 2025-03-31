@@ -5,8 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "db": "json-server-auth db.json --delay 500"
+    "watch": "ng build --watch --configuration development"
   },
   "private": true,
   "dependencies": {
@@ -27,7 +26,7 @@
     "@ng-icons/typicons": "^26.1.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
-    "ngx-cookie-service": "^19.1.2",
+    "ngx-cookie-service": "18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "vite": "^5.4.10",
@@ -40,8 +39,6 @@
     "@angular/localize": "^18.2.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.2.0",
-    "json-server": "^0.17.4",
-    "json-server-auth": "^2.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
