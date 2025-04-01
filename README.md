@@ -36,5 +36,5 @@ Tecnologie utilizzate:
 - L'applicazione si aggiornarà automaticamente ad ogni modifica del file sorgente.
 
 ## Link al backend
-- [CineSphere Backend Web App]([https://ng-cinesphere.netlify.app/](https://cinesphere-java.onrender.com/swagger-ui/index.html)) (documentazione endpoints)
+- [CineSphere Backend Web App](https://cinesphere-java.onrender.com/swagger-ui/index.html) (documentazione endpoints)
 - [CineSphere Backend GitHub](https://github.com/adrianagaglio/CineSphere-Java)
