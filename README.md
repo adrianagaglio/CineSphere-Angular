@@ -34,3 +34,7 @@ Tecnologie utilizzate:
 - Esegui `ng serve` per avviare il server di sviluppo.
 - Naviga `http://localhost:4200/`.
 - L'applicazione si aggiornarà automaticamente ad ogni modifica del file sorgente.
+
+## Link al backend
+- [CineSphere Backend Web App]([https://ng-cinesphere.netlify.app/](https://cinesphere-java.onrender.com/swagger-ui/index.html)) (documentazione endpoints)
+- [CineSphere Backend GitHub](https://github.com/adrianagaglio/CineSphere-Java)
