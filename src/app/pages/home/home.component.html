@@ -10,7 +10,7 @@
   <app-hero [movie]="recentMovie"></app-hero>
 
   <ng-container *ngIf="movies">
-    <div class="row row-cols-6 g-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-6 g-4">
       <div class="col" *ngFor="let movie of movies">
         <app-card [movie]="movie"> </app-card>
       </div>

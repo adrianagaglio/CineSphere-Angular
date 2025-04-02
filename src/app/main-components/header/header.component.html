@@ -1,5 +1,7 @@
 <nav class="py-2 bg-dark border-bottom">
-  <div class="container d-flex flex-wrap align-items-center">
+  <div
+    class="container d-flex flex-wrap align-items-center justify-content-center"
+  >
     <a routerLink="/"><img src="logo.png" alt="logo" class="w-fixed-100" /></a>
     <div
       ngbDropdown
@@ -44,7 +46,7 @@
     <div
       class="d-flex align-items-center gap-2 flex-grow-1 justify-content-center"
     >
-      <form class="w-100 px-5" role="search" (submit)="search(query)">
+      <form class="w-100" role="search" (submit)="search(query)">
         <div class="d-flex align-items-center gap-1">
           <input
             type="search"
@@ -105,7 +107,7 @@
       </li>
     </ul>
     <div>
-      <ul class="nav">
+      <ul class="nav ps-0 ps-md-3">
         <ng-container *ngIf="!isLoggedIn">
           <li class="nav-item">
             <a
